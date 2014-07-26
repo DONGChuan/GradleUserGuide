@@ -1,1 +1,1 @@
-# Build Script Basics
+# 构建脚本基础知识

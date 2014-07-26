@@ -1,1 +1,8 @@
-# Installing Gradle
+# 安装 Gradle
+
+* 先决条件
+* 下载
+* 解压缩
+* 环境变量
+* 运行并测试您的安装
+* JVM选项
