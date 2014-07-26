@@ -1,7 +1,10 @@
 # Summary
 
-* [Overview](overview/README.md)
-* [Tutorials](tutorials/README.md)
+* [概述](overview/README.md)
+   * [特点](overview/features.md)
+   * [为什么用 Groovy?](overview/why_groovy.md)
+* [教程](tutorials/README.md)
+   * [入门](tutorials/getting_started.md)
 * [安装Gradle](installing_gradle/README.md)
    * [先决条件](installing_gradle/prerequisites.md)
    * [下载](installing_gradle/download.md)
@@ -10,6 +13,8 @@
    * [运行并测试您的安装](installing_gradle/running_and_testing_your_installation.md)
    * [JVM选项](installing_gradle/jvm_options.md)
 * [Troubleshooting](troubleshooting/README.md)
+   * [Working through problems](troubleshooting/working_through_problems.md)
+   * [获得帮助](troubleshooting/getting_help.md)
 * [Build Script Basics](build_script_basics/README.md)
 * [Java Quickstart](java_quickstart/README)
 * [Dependency Management Basics](dependency_management_basics/README.md)
