@@ -17,7 +17,7 @@
    * [获得帮助](troubleshooting/getting_help.md)
 * [构建脚本基础知识](build_script_basics/README.md)
    * [Projects 和 tasks](build_script_basics/projects_and_tasks.md)
-   * [Hello world](build_script_basics/hello_world)
+   * [Hello world](build_script_basics/hello_world.md)
    * [A shortcut task definition](build_script_basics/a_shortcut_task_definition)
    * [Build scripts are code](build_script_basics/build_scripts_are_code)
    * [Task dependencies](build_script_basics/task_dependencies)
