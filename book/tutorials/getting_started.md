@@ -8,7 +8,7 @@
 
 #### Chapter 5, 脚本构建基础
 
-介绍脚本构建的基础元素: projects and tasks.
+介绍脚本构建的基础元素: projects 和 tasks.
 
 #### Chapter 6, Java 快速开始
 
