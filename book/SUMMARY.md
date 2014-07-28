@@ -27,7 +27,7 @@
    * [附加的 task 属性](build_script_basics/extra_task_properties.md)
    * [使用 Ant 任务](build_script_basics/using_ant_tasks.md)
    * [使用方法](build_script_basics/using_methods.md)
-   * [Default tasks](build_script_basics/default_tasks.md)
+   * [默认任务](build_script_basics/default_tasks.md)
    * [Configure by DAG](build_script_basics/configure_by_dag)
 * [Java Quickstart](java_quickstart/README)
 * [Dependency Management Basics](dependency_management_basics/README.md)
