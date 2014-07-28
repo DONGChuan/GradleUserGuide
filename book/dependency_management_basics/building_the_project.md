@@ -4,18 +4,19 @@ The Java plugin adds quite a few tasks to your project. However, there are only 
 Example 7.2. Building a Java project
 
 Output of gradle build
-> gradle build
-:compileJava
-:processResources
-:classes
-:jar
-:assemble
-:compileTestJava
-:processTestResources
-:testClasses
-:test
-:check
-:build
+
+    > gradle build
+    :compileJava
+    :processResources
+    :classes
+    :jar
+    :assemble
+    :compileTestJava
+    :processTestResources
+    :testClasses
+    :test
+    :check
+    :build
 
 BUILD SUCCESSFUL
 
