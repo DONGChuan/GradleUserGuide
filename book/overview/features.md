@@ -3,23 +3,26 @@
 (待翻译)
 这里简述下 Gradle 的特点.
 
-声明性构建和合约构建
+**1. 声明性构建和合约构建**
 
-At the heart of Gradle lies a rich extensible Domain Specific Language (DSL) based on Groovy. Gradle pushes declarative builds to the next level by providing declarative language elements that you can assemble as you like. Those elements also provide build-by-convention support for Java, Groovy, OSGi, Web and Scala projects. Even more, this declarative language is extensible. Add your own new language elements or enhance the existing ones. Thus providing concise, maintainable and comprehensible builds.
+Gradle 的核心是它有丰富的扩展的基于 Groovy 的
+领域特定语言 (DSL). Gradle 通过提供可以随意集成的声明性语言元素将声明性构建推到了一个新的高度. 这些元素还提供了对 Java, Groovy, OSGi,  网络和Scala项目的支持. 而且, 这种声明性语言是可扩展的.  添加您自己的新的语言元素或加强现有的. 从而提供简洁, 易于维护和易于理解的构建.
 
-基于依赖的编程语言
 
-The declarative language lies on top of a general purpose task graph, which you can fully leverage in your builds. It provides utmost flexibility to adapt Gradle to your unique needs.
+**2. 基于依赖的编程语言**
 
-让您的构建结构更好
+声明性语言依赖于一个通用的任务图表，它可以被充分利用在你的构建上中. 它具有强大的灵活性, 以适应你对 Gradle 的独特需求.
 
-The suppleness and richness of Gradle finally allows you to apply common design principles to your build. For example, it is very easy to compose your build from reusable pieces of build logic. Inline stuff where unnecessary indirections would be inappropriate. Don't be forced to tear apart what belongs together (e.g. in your project hierarchy). Thus avoiding smells like shotgun changes or divergent change that turn your build into a maintenance nightmare. At last you can create a well structured, easily maintained, comprehensible build.
 
-API深化
+**3. 让您的构建结构更好**
 
-From being a pleasure to be used embedded to its many hooks over the whole lifecycle of build execution, Gradle allows you to monitor and customize its configuration and execution behavior to its very core.
+Gradle 的易适应性和丰富性可让你套用通用的设计原则. 例如, 很容易通过可重要的组件来构成你的构建. Inline stuff where unnecessary indirections would be inappropriate.  不要强行分开已经结合在一起的部分 (例如, 在你的项目层次结构中). 从而避免了使你的构建难以维护. 最后, 你可以创建一个结构良好，易于维护, 易于理解的构建.
 
-Gradle scales
+**4. API深化**
+
+你会非常乐意在整个构建执行的生命周期中使用 Gradle, 因为Gradle 允许你管理和定制它的配置和执行行为.
+
+(待翻)Gradle scales
 
 Gradle scales very well. It significantly increases your productivity, from simple single project builds up to huge enterprise multi-project builds. This is true for structuring the build. With the state-of-art incremental build function, this is also true for tackling the performance pain many large enterprise builds suffer from.
 

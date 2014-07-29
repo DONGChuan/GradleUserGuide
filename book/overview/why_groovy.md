@@ -1,7 +1,7 @@
 # 为什么用 Groovy?
 
-(待翻译)We think the advantages of an internal DSL (based on a dynamic language) over XML are tremendous in case of build scripts. There are a couple of dynamic languages out there. Why Groovy? The answer lies in the context Gradle is operating in. Although Gradle is a general purpose build tool at its core, its main focus are Java projects. In such projects obviously the team members know Java. We think a build should be as transparent as possible to all team members.
+我们认为在脚本构建时内部DSL（基于一个动态语言）基于XML的优势是巨大的。有许多动态语言在那里。我们为什么选择 Groovy？答案在于 Gradle 的运行环境。虽然 Gradle 是以一个通用的构建工具为核心，其重点是Java项目。在这样的项目显中, 显然团队成员是了解Java的。我们认为构建应尽可能对所有团队成员都是透明的。
 
-You might argue why not using Java then as the language for build scripts. We think this is a valid question. It would have the highest transparency for your team and the lowest learning curve. But due to limitations of Java such a build language would not be as nice, expressive and powerful as it could be. [1] Languages like Python, Groovy or Ruby do a much better job here. We have chosen Groovy as it offers by far the greatest transparency for Java people. Its base syntax is the same as Java's as well as its type system, its package structure and other things. Groovy builds a lot on top of that. But on a common ground with Java.
+你可能会说，为什么不使用Java作为构建脚本的语言. 我们认为这是一个有效性的问题. 对于你的团队, 它要有最高的透明度和最低的学习曲线. 但由于 Java 的限制, 这样的构建语言不会那么完美，有表现力的和十分强大. 如 Python，Groovy 或 Ruby 语言可以有 更高的效率。我们选择了Groovy的是因为它提供了迄今为止最大的透明度给 Java 开发人员. 其基本的符号和类型与 Java 是一样的，其封装结构和许多其他的地方也是如此.
 
-For Java teams which share also Python or Ruby knowledge or are happy to learn it, the above arguments don't apply. The Gradle design is well-suited for creating another build script engine in JRuby or Jython. It just doesn't have the highest priority for us at the moment. We happily support any community effort to create additional build script engines.
+对于那些同样分享 Python 或 Ruby 知识的 Java 团队将会很乐意学习它. Gradle  的设计非常适合在JRuby和Jython中创建另一个构建脚本引擎. 它只是目前没有优先级去开发.  我们十分支持任何人来做贡献, 创建额外的构建脚本引擎.
