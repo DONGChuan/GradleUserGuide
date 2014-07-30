@@ -1,11 +1,13 @@
-# The Java plugin
+# Java 插件
 
-As we have seen, Gradle is a general-purpose build tool. It can build pretty much anything you care to implement in your build script. Out-of-the-box, however, it doesn't build anything unless you add code to your build script to do so.
+正如我们已经看到的, Gradle 是一种多种用途的构建工具 . 它可以在你的构建脚本里构建你在意的许多东西. 然而, 除非你在构建脚本里加入代码, 不然它什么都不会执行.
 
-Most Java projects are pretty similar as far as the basics go: you need to compile your Java source files, run some unit tests, and create a JAR file containing your classes. It would be nice if you didn't have to code all this up for every project. Luckily, you don't have to. Gradle solves this problem through the use of plugins. A plugin is an extension to Gradle which configures your project in some way, typically by adding some pre-configured tasks which together do something useful. Gradle ships with a number of plugins, and you can easily write your own and share them with others. One such plugin is the Java plugin. This plugin adds some tasks to your project which will compile and unit test your Java source code, and bundle it into a JAR file.
+大都数 Java 项目是非常相像的 : 你需要编译你的 Java 源文件, 运行一些单元测试, 同时创建一个包含你类文件的 JAR. 如果你不需要为每一个项目重复编写这些, 我想你会非常乐意的. 幸运的是, 你现在不再需要了. Gradle 通过使用插件解决了这个问题. 一个插件是 Gradle 的一个扩展, 它会通过某种方式配置你的项目, 典型的有加入一些预配置任务. Gradle 装载了许多插件, 你也可以很简单地编写自己的插件并和其他开发者分享它. Java 插件就是一个这样的插件. 这个插件在你的项目里加入了许多任务，这些任务会编译和Th单元测试你的源文件, 并且把它们集成都一个 JAR 文件里.
 
-The Java plugin is convention based. This means that the plugin defines default values for many aspects of the project, such as where the Java source files are located. If you follow the convention in your project, you generally don't need to do much in your build script to get a useful build. Gradle allows you to customize your project if you don't want to or cannot follow the convention in some way. In fact, because support for Java projects is implemented as a plugin, you don't have to use the plugin at all to build a Java project, if you don't want to.
+Java 插件是基于合约的. 这意味着插件给项目的许多方面定义了默认的值, 比如 Java 源文件在哪里. 如果你在项目里遵从这些合约, 你通常不需要在你的构建脚本里加入太多东西. 如果你不想要或者是你不能遵循合约, Gradle 允许你自己定制你的项目. 事实上, 因为对 Java 项目的支持是通过插件实现的, 如果你不想要的话你一点也不需要使用这个插件来构建你的 .
 
-We have in-depth coverage with many examples about the Java plugin, dependency management and multi-project builds in later chapters. In this chapter we want to give you an initial idea of how to use the Java plugin to build a Java project.
+在后面的章节, 我们有许多能让你深入了解 Java 插件, 依赖管理和多项目构建的例子很多例子. 在本章中，我们想给你一个如何使用Java插件来构建一个Java项目的初步认识。
+
+
 
 
