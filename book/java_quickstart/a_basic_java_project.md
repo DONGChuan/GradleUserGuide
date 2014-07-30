@@ -1,19 +1,20 @@
-# A basic Java project
+# 一个基础的 Java 项目
 
-Let's look at a simple example. To use the Java plugin, add the following to your build file:
+让我们来看一个简单的例子. 加入下面的代码来使用 Java 插件:
 
-Example 7.1. Using the Java plugin
+*Example 7.1. 使用 Java 插件*
 
-build.gradle
+*build.gradle*
 
     apply plugin: 'java'
 
-Note: The code for this example can be found at samples/java/quickstart which is in both the binary and source distributions of Gradle.
-This is all you need to define a Java project. This will apply the Java plugin to your project, which adds a number of tasks to your project.
+这个例子的代码可以在 samples/java/quickstart 里找到, 二进制代码和源代码里都包含这些文件.
+它将会把 Java 插件加入到你的项目中, 这意味着许多任务被自动的加入到了你的项目里.
 
-What tasks are available?
+Gradle 希望能在 src/main/java 找到你的源代码, 在 src/test/java 找到你的测试代码. 另外, 任何在 src/main/resources 的文件都将被包含在 JAR 文件里, 同时任何在 src/test/resources 的文件会被加入到  classpath 中以运行测试代码. 所有的输出文件将会被创建在构建目录里,  JAR 文件 存放在 build/libs 文件夹里.
 
-You can use gradle tasks to list the tasks of a project. This will let you see the tasks that the Java plugin has added to your project.
-Gradle expects to find your production source code under src/main/java and your test source code under src/test/java. In addition, any files under src/main/resources will be included in the JAR file as resources, and any files under src/test/resources will be included in the classpath used to run the tests. All output files are created under the build directory, with the JAR file ending up in the build/libs directory.
+**都有什么可以执行的任务呢?**
+
+你可以使用 ****gradle tasks** 来列出项目的所有任务to. 通过这个命令来尝试看看 Java 插件都在你的项目里加入了哪些命令吧.
 
 
