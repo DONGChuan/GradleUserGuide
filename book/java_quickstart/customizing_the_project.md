@@ -1,10 +1,10 @@
-# customizing the project
+# 定制项目
 
-The Java plugin adds a number of properties to your project. These properties have default values which are usually sufficient to get started. It's easy to change these values if they don't suit. Let's look at this for our sample. Here we will specify the version number for our Java project, along with the Java version our source is written in. We also add some attributes to the JAR manifest.
+Java 插件给项目加入了一些属性 (propertiy) . 这些属性已经被定义了默认的值, 已经足够来开始构建项目了. 如果你认为不合适, 改变它们的值也是很简单的. 让我们看下这个例子. 这里我们将指定 Java 项目的版本号, 以及我们所使用的 Java 的版本. 我们同样也加入了一些属性在 jar 的清单里.
 
-Example 7.5. Customization of MANIFEST.MF
+*Example 7.5. 定制 MANIFEST.MF 文件*
 
-build.gradle
+*build.gradle*
 
     sourceCompatibility = 1.5
     version = '1.0'
@@ -14,12 +14,9 @@ build.gradle
         }
     }
 
-What properties are available?
+Java 插件加入的任务是常规性的任务, 准确地说, 就如同它们在构建文件里声明地一样. 这意味着你可以使用任务之前的章节提到的方法来定制这些任务T. 举个例子, 你可以设置一个任务的属性, 在任务里加入行为, 改变任务的依赖, 或者完全重写一个任务, 我们将配置一个测试任务, 当测试执行的时候它会加入一个系统属性:
 
-You can use gradle properties to list the properties of a project. This will allow you to see the properties added by the Java plugin, and their default values.
-The tasks which the Java plugin adds are regular tasks, exactly the same as if they were declared in the build file. This means you can use any of the mechanisms shown in earlier chapters to customize these tasks. For example, you can set the properties of a task, add behaviour to a task, change the dependencies of a task, or replace a task entirely. In our sample, we will configure the test task, which is of type Test, to add a system property when the tests are executed:
-
-Example 7.6. Adding a test system property
+Example 7.6. 测试阶段加入一个系统属性
 
 build.gradle
 
@@ -27,3 +24,6 @@ build.gradle
         systemProperties 'property': 'value'
     }
 
+哪些属性是可用的?
+
+你可以使用 **gradle properties** 命令来列出项目的所有属性. 这样你就可以看到 Java 插件加入的属性以及它们的默认值.
