@@ -1,7 +1,7 @@
-# Troubleshooting
+# 排除故障
 
-When using Gradle (or any software package), you can run into problems. You may not understand how to use a particular feature, or you may encounter a defect. Or, you may have a general question about Gradle.
+当使用 Gradle 时, 你肯定会碰到许多问题. 你也许不知道如果使用一个特别的功能, 或者你碰到了一个 BUG. 或者, 你只是有一些关于使用y Gradle 的问题.
 
-This chapter gives some advice for troubleshooting problems and explains how to get help with your problems.
+这一章给出了一些简单的建议并解释了如何解决你的问题.
 
 

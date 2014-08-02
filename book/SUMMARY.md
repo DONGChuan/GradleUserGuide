@@ -13,7 +13,7 @@
    * [环境变量](installing_gradle/environment_variables.md)
    * [运行并测试您的安装](installing_gradle/running_and_testing_your_installation.md)
    * [JVM选项](installing_gradle/jvm_options.md)
-* [Troubleshooting](troubleshooting/README.md)
+* [排除故障](troubleshooting/README.md)
    * [Working through problems](troubleshooting/working_through_problems.md)
    * [获得帮助](troubleshooting/getting_help.md)
 * [构建脚本基础知识](build_script_basics/README.md)
