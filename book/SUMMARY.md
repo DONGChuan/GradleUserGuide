@@ -1,5 +1,6 @@
 # Summary
 
+* [Introduction](README.md)
 * [概述](overview/README.md)
    * [特点](overview/features.md)
    * [为什么用 Groovy?](overview/why_groovy.md)
@@ -34,7 +35,7 @@
    * [一个基础的 Java 项目](java_quickstart/a_basic_java_project.md)
        * [建立项目](java_quickstart/building_the_project.md)
        * [外部的依赖](java_quickstart/external_dependencies.md)
-       * [customizing the project](java_quickstart/customizing_the_project.md)
+       * [定制项目](java_quickstart/customizing_the_project.md)
        * [Publishing the JAR file](java_quickstart/publishing_the_jar_file.md)
        * [Creating an Eclipse project](java_quickstart/creating_an_eclipse_project.md)
        * [Summary](java_quickstart/summary.md)
