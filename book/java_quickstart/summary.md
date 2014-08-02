@@ -1,10 +1,10 @@
-# Summary
+# 总结
 
-Here's the complete build file for our sample:
+下面是一个完整的构建文件的样本:
 
-Example 7.9. Java example - complete build file
+*Example 7.9. Java 例子 - 完整的构建文件*
 
-build.gradle
+*build.gradle*
 
     apply plugin: 'java'
     apply plugin: 'eclipse'
