@@ -1,13 +1,13 @@
-# Creating an Eclipse project
+# 创建 Eclipse 项目
 
-To import your project into Eclipse, you need to add another plugin to your build file:
+为了把你的项目导入到 Eclipse, 你需要加入另外一个插件:
 
-Example 7.8. Eclipse plugin
+*Example 7.8. Eclipse 插件*
 
-build.gradle
+*build.gradle*
 
     apply plugin: 'eclipse'
 
-Now execute gradle eclipse command to generate Eclipse project files. More on Eclipse task can be found in Chapter 38, The Eclipse Plugin.
+现在运行 **gradle eclipse** 命令来生成 Eclipse 的项目文件. Eclipse 任务将在第 38 章, Eclipse 插件里详细讨论.
 
 

@@ -36,7 +36,7 @@
        * [建立项目](java_quickstart/building_the_project.md)
        * [外部的依赖](java_quickstart/external_dependencies.md)
        * [定制项目](java_quickstart/customizing_the_project.md)
-       * [Publishing the JAR file](java_quickstart/publishing_the_jar_file.md)
+       * [发布 JAR 文件](java_quickstart/publishing_the_jar_file.md)
        * [Creating an Eclipse project](java_quickstart/creating_an_eclipse_project.md)
        * [Summary](java_quickstart/summary.md)
    * [Multi-project Java build](java_quickstart/multi-project_java_build.md)
