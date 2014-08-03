@@ -22,12 +22,14 @@ Gradle 的易适应性和丰富性可让你套用通用的设计原则. 例如, 
 
 你会非常乐意在整个构建执行的生命周期中使用 Gradle, 因为Gradle 允许你管理和定制它的配置和执行行为.
 
-(待翻)Gradle scales
+Gradle scales
 
-Gradle scales very well. It significantly increases your productivity, from simple single project builds up to huge enterprise multi-project builds. This is true for structuring the build. With the state-of-art incremental build function, this is also true for tackling the performance pain many large enterprise builds suffer from.
+Gradle scales very well. 它显著了提高了生产率, 从简单的独立项目到大型的多项目构建. 可以提供最先进的构建功能，也可以解决许多大公司的构建 遭受的性能低下的痛苦.
+
+这也是真正的应对表现疼痛许多大型企业建立患。
 
 多项目构建
-
+待翻)
 Gradle's support for multi-project build is outstanding. Project dependencies are first class citizens. We allow you to model the project relationships in a multi-project build as they really are for your problem domain. Gradle follows your layout not vice versa.
 
 Gradle provides partial builds. If you build a single subproject Gradle takes care of building all the subprojects that subproject depends on. You can also choose to rebuild the subprojects that depend on a particular subproject. Together with incremental builds this is a big time saver for larger builds.
