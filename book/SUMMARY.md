@@ -39,7 +39,7 @@
        * [发布 JAR 文件](java_quickstart/publishing_the_jar_file.md)
        * [创建 Eclipse 项目](java_quickstart/creating_an_eclipse_project.md)
        * [总结](java_quickstart/summary.md)
-   * [Multi-project Java build](java_quickstart/multi-project_java_build.md)
+   * [多项目的 Java 构建](java_quickstart/multi-project_java_build.md)
        * [Defining a multi-project build](java_quickstart/defining_a_multi-project_build.md)
        * [Common configuration](java_quickstart/common_configuration.md)
        * [Dependencies between projects](java_quickstart/dependencies_between_projects.md)
