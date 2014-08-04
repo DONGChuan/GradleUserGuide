@@ -1,10 +1,10 @@
-# Creating a distribution
+# 创建一个发行版本
 
-We also add a distribution, that gets shipped to the client:
+(该章需加入更多内容。。。)我们同时也加入了一个发行版本, 将会送到客户端:
 
-Example 7.14. Multi-project build - distribution file
+*Example 7.14. 多项目构建 - 发行文件*
 
-api/build.gradle
+*api/build.gradle*
 
     task dist(type: Zip) {
         dependsOn spiJar

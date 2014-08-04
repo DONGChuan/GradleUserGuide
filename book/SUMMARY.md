@@ -43,7 +43,7 @@
        * [定义一个多项目构建](java_quickstart/defining_a_multi-project_build.md)
        * [通用配置](java_quickstart/common_configuration.md)
        * [项目之间的依赖](java_quickstart/dependencies_between_projects.md)
-       * [Creating a distribution](java_quickstart/creating_a_distribution.md)
+       * [创建一个发行版本](java_quickstart/creating_a_distribution.md)
 * [Dependency Management Basics](dependency_management_basics/README.md)
    * [The Java plugin](dependency_management_basics/the_java_plugin)
    * [A basic Java project](dependency_management_basics/a_basic_java_project.md)
