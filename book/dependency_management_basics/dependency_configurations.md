@@ -1,24 +1,24 @@
-# Dependency configurations
+# 依赖配置
 
-In Gradle dependencies are grouped into configurations. A configuration is simply a named set of dependencies. We will refer to them as dependency configurations. You can use them to declare the external dependencies of your project. As we will see later, they are also used to declare the publications of your project.
+在 Gradle 里, 依赖可以组合成配置. 一个配置简单地说就是一系列的依赖. 我们称它们为依赖配置. 你可以使用它们声明项目的外部依赖. 正如我们将在后面看到, 它们也被用来声明项目的发布.
 
-The Java plugin defines a number of standard configurations. These configurations represent the classpaths that the Java plugin uses. Some are listed below, and you can find more details in Table 23.5, “Java plugin - dependency configurations”.
+Java 插件定义了许多标准的配置. 下面列出了一些, 你也可以在表格 23.5, “Java 插件 - 依赖配置”里发现更多具体的信息.
 
-compile
+**compile**
 
-The dependencies required to compile the production source of the project.
+用来编译项目源代码的依赖.
 
-runtime
+**runtime**
 
-The dependencies required by the production classes at runtime. By default, also includes the compile time dependencies.
+在运行时被生成的类使用的依赖. 默认的, 也包含了编译时的依赖.
 
-testCompile
+**testCompile**
 
-The dependencies required to compile the test source of the project. By default, also includes the compiled production classes and the compile time dependencies.
+编译测试代码的依赖. 默认的, 包含生成的类运行所需的依赖和编译源代码的依赖.
 
-testRuntime
+**testRuntime**
 
-The dependencies required to run the tests. By default, also includes the compile, runtime and test compile dependencies.
+运行测试所需要的依赖. 默认的, 包含上面三个依赖.
 
-Various plugins add further standard configurations. You can also define your own custom configurations to use in your build. Please see Section 50.3, “Dependency configurations” for the details of defining and customizing dependency configurations.
+各种各样的插件加入许多标准的配置. 你也可以定义你自己的配置. 参考 50.3, “配置依赖” 可以找到更加具体的定义和定制一个自己的依赖配置.
 

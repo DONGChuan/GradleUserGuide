@@ -1,6 +1,6 @@
 # Summary
 
-* [Introduction](README.md)
+* [介绍](README.md)
 * [概述](overview/README.md)
    * [特点](overview/features.md)
    * [为什么用 Groovy?](overview/why_groovy.md)
@@ -47,7 +47,7 @@
 * [Dependency Management Basics](dependency_management_basics/README.md)
    * [What is dependency management?](dependency_management_basics/what_is_dependency_management.md)
    * [声明你的依赖](dependency_management_basics/a_basic_java_project.md)
-   * [Dependency configurations](dependency_management_basics/dependency_configurations.md)
+   * [依赖配置](dependency_management_basics/dependency_configurations.md)
    * [External dependencies](dependency_management_basics/external_dependencies.md)
    * [Repositories](dependency_management_basics/repositories.md)
    * [Publishing artifacts](dependency_management_basics/publishing_artifacts.md)
