@@ -2,7 +2,7 @@
 
 让我们来看一个简单的例子. 加入下面的代码来使用 Java 插件:
 
-*Example 7.1. 使用 Java 插件*
+*例子 6.1. 使用 Java 插件*
 
 *build.gradle*
 
