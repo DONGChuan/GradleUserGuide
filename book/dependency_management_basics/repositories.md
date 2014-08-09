@@ -1,33 +1,34 @@
-# Repositories
+# 仓库
 
-How does Gradle find the files for external dependencies? Gradle looks for them in a repository. A repository is really just a collection of files, organized by group, name and version. Gradle understands several different repository formats, such as Maven and Ivy, and several different ways of accessing the repository, such as using the local file system or HTTP.
+Gradle 是怎样找到那些外部依赖的文件的呢? Gradle 会在一个仓库里找这些文件. 仓库其实就是文件的集合, 通过 group, name 和 version 整理分类. Gradle 能解析好几种不同的仓库形式, 比如 Maven 和 Ivy, 同时可以理解各种进入仓库的方法, 比如使用本地文件系统或者 HTTP.
 
-By default, Gradle does not define any repositories. You need to define at least one before you can use external dependencies. One option is use the Maven central repository:
+默认地, Gradle 不提前定义任何仓库. 在使用外部依赖之前, 你需要自己至少定义一个库. 比如使用下面例子中的 Maven central 仓库:
 
-Example 8.4. Usage of Maven central repository
+*例子 7.4. Maven central 仓库*
 
-build.gradle
+*build.gradle*
 
     repositories {
         mavenCentral()
     }
 
-Or a remote Maven repository:
+或者使用一个远程的 Maven 仓库:
 
-Example 8.5. Usage of a remote Maven repository
+*例子 7.5. 使用远程的 Maven 仓库*
 
-build.gradle
+*build.gradle*
 
     repositories {
         maven {
             url "http://repo.mycompany.com/maven2"
         }
     }
-Or a remote Ivy repository:
 
-Example 8.6. Usage of a remote Ivy directory
+或者一个远程的 Ivy 仓库:
 
-build.gradle
+*例子 7.6. 使用远程的 Ivy 仓库*
+
+*build.gradle*
 
     repositories {
         ivy {
@@ -35,9 +36,9 @@ build.gradle
         }
     }
 
-You can also have repositories on the local file system. This works for both Maven and Ivy repositories.
+你也可以使用本地的文件系统里的库. Mqven 和 Ivy 都支持下载的本地.
 
-Example 8.7. Usage of a local Ivy directory
+*例子 7.7. 使用本地的 Ivy 目录*
 
 build.gradle
 
@@ -48,8 +49,8 @@ build.gradle
         }
     }
 
-A project can have multiple repositories. Gradle will look for a dependency in each repository in the order they are specified, stopping at the first repository that contains the requested module.
+一个项目可以有好几个库. Gradle 会根据依赖定义的顺序在各个库里寻找它们, 在第一个库里找到了就不会再在第二个库里找它了.
 
-To find out more about defining and working with repositories, have a look at Section 50.6, “Repositories”.
+可以在第 50.6 章, “仓库”里找到更详细的信息.
 
 
