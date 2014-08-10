@@ -50,7 +50,7 @@
    * [依赖配置](dependency_management_basics/dependency_configurations.md)
    * [外部的依赖](dependency_management_basics/external_dependencies.md)
    * [仓库](dependency_management_basics/repositories.md)
-   * [Publishing artifacts](dependency_management_basics/publishing_artifacts.md)
+   * [发布 artifacts](dependency_management_basics/publishing_artifacts.md)
 * [Groovy Quickstart](groovy_quickstart/README.md)
    * [A basic Groovy project](groovy_quickstart/a_basic_groovy_project)
    * [Summary](groovy_quickstart/summary)

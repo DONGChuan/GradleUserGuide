@@ -1,11 +1,11 @@
-# Publishing artifacts
-Dependency configurations are also used to publish files.[3] We call these files publication artifacts, or usually just artifacts.
+# 发布 artifacts
+依赖配置也可以用来发布文件. 我们称这些文件publication artifacts, 或者就叫 artifacts.
 
-The plugins do a pretty good job of defining the artifacts of a project, so you usually don't need to do anything special to tell Gradle what needs to be published. However, you do need to tell Gradle where to publish the artifacts. You do this by attaching repositories to the uploadArchives task. Here's an example of publishing to a remote Ivy repository:
+插件可以很好的定义一个项目的 artifacts, 所以你并不需要做一些特别的工作来让 Gradle 需要发布什么. 你可以通过在 uploadArchives 任务里加入仓库来完成. 下面是一个发布远程 Ivy 库的例子:
 
-Example 8.8. Publishing to an Ivy repository
+*例子 7.8. 发布一个 Ivy 库*
 
-build.gradle
+*build.gradle*
 
     uploadArchives {
         repositories {
@@ -19,13 +19,13 @@ build.gradle
         }
     }
 
-Now, when you run gradle uploadArchives, Gradle will build and upload your Jar. Gradle will also generate and upload an ivy.xml as well.
+现在, 当你运 **gradle uploadArchives**, Gradle 将构建和上传你的 Jar. Gradle 也会生成和上传 ivy.xml .
 
-You can also publish to Maven repositories. The syntax is slightly different.[4] Note that you also need to apply the Maven plugin in order to publish to a Maven repository. In this instance, Gradle will generate and upload a pom.xml.
+你也可以发布到 Maven 库. 请注意你需要加入 Maven 插件来发布一个 Maven 库. 在下面的例子里, Gradle 将生成和上传 pom.xml.
 
-Example 8.9. Publishing to a Maven repository
+*例子 7.9. 发布 Maven 库*
 
-build.gradle
+*build.gradle*
 
     apply plugin: 'maven'
 
@@ -37,6 +37,6 @@ build.gradle
         }
     }
 
-To find out more about publication, have a look at Chapter 51, Publishing artifacts.
+在第 51 章, 发布 artifacts 里有更加具体的介绍.
 
 
