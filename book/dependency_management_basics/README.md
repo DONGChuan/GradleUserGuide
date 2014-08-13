@@ -1,3 +1,14 @@
-# Dependency Management Basics
+# 依赖管理的基础知识
 
+* 什么是依赖管理
+
+* 声明你的依赖
+
+* 依赖配置
+
+* 外部的依赖
+
+* 仓库
+
+* 发布 artifacts
 

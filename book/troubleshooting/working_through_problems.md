@@ -1,7 +1,7 @@
-# Working through problems
+# 解决遇到的问题
 
-If you are encountering problems, one of the first things to try is using the very latest release of Gradle. New versions of Gradle are released frequently with bug fixes and new features. The problem you are having may have been fixed in a new release.
+如果你碰到了问题, 首先要确定你使用的是最新版本的 Gradle. 我们会经常发布新版本, 解决一些 bug 并加入新的功能. 所以你遇到的问题可能就在新版本里解决了.
 
-If you are using the Gradle Daemon, try temporarily disabling the daemon (you can pass the command line switch --no-daemon). More information about troubleshooting daemon is located in Chapter 19, The Gradle Daemon.
+如果你正在使用 Gradle Daemon, 先暂时关闭 daemon (你可以使用 **switch --no-daemon** 命令). 在第19章我们可以了解到更多关于 daemon 的信息.
 
 
