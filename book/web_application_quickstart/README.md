@@ -1,1 +1,6 @@
-# Web Application Quickstart
+# 网页应用快速入门
+
+这一章官网正在补充.还没有完成.
+
+Gradle 提供了两个插件用来支持网页应用: War 插件和 Jetty 插件. War 插件是在 Java 插件的基础上扩充的用来构建 WAR 文件. Jetty 插件是在 War 插件的基础上扩充的, 允许用户将网页应用发布到一个介入的 Jetty 容器里.
+
