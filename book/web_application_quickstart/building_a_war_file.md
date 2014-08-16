@@ -1,12 +1,11 @@
-# Building a WAR file
+# 构建一个 WAR 文件
 
-To build a WAR file, you apply the War plugin to your project:
+为了构建一个 WAR 文件, 需要在项目中加入 War 插件:
 
-Example 10.1. War plugin
+*例子 9.1. War 插件*
 
-build.gradle
+*build.gradle*
 
     apply plugin: 'war'
 
-Note: The code for this example can be found at samples/webApplication/quickstart which is in both the binary and source distributions of Gradle.
-This also applies the Java plugin to your project. Running gradle build will compile, test and WAR your project. Gradle will look for the source files to include in the WAR file in src/main/webapp. Your compiled classes, and their runtime dependencies are also included in the WAR file
+这个插件也会在你的项目里加入 Java 插件. 运行 **gradle build** 将会编译, 测试和创建项目的 WAR 文件. Gradle 将会把源文件包含在 WAR 文件的 src/main/webapp 目录里. 编译后的 classe , 和它们运行所需要的依赖也会被包含在 WAR 文件里.
