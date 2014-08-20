@@ -1,8 +1,11 @@
-# Continuing the build when a failure occurs
+# 失败后继续执行构建
 
-By default, Gradle will abort execution and fail the build as soon as any task fails. This allows the build to complete sooner, but hides other failures that would have occurred. In order to discover as many failures as possible in a single build execution, you can use the --continue option.
+默认情况下, 只要有任务调用失败, Gradle就会中断执行. 这可能会使调用过程更快, 但那些后面隐藏的错误就没有办法发现了. 所以你可以使用 **--continue** 选项在一次调用中尽可能多的发现所有问题.
 
-When executed with --continue, Gradle will execute every task to be executed where all of the dependencies for that task completed without failure, instead of stopping as soon as the first failure is encountered. Each of the encountered failures will be reported at the end of the build.
 
-If a task fails, any subsequent tasks that were depending on it will not be executed, as it is not safe to do so. For example, tests will not run if there is a compilation failure in the code under test; because the test task will depend on the compilation task (either directly or indirectly).
+采用了**--continue**选项, Gralde 会调用每一个任务以及它们依赖的任务. 而不是一旦出现错误就会中断执行.所有错误信息都会在最后被列出来.
+
+
+一旦某个任务执行失败,那么所有依赖于该任务的子任务都不会被调用.例如由于 test 任务依赖于 complie 任务,所以如果 compile 调用出错, test 便不会被直接或间接调用.
+
 

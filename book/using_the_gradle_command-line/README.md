@@ -1,1 +1,3 @@
-# Using the Gradle Command-Line
+# 使用 Gradle 命令行
+
+本章介绍了命令行的一些基本功能.正如在前面的章节里你所见到的调用 **gradle** 命令来运行一个构建.

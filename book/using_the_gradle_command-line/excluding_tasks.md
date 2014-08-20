@@ -1,10 +1,10 @@
-# Excluding tasks
+# 排除任务
 
-You can exclude a task from being executed using the -x command-line option and providing the name of the task to exclude. Let's try this with the sample build file above.
+你可以用命令行选项-x来排除某些任务,让我们用上面的例子来示范一下.
 
-Example 11.2. Excluding tasks
+*例子 10.2. 排除任务*
 
-Output of gradle dist -x test
+**gradle dist -x test**  命令的输出
 
     > gradle dist -x test
     :compile
@@ -16,6 +16,6 @@ Output of gradle dist -x test
 
     Total time: 1 secs
 
-You can see from the output of this example, that the test task is not executed, even though it is a dependency of the dist task. You will also notice that the test task's dependencies, such as compileTest are not executed either. Those dependencies of test that are required by another task, such as compile, are still executed.
+可以看到, test 任务并没有被调用,即使它是 dist 任务的依赖. 同时 test 任务的依赖任务 compileTest 也没有被调用,而像 compile 被 test 和其它任务同时依赖的任务仍然会被调用.
 
 
