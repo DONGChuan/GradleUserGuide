@@ -62,7 +62,7 @@
    * [多任务调用](using_the_gradle_command-line/executing_multiple_tasks.md)
    * [排除任务](using_the_gradle_command-line/excluding_tasks.md)
    * [失败后继续执行构建](using_the_gradle_command-line/continuing_the_build_when_a_failure_occurs.md)
-   * [Task name abbreviation](using_the_gradle_command-line/task_name_abbreviation.md)
+   * [简化任务名](using_the_gradle_command-line/task_name_abbreviation.md)
    * [Selecting which build to execute](using_the_gradle_command-line/selecting_which_build_to_execute.md)
    * [Listing tasks](using_the_gradle_command-line/listing_tasks.md)
 * [Using the Gradle Graphical User Interface](using_the_gradle_graphical_user_interface/README.md)
