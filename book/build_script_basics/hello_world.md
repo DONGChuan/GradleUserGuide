@@ -22,7 +22,7 @@
 
 这里发生了什么? 这个构建脚本定义了一个单独的 task, 叫做 hello, 并且加入了一个 action. 当你运行 **gradle hello**, Gradle 执行叫做 hello 的 task, 也就是执行了你所提供的 action . 这个 action 是一个包含一些 Groovy 代码的闭包(closure 这个概念不清楚的同学好好谷歌下).
 
-如果你认为这些看上去和 Ant 的 targets 很想象, 好吧, 你是对的. Gradle tasks 和 Ant 的 targets 是对等的. 但是你也会看到, 他们是更加强力的. 我们使用一个不同于 Ant 的术语 task , 看上去比 target 更加能直白. 不幸的是这个带来了一个术语冲突, 因为 Ant 称它的命令, 比如 javac 或者 copy, 叫 tasks. 所以但我们谈论 tasks, 是指 Gradle 的 tasks. 如果我们能讨论 Ant 的 tasks (Ant 命令), 我们会直接称呼 ant task.
+如果你认为这些看上去和 Ant 的 targets 很想象, 好吧, 你是对的. Gradle tasks 和 Ant 的 targets 是对等的. 但是你也会看到, 他们是更加强力的. 我们使用一个不同于 Ant 的术语 task , 看上去比 target 更加能直白. 不幸的是这个带来了一个术语冲突, 因为 Ant 称它的命令, 比如 javac 或者 copy, 叫 tasks. 所以当我们谈论 tasks, 是指 Gradle 的 tasks. 如果我们能讨论 Ant 的 tasks (Ant 命令), 我们会直接称呼 ant task.
 
 补充一点命令里的 **-q** 是干什么的?
 
