@@ -1,6 +1,6 @@
 # Gradle User Guide 中文版
 
-* Gradle User Guide 中文版 正在翻译当中 欢迎大家一起加入
+* Gradle User Guide 中文版 目前正在翻译当中 欢迎大家一起加入
 
 * 如果发现不通顺或者有歧义的地方, 可以在评论里指出来, 我会及时改正的
 
@@ -8,8 +8,33 @@
 
 * [原文地址](http://www.gradle.org/docs/current/userguide/userguide_single.html#N1012C)
 
-* 我会开放权限给每一个加入的伙伴，请提前邮箱联系 dongchuan55@gmail.com
+* 我会开放权限给每一个加入的伙伴 (翻译或者校对)，请提前邮箱联系 dongchuan55@gmail.com
 
+### 如何参与
+
+任何问题都欢迎直接联系我或者其他组员
+
+#### 第一步先找到自己想翻译的部分
+
+这里我们使用著名的 Trello 避免重复劳动和各个进度的管理
+点击进入这个地址 [Gradle Scrum Board](https://trello.com/b/oJn8cmj7/gradle-user-guide) 
+根据里面的说明创建想翻译的部分或者是直接选择里面已经创建的翻译或校对任务
+
+#### 第二步把代码叉到自己的仓库里
+
+fork主仓库到自己的仓库里
+然后 git clone 到自己的电脑上
+推荐大家使用 Gitbook 专属的编辑器 [地址](https://github.com/GitbookIO/editor)
+如果是想学习Markdown 纯手工的同学可以参考这里学习 [地址1](https://help.github.com/articles/markdown-basics) [地址2](https://help.github.com/articles/github-flavored-markdown)
+请参考
+修改完 git commit 到自己的仓库然后
+给主仓库的 master 分支提交 pull request
+然后等待其他人的审核
+审核修改完成之后你翻译的部分就会被合并到书里
+
+#### 第三步别忘了更新 Trello 里自己任务的状态! 
+
+#### 可以在 Trello 的备注里加入自己的信息 我会统一添加到书的贡献者目录里哒
 
 
 
