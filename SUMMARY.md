@@ -8,7 +8,7 @@
    * [为什么用 Groovy?](overview/why_groovy.md)
 * [教程](tutorials/README.md)
 * [安装Gradle](installing_gradle/README.md)
-   * [先决条件](installing_gradle/prerequisites.md)
+   * [准备阶段](installing_gradle/prerequisites.md)
    * [下载与安装](installing_gradle/download.md)
    * [JVM选项](installing_gradle/jvm_options.md)
 * [排除故障](troubleshooting/README.md)

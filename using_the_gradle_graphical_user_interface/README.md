@@ -1,51 +1,23 @@
-# Using the Gradle Graphical User Interface
+# 使用 Gradle 图形界面
 
-In addition to supporting a traditional command line interface, Gradle offers a graphical user interface. This is a stand alone user interface that can be launched with the --gui option.
+为了辅助传统的命令行交互，Gradle还提供了一个图形界面.我们可以使用Gradle命令中**--gui**选项来启动它.
 
-Example 12.1. Launching the GUI
+例子 12.1. 启动图形界面
 
-gradle --gui
-Note that this command blocks until the Gradle GUI is closed. Under *nix it is probably preferable to run this as a background task (gradle --gui&)
+    gradle --gui
 
-If you run this from your Gradle project working directory, you should see a tree of tasks.
+**注意：**这个命令执行后会使得命令行一直处于封锁状态，直到我们关闭图形界面.
+不过我们可以另外加上**“&”**让它在后台执行：
 
-Figure 12.1. GUI Task Tree
+    gradle --gui&
 
-GUI Task Tree
-It is preferable to run this command from your Gradle project directory so that the settings of the UI will be stored in your project directory. However, you can run it then change the working directory via the Setup tab in the UI.
+如果我们从自己的Gradle项目目录中启动这个图形界面，我们应该会看到任务树.
 
-The UI displays 4 tabs along the top and an output window along the bottom.
+图 12.1. 任务树
 
-12.1. Task Tree
-The Task Tree shows a hierarchical display of all projects and their tasks. Double clicking a task executes it.
+![](http://gradle.org/docs/current/userguide/img/guiTaskTree.png)
 
-There is also a filter so that uncommon tasks can be hidden. You can toggle the filter via the Filter button. Editing the filter allows you to configure which tasks and projects are shown. Hidden tasks show up in red. Note: newly created tasks will show up by default (versus being hidden by default).
+我们建议您从当前的Gradle项目目录启动图形界面，因为这种方式可以将有关于界面的一些设置存储到您目录里面.不过您也可以在启动它后切换工作目录，方式：通过界面中**“Setup”**选项卡可以设置.
 
-The Task Tree context menu provides the following options:
+如您所见，这个界面在顶部有4个选项卡和底部一个输出窗口.
 
-Execute ignoring dependencies. This does not require dependent projects to be rebuilt (same as the -a option).
-Add tasks to the favorites (see Favorites tab)
-Hide the selected tasks. This adds them to the filter.
-Edit the build.gradle file. Note: this requires Java 1.6 or higher and requires that you have .gradle files associated in your OS.
-12.2. Favorites
-The Favorites tab is place to store commonly-executed commands. These can be complex commands (anything that's legal to Gradle) and you can provide them with a display name. This is useful for creating, say, a custom build command that explicitly skips tests, documentation, and samples that you could call "fast build".
-
-You can reorder favorites to your liking and even export them to disk so they can imported by others. If you edit them, you are given options to "Always Show Live Output." This only applies if you have 'Only Show Output When Errors Occur'. This override always forces the output to be shown.
-
-12.3. Command Line
-The Command Line tab is place to execute a single Gradle command directly. Just enter whatever you would normally enter after 'gradle' on the command line. This also provides a place to try out commands before adding them to favorites.
-
-12.4. Setup
-The Setup tab allows configuration of some general settings.
-
-Figure 12.2. GUI Setup
-
-GUI Setup
-Current Directory
-Defines the root directory of your Gradle project (typically where build.gradle is located).
-Stack Trace Output
-This determines how much information to write out stack traces when errors occur. Note: if you specify a stack trace level on either the Command Line or Favorites tab, it will override this stack trace level.
-Only Show Output When Errors Occur
-Enabling this option hides any output when a task is executed unless the build fails.
-Use Custom Gradle Executor - Advanced feature
-This provides you with an alternate way to launch Gradle commands. This is useful if your project requires some extra setup that is done inside another batch file or shell script (such as specifying an init script).
