@@ -36,10 +36,11 @@
 #### 第三步别忘了更新 Trello 里自己任务的状态!
 ---
 ### 贡献者列表
-| 成员 | 联系方式 | Github |
-| -- | -- | -- |
-| UFreedom | sunfreedom@sina.cn | [Github](https://github.com/UFreedom) |
-| dongchuan55 | dongchuan55@gmail.com | [Github](https://github.com/DONGChuan) |
+
+成员 | 联系方式  | Github
+:------|:------|:------
+dongchuan55  | dongchuan55@gmail.com | [Github](https://github.com/DONGChuan)
+UFreedom  | sunfreedom@sina.cn  | [Github](https://github.com/UFreedom)
 
 
 
