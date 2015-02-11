@@ -1,6 +1,6 @@
 # Gradle User Guide 中文版
 
- ###[阅读地址](http://dongchuan.gitbooks.io/gradle-user-guide-/)
+### [阅读地址](http://dongchuan.gitbooks.io/gradle-user-guide-/)
 
 * Gradle User Guide 中文版 目前正在翻译当中 欢迎大家一起加入
 
