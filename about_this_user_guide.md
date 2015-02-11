@@ -1,5 +1,14 @@
 # 关于这本指南
 
-This user guide, like Gradle itself, is under very active development. Some parts of Gradle aren't documented as completely as they need to be. Some of the content presented won't be entirely clear or will assume that you know more about Gradle than you do. We need your help to improve this user guide. You can find out more about contributing to the documentation at the Gradle web site.
+这本用户指南还并不完善,
+就像 Gradle 一样还在开发当中.
 
-Throughout the user guide, you will find some diagrams that represent dependency relationships between Gradle tasks. These use something analogous to the UML dependency notation, which renders an arrow from one task to the task that the first task depends on.
+在这本指南中,
+Gradle 的一些功能并没有被完整的展示出来.
+一些内容的解释也并不是十分的清楚.
+我们需要你的帮助来完善这本指南.
+
+在这本指南中,
+你将会看到一些代表 Gradle 任务之间依赖关系的图表.
+类似于 UML 依赖关系的表示方法,
+从一个任务 A 指向另一个任务 B 的箭头代表A依赖于B.

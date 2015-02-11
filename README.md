@@ -9,7 +9,7 @@
 * [原文地址](http://www.gradle.org/docs/current/userguide/userguide_single.html#N1012C)
 
 * 我会开放权限给每一个加入的伙伴 (翻译或者校对)，请提前邮箱联系 dongchuan55@gmail.com
-
+----
 ### 如何参与
 
 任何问题都欢迎直接联系我 dongchuan55@gmail.com QQ 526402328
@@ -34,9 +34,12 @@
 8 审核修改完成之后你翻译的部分就会被合并到书里
 
 #### 第三步别忘了更新 Trello 里自己任务的状态!
-
-#### 可以在 Trello 的备注里加入自己的信息 我会统一添加到书的贡献者目录里哒
-
+---
+### 贡献者列表
+| 成员 | 联系方式 | Github |
+| -- | -- | -- |
+| UFreedom | sunfreedom@sina.cn | [Github](https://github.com/UFreedom) |
+| dongchuan55 | dongchuan55@gmail.com | [Github](https://github.com/DONGChuan) |
 
 
 
