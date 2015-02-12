@@ -2,7 +2,7 @@
 
 Gradle 的构建脚本展示了 Groovy 的所有能力. 作为开胃菜, 来看看这个:
 
-*Example 5.4. 在 Gradle 任务里使用 Groovy *
+**例子 6.4. 在 Gradle 任务里使用 Groovy**
 
 *build.gradle*
 
@@ -20,7 +20,7 @@ Gradle 的构建脚本展示了 Groovy 的所有能力. 作为开胃菜, 来看�
 
 或者
 
-*Example 5.5. 在 Gradle 任务里使用 Groovy*
+**例子 6.5. 在 Gradle 任务里使用 Groovy**
 
 *build.gradle*
 
