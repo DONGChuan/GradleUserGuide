@@ -1,10 +1,10 @@
 # 使用方法
 
-Gradle 能很好地衡量你规划构建逻辑的能力. 首先衡量的是如何提取一个方法.
+Gradle 能很好地衡量你编写脚本的逻辑能力. 首先要做的是如何提取一个方法.
 
-*Example 6.14. 使用方法规划你的构建逻辑
+**例子 6.14. 使用方法组织脚本逻辑**
 
-build.gradle*
+*build.gradle*
 
     task checksum << {
         fileList('../antLoadfileResources').each {File file ->
@@ -31,5 +31,7 @@ build.gradle*
     I'm fond of gradle.manifesto.txt
 
 
-稍后你看到，这种方法可以在多项目构建的子项目之间共享. 如果你的构建逻辑变得更加复杂,Gradle 为你提供了其他非常方便的方法. 请参见第59章，组织构建逻辑。
+稍后你看到,
+这种方法可以在多项目构建的子项目之间共享. 如果你的构建逻辑变得更加复杂,
+Gradle 为你提供了其他非常方便的方法. 请参见第59章，组织构建逻辑。
 
