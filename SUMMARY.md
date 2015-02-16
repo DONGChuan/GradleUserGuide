@@ -26,7 +26,7 @@
    * [使用方法](build_script_basics/using_methods.md)
    * [默认任务](build_script_basics/default_tasks.md)
    * [通过 DAG 配置](build_script_basics/configure_by_dag.md)
-* [Java 快速入门](java_quickstart/README.md)
+* [Java 构建入门](java_quickstart/README.md)
    * [Java 插件](java_quickstart/the_java_plugin.md)
    * [一个基础的 Java 项目](java_quickstart/a_basic_java_project.md)
        * [建立项目](java_quickstart/building_the_project.md)
