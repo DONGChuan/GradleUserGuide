@@ -9,7 +9,7 @@
     def classesDir = new File('build/classes')
 
     task resources << {
-        classesDir.mkDirs()
+        classesDir.mkdirs()
     }
     task compile(dependsOn: 'resources') << {
         if (classesDir.isDirectory()) {

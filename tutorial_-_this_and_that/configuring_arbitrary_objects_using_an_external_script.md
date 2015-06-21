@@ -10,7 +10,7 @@
        def pos = new java.text.FieldPosition(10)
 
        // 使用另一个脚本
-       apply from: 'other.gradle'，to: pos
+       apply from: 'other.gradle', to: pos
        println pos.beginIndex
        println pos.endIndex
 
