@@ -1,23 +1,37 @@
-# Ordering tasks
+# 给 tasks 排序
 
-Task ordering is an incubating feature. Please be aware that this feature may change in later Gradle versions.
-In some cases it is useful to control the order in which 2 tasks will execute, without introducing an explicit dependency between those tasks. The primary difference between a task ordering and a task dependency is that an ordering rule does not influence which tasks will be executed, only the order in which they will be executed.
+>任务的排序功能正在测试和优化. 请注意, 这项功能在 Gradle 之后的版本里可能会改变.
 
-Task ordering can be useful in a number of scenarios:
+在某些情况下, 我们希望能控制任务的的执行顺序, 这种控制并不是向上一张那样去显示地加入依赖关系. 最主要的区别是我们设定的排序规则不会影响那些要被执行的任务, 只是影响执行的顺序本身. 好吧, 我知道可能有点抽象.
 
-Enforce sequential ordering of tasks: eg. 'build' never runs before 'clean'.
-Run build validations early in the build: eg. validate I have the correct credentials before starting the work for a release build.
-Get feedback faster by running quick verification tasks before long verification tasks: eg. unit tests should run before integration tests.
-A task that aggregates the results of all tasks of a particular type: eg. test report task combines the outputs of all executed test tasks.
-There are two ordering rules available: “must run after” and “should run after”.
+我们来看看以下几种有用的场景:
 
-When you use the “must run after” ordering rule you specify that taskB must always run after taskA, whenever both taskA and taskB will be run. This is expressed as taskB.mustRunAfter(taskA). The “should run after” ordering rule is similar but less strict as it will be ignored in two situations. Firstly if using that rule introduces an ordering cycle. Secondly when using parallel execution and all dependencies of a task have been satisfied apart from the “should run after” task, then this task will be run regardless of whether its “should run after” dependencies have been run or not. You should use “should run after” where the ordering is helpful but not strictly required.
+* 执行连续的任务: eg. 'build' 从来不会在 'clean' 之前执行.
+* 在 build 的一开始先运行构建确认 (build validations): eg. 在正式的发布构建前先确认我的证书是正确的.
+* 在运行长时间的检测任务前先运行快速的检测任务来获得更快的反馈: eg. 单元测试总是应该在集成测试之前被执行.
+* 一个聚集 (aggregates) 某种特定类型的所有任务结果的任务: eg. 测试报告任务 (test report task) 包含了所有测试任务的运行结果.
 
-With these rules present it is still possible to execute taskA without taskB and vice-versa.
+目前, 有 2 种可用的排序规则: **"must run after"** 和 **"should run after"**.
 
-Example 14.14. Adding a 'must run after' task ordering
+当你使用 “must run after” 时即意味着 taskB 必须总是在 taskA 之后运行, 无论 taskA 和 taskB 是否将要运行:
 
-build.gradle
+```
+taskB.mustRunAfter(taskA)
+```
+
+"should run after" 规则其实和 "must run after" 很像, 只是没有那么的严格, 在 2 种情况下它会被忽略:
+
+1. 使用规则来阐述一个执行的循环.
+2. 当并行执行并且一个任务的所有依赖除了 “should run after” 任务其余都满足了, 那么这个任务无论它的 “should run after” 依赖是否执行, 它都可以执行. (编者: 翻译待商榷, 提供具体例子)
+
+总之, 当要求不是那么严格时, “should run after” 是非常有用的.
+
+即使有目前的这些规则, 我们仍可以执行 taskA 而不管 taskB, 反之亦然.
+
+**例子 15.14. 加入 'must run after' **
+
+**build.gradle**
+```
 task taskX << {
     println 'taskX'
 }
@@ -25,13 +39,21 @@ task taskY << {
     println 'taskY'
 }
 taskY.mustRunAfter taskX
-Output of gradle -q taskY taskX
+```
+
+**gradle -q taskY taskX** 的输出
+
+```
 > gradle -q taskY taskX
 taskX
 taskY
-Example 14.15. Adding a 'should run after' task ordering
+```
 
-build.gradle
+**例子 15.15. 加入 'should run after'**
+
+**build.gradle**
+
+```
 task taskX << {
     println 'taskX'
 }
@@ -39,28 +61,41 @@ task taskY << {
     println 'taskY'
 }
 taskY.shouldRunAfter taskX
-Output of gradle -q taskY taskX
+```
+
+**gradle -q taskY taskX** 的输出
+
+```
 > gradle -q taskY taskX
 taskX
 taskY
-In the examples above, it is still possible to execute taskY without causing taskX to run:
+```
 
-Example 14.16. Task ordering does not imply task execution
+在上面的例子里, 我们仍可以直接执行 taskY 而不去 taskX :
 
-Output of gradle -q taskY
+**例子 15.16. 任务排序不影响任务执行**
+
+**gradle -q taskY** 的输出
+
+```
 > gradle -q taskY
 taskY
-To specify a “must run after” or “should run after” ordering between 2 tasks, you use the Task.mustRunAfter() and Task.shouldRunAfter() methods. These methods accept a task instance, a task name or any other input accepted by Task.dependsOn().
+```
 
-Note that “B.mustRunAfter(A)” or “B.shouldRunAfter(A)” does not imply any execution dependency between the tasks:
+为了在 2 个任务间定义 “must run after” 或者 “should run after” 排序, 我们需要使用 Task.mustRunAfter() 和 Task.shouldRunAfter() 方法. 这些方法接收一个任务的实例,　任务的名字或者任何 Task.dependsOn()可以接收的输入.
 
-It is possible to execute tasks A and B independently. The ordering rule only has an effect when both tasks are scheduled for execution.
-When run with --continue, it is possible for B to execute in the event that A fails.
-As mentioned before, the “should run after” ordering rule will be ignored if it introduces an ordering cycle:
+注意 “B.mustRunAfter(A)” 或者 “B.shouldRunAfter(A)” 并不影响任何任务间的执行依赖:
 
-Example 14.17. A 'should run after' task ordering is ignored if it introduces an ordering cycle
+* tasks A 和 B 可以被独立的执行. 排序规则只有当 2 个任务同时执行时才会被应用.
+* 在运行时加上 --continue, 当 A 失败时 B 仍然会执行.
 
-build.gradle
+之前提到过, “should run after” 规则在一个执行循环中将被忽略:
+
+**例子 15.17. 'should run after' 任务的忽略**
+
+**build.gradle**
+
+```
 task taskX << {
     println 'taskX'
 }
@@ -73,8 +108,14 @@ task taskZ << {
 taskX.dependsOn taskY
 taskY.dependsOn taskZ
 taskZ.shouldRunAfter taskX
-Output of gradle -q taskX
+```
+
+**gradle -q taskX** 的输出
+
+```
 > gradle -q taskX
 taskZ
 taskY
 taskX
+```
+
