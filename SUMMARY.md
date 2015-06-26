@@ -104,7 +104,7 @@
    * [给 tasks 排序](more_about_tasks/ordering_tasks.md)
    * [给 task 加入描述](more_about_tasks/adding_a_description_to_a_task.md)
    * [替换 tasks](more_about_tasks/replacing_tasks.md)
-   * [Skipping tasks](more_about_tasks/skipping_tasks.md)
+   * [跳过 tasks](more_about_tasks/skipping_tasks.md)
    * [Skipping tasks that are up-to-date](more_about_tasks/skipping_tasks_that_are_up-to-date.md)
    * [Task rules](more_about_tasks/task_rules.md)
    * [Finalizer tasks](more_about_tasks/finalizer_tasks.md)
