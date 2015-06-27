@@ -30,5 +30,16 @@ Java 插件定义了两个标准源集，分别为`main`和`test`,`main`源集�
 任务名 | 依赖 | 类型 | 描述
 --------- | ---------- | ---- | -----------
 compileJava | 所有产生编译 classpath 的任务，包括编译配置项目的所依赖的 jar 文件 | [JavaCompile](https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.Configuration.html) | 使用 javac 命令编译产生 java源文件
-processResources | - | [Copy](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Copy.html) | 复制生产资源到生产类目录
-classes | compileJava任务和processResources任务。有一些插件添加额外的编译工作 | [Task](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html) | 组装生产类目录
+processResources | - | [Copy](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Copy.html) | 复制生产资源到生产 class 文件目录
+classes | compileJava任务和processResources任务。有一些插件添加额外的编译任务 | [Task](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html) | 组装生产class文件目录
+compileTestJava | compile任务加上所有产生测试编译的classpath的任务 | [JavaCompile](https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.Configuration.html) | 使用 javac编译产生 java 测试源文件
+processTestResources | - | [Copy](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Copy.html) | 复制测试资源到测试 class 文件目录
+testClasses | compileTestJava 和 processTestResources 任务。一些插件会添加额外的测试编译任务 | [Task](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html) | 组装测试class文件目录
+jar | compile | [Jar](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html) | 组装 Jar 文件
+javadoc | compile | [javadoc](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.javadoc.Javadoc.html) | 使用 javadoc 命令为 Java 源码生产 API 文档
+test | compile，compileTest，加上所有产生 test runtime classp 的任务 | [Test](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.testing.Test.html) | 使用 JUnit或者TestNG 进行单元测试
+uploadArchives | 在archives配置中产生结果的文件，包括了 jar | [Upload](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Upload.html) | 上传结果在archives配置中，包括 Jar 文件
+clean | - | [Clean](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Delete.html) | 删除项目构建目录
+clean*TaskName* | - | [Clean](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Delete.html) | 删除指定任务名所产生的项目构建目录，CleanJar会删除jar任务创建的jar 文件，cleanTest将会删除由 test 任务创建的测试结果
+
+对于添加到项目中的每个每个源集，java 插件加入了以下编译任务
