@@ -4,13 +4,13 @@
 
 * Gradle User Guide 中文版 目前正在翻译当中 欢迎大家一起加入
 
-* 如果发现不通顺或者有歧义的地方, 可以在评论里指出来, 我会及时改正的
+* 如果发现不通顺或者有歧义的地方, 可以在评论里指出来, 我们会及时改正的.
 
 * [Github托管地址](https://github.com/DONGChuan/GradleUserGuide)
 
-* [原文地址](http://www.gradle.org/docs/current/userguide/userguide_single.html#N1012C)
+* [原文地址](https://docs.gradle.org/current/userguide/userguide.html) 请注意 目前翻译版本是 **2.4**
 
-* 我会开放权限给每一个加入的伙伴 (翻译或者校对)，请提前邮箱联系 dongchuan55@gmail.com
+* 我们会开放权限给每一个加入的伙伴 (翻译或者校对)，请提前邮箱联系 dongchuan55@gmail.com
 ----
 ### 如何参与
 
@@ -18,7 +18,7 @@
 
 #### 第一步先找到自己想翻译的部分
 
-这里我们使用著名的 Trello 避免重复劳动和各个进度的管理
+这里我们使用 Trello 避免重复劳动和各个进度的管理
 
 点击进入这个地址 [Gradle Scrum Board](https://trello.com/b/oJn8cmj7/gradle-user-guide)
 
