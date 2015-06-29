@@ -21,4 +21,3 @@
     > gradle -q configure
     1
     5
-
