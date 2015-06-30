@@ -1,5 +1,6 @@
 # 任务
-引入 Java 插件增加了许多任务到项目，具体如下表所示
+
+Java 插件引入了许多任务到项目当中, 具体如下表所示
 
 **表22.1 java 插件-任务**
 
@@ -15,10 +16,10 @@ jar | compile | [Jar](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.b
 javadoc | compile | [javadoc](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.javadoc.Javadoc.html) | 使用 javadoc 命令为 Java 源码生产 API 文档
 test | compile，compileTest，加上所有产生 test runtime classp 的任务 | [Test](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.testing.Test.html) | 使用 JUnit或者TestNG 进行单元测试
 uploadArchives | 在archives配置中产生信息单元的文件，包括了 jar | [Upload](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Upload.html) | 上传信息单元在archives配置中，包括 Jar 文件
-clean | - | [Clean](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Delete.html) | 删除项目构建目录
-clean*TaskName* | - | [Clean](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Delete.html) | 删除指定任务名所产生的项目构建目录，CleanJar会删除jar任务创建的jar 文件，cleanTest将会删除由 test 任务创建的测试结果
+clean | - | [Delete](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Delete.html) | 删除项目构建目录
+clean*TaskName* | - | [Delete](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Delete.html) | 删除指定任务名所产生的项目构建目录，CleanJar会删除jar任务创建的jar 文件，cleanTest将会删除由 test 任务创建的测试结果
 
-对于添加到项目中的每个每个资源设置，java 插件加入了以下编译任务
+对于添加到项目中的每个资源设置, java 插件将会加入以下编译任务
 
 **表22.2.java 插件-资源设置任务**
 
@@ -28,7 +29,7 @@ compile*SourceSet*Java | 产生资源设置编译 classpath 的所有任务 | [J
 processSourceSetResources | - | [Copy](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Copy.html) | 复制给定资源设置的资源到classes目录下。
 sourceSetClasses | compileSourceSetJava任务和processSourceSetResources任务。一些插件给资源设置添加额外的编译工作。 | [Task](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html) | 组装资源设置的class目录
 
-Java 插件和增加了一些为项目构建生命周期的任务
+Java 插件同时也增加了一些为项目生命周期服务的任务
 
 **表22.3.java 插件-生命周期任务**
 
