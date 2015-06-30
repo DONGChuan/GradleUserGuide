@@ -1,0 +1,16 @@
+apply plugin: 'java'
+
+println sourceSets.main.output.classesDir
+println sourceSets['main'].output.classesDir
+sourceSets{
+  println main.output.classesDir
+}
+sourceSets{
+  main{
+    println output.classesDir
+  }
+}
+// 遍历sourceSets
+sourceSets.all{
+  println name
+}

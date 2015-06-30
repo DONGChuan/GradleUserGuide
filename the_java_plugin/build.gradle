@@ -1,0 +1,10 @@
+apply plugin: 'java'
+
+sourceSets {
+    intTest
+}
+
+dependencies {
+    intTestCompile 'junit:junit:4.12'
+    intTestRuntime 'org.ow2.asm:asm-all:4.0'
+}
