@@ -384,3 +384,4 @@ testLogging属性允许你配置哪个测试事件将被记录，并设置其log
 通过调用`--debug-JVM`任务选项，这也可以启用调试任务（since Gradle1.12）。
 
 ### 22.13.3.测试过滤
+从Gradle1.10开始,可以根据测试任务名进行特点的任务测试,过滤与在构建脚本的段落中引入/排除测试任务(-Dtest.single, test.include and friends)是两种不同的机制.
