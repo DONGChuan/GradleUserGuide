@@ -349,4 +349,38 @@ classpath | [FileCollection](https://docs.gradle.org/current/javadoc/org/gradle/
 source | [FileTree](https://docs.gradle.org/current/javadoc/org/gradle/api/file/FileTree.html),可以在[Section 15.6, “Copying files”](https://docs.gradle.org/current/userguide/working_with_files.html#sec:copying_files)中查看可以设置什么. | sourceSet.java
 destinationDir | File. | sourceSet.output.classesDir
 
-默认情况下java的编译运行在Gradle中的进程.设置选项
+默认情况下java的编译运行在Gradle中的进程.设置option.fork为true会使编译在一个单独的进程中运行,在Ant中运行 javac任务意味着一个新进程将被拆封为多个编译任务，这会减慢编译。相反的,Gradle的直接编译集成（见上文）在编译过程中将尽可能地重复使用相同的进程.在所有情况下由options.forkOptions指定的选项会被实现.
+
+## 22.12.增量Java编译
+从Gradle2.1开始,可以使用Java增量编译,此功能正在孵化,参见[JavaCompile](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.compile.JavaCompile.html)如何启用这个功能.
+增量编译的主要目标如下:
+* 避免在没必要编译的java编译资源上浪费时间.这意味着更快构建,尤其是在改变一些class与jar的时候,不需要再次编译那些不依赖这些class与jar的文件.
+* 尽可能地少输出class.类不需要重新编译意味着保持输出目录不变。一个示例场景中，真正使用JRebel的真正有用的是 - 越少的输出类被改变，JVM可以使用越快刷新。
+
+更高级的增量编译:
+* 检测陈旧类的设置是否正确是以牺牲速度为代价的,该算法分析字节码并与编译器直接交互(非私有常量内联),依赖传递等.举个例子:当一个类的公共常量改变后,我们希望避免由编译器编译内联常数产生的问题,我们将调整算法和缓存以便增量Java编译可以是每编译任务的默认设置。
+* 为了使增量编译快，我们缓存会分析class的结果和jar快照。最初的增量编译应该会慢于cold caches.
+
+## 22.13.测试
+test任务是[Test](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.testing.Test.html)的一个实例.它会在测试source set自动检测并执行所有的单元测试,并且在测试执行完成后会生成一份测试报告.task任务支持JUnit和TestNG.在[Test](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.testing.Test.html)查看完整地API.
+
+### 22.13.1.执行测试
+测试从main构建过程中分离出来的,运行在一个单独的JVM中执行.[Test](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.testing.Test.html)任务允许控制这些如何发生.
+有许多属性用于控制测试过程如何启动.这包括使用诸如系统属性，JVM参数和Java可执行文件。
+
+可以指定是否要并行执行测试.Gradle通过同时运行多个测试进程提供并行执行测试.每个测试进程在同一时间只能执行一个测试,为了充分利用这一特性,一般不需要为tests任务做什么特别的设置,`maxParallelForks`属性指定测试进程在同一时间运行的最大进程数.默认值是1,意味着不执行并行测试.
+
+测试过程中设置org.gradle.test.worker系统属性为该测试过程的唯一标识符,例如，在文件名或其他资源标识符的唯一标识符。
+
+你可以指定一些测试任务在已执行了一定数量的测试后重新运行.这可能是一个非常好的方式替代测试进程中的大量的堆.forkEvery属性指定测试类的在测试过程执行的最大数目。默认的是执行在各测设进程中不限数量的测试。
+
+该任务有一个ignoreFailures属性来控制在测试失败时的行为。测试任务总是执行每一个检测试验.它停止构建之后，如果ignoreFailures是false，说明有失败的测试。ignoreFailures的默认值是false。
+
+testLogging属性允许你配置哪个测试事件将被记录，并设置其log等级。默认情况下，将记录每一个失败的测试简明消息。详见[TestLoggingContainer](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.testing.logging.TestLoggingContainer.html)如何按需求调整测试记录。
+
+### 22.13.2.调试
+测试任务提供了[Test.getDebug()](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.testing.Test.html#org.gradle.api.tasks.testing.Test:debug)属性，可使JVM等待调试器附加到5005端口后在进行调试.
+
+通过调用`--debug-JVM`任务选项，这也可以启用调试任务（since Gradle1.12）。
+
+### 22.13.3.测试过滤
