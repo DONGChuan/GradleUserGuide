@@ -75,10 +75,15 @@ uploadConfigName | 上传由ConfigName配置的信息单元的任务。 | [Uploa
 
 ## 22.4.项目布局
 Java 插件的默认布局如下图所示，无论这些文件夹中有没有内容，Java插件都会编译里面的内容，并处理缺失的内容。
+
 **表22.4.java 插件-默认布局**
 
 目录 | 含义
+<<<<<<< HEAD
 --- | ---
+=======
+ --— | ---
+>>>>>>> 50ab43c41063e6400bfc57404f36f5f8f1f46f30
 src/main/java |  主要 Java 源码
 src/main/resources | 主要资源
 src/test/java | 测试 Java 源码
