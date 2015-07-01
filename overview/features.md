@@ -38,9 +38,10 @@ Gradle 提供了局部构建的功能. 如果你构建一个单独的子项目, 
 
 **8. Gradle 是第一个构建整合工具**
 
-Ant tasks are first class citizens. Even more interesting, Ant projects are first class citizens as well. Gradle provides a deep import for any Ant project, turning Ant targets into native Gradle tasks at runtime. You can depend on them from Gradle, you can enhance them from Gradle, you can even declare dependencies on Gradle tasks in your build.xml. The same integration is provided for properties, paths, etc ...
+Ant 的 tasks是 Gradle 中很重要的部分, 更有趣是 Ant 的 projects 也是十分重要的部分. Gradle 可以直接引入Ant project, 并在运行时直接将 Ant targets 转换成 Gradle tasks.
+你可以在从 Gradle 中依赖它们, 并增强它们的功能, 甚至在 build.xml 中声明 Gradle tasks 的依赖.  并且properties, paths 等也可以通过同样的方法集成进来.
 
-Gradle fully supports your existing Maven or Ivy repository infrastructure for publishing and retrieving dependencies. Gradle also provides a converter for turning a Maven pom.xml into a Gradle script. Runtime imports of Maven projects will come soon.
+Gradle 完全支持 Maven 或者 lvy 仓库来发布或者提取依赖. Gradle 也提供了一个转化器, 用来将 maven 的 pom.xml 转换成 Gradle 脚本. 运行时引入 Maven 项目也会在稍后推出.
 
 **9. 易于迁移**
 
@@ -48,7 +49,7 @@ Gradle 可以兼容任何结构. Therefore you can always develop your Gradle bu
 
 **10. Groovy**
 
-Gradle's build scripts are written in Groovy, not XML. But unlike other approaches this is not for simply exposing the raw scripting power of a dynamic language. That would just lead to a very difficult to maintain build. The whole design of Gradle is oriented towards being used as a language, not as a rigid framework. And Groovy is our glue that allows you to tell your individual story with the abstractions Gradle (or you) provide. Gradle provides some standard stories but they are not privileged in any form. This is for us a major distinguishing features compared to other declarative build systems. Our Groovy support is also not just some simple coating sugar layer. The whole Gradle API is fully groovynized. Only by that using Groovy is the fun and productivity gain it can be.
+Gradle's build scripts are written in Groovy, not XML. But unlike other approaches this is not for simply exposing the raw scripting power of a dynamic language. That would just lead to a very difficult to maintain build. The whole design of Gradle is oriented towards being used as a language, not as a rigid framework. And Groovy is our glue that allows you to tell your individual story with the abstractions Gradle (or you) provide. Gradle provides some standard stories but they are not privileged in any fo...(line truncated)...
 
 **10. The Gradle wrapper**
 
@@ -57,4 +58,3 @@ The Gradle Wrapper allows you to execute Gradle builds on machines where Gradle 
 **11. 免费和开源**
 
 Gradle 是一个开源项目, 遵循 ASL 许可.
-
