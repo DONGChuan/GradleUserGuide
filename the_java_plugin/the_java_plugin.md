@@ -450,4 +450,135 @@ Setting a system property of taskName.single = testNamePattern will only execute
 ### 22.13.6.测试分组
 JUnit和TestNG允许为测试方法精密分组.
 
-对于分组JUnit的测试类与测试方法,JUnit4.8引入了类别的概念.<sup>[9](https://docs.gradle.org/current/userguide/java_plugin.html#ftn.N12A10)</sup>该测试任务允许您要设定包括，排除了JUnit类。
+对于分组JUnit的测试类与测试方法,JUnit4.8引入了类别的概念.<sup>[9](https://docs.gradle.org/current/userguide/java_plugin.html#ftn.N12A10)</sup>该测试任务允许您设定JUnit包括或者排除某些类的规范。
+
+**例22.12.JUnit分类**
+**build.gradle**
+```
+test {
+    useJUnit {
+        includeCategories 'org.gradle.junit.CategoryA'
+        excludeCategories 'org.gradle.junit.CategoryB'
+    }
+}
+```
+
+TestNG的框架有一个非常类似的概念。在TestNG的，你可以指定不同的测试组。 <sup>[[10](https://docs.gradle.org/current/userguide/java_plugin.html#ftn.N12A26)]</sup>测试分组应包括或排除在测试任务进行配置了的测试执行.
+
+**例22.13.TestNG分组测试**
+**build.gradle**
+```
+test {
+    useTestNG {
+        excludeGroups 'integrationTests'
+        includeGroups 'unitTests'
+    }
+}
+```
+
+### 22.13.7.测试报告
+测试任务默认生成以下结果.
++ 一份HTML测试报告
++ 一个与Ant的JUnit测试报告任务兼容的XML.这个格式与许多其他服务兼容,如CI serves
++ 结果是有效的二进制,测试任务会从这些二进制结果生成其他结果。
+有一个独立的[TestReport](https://docs.gradle.org/2.4/dsl/org.gradle.api.tasks.testing.TestReport.html)任务类型会根据一些Test任务实例生成的二进制源码生成一个HTML报告.使用这种测试类型,需要定义一个destinationDir,里面包括测试结果的报告.下面是一个示例，它产生一个从子项目的单元测试组合而成的报告：
+**例22.14.创建单元测试报告子项目**
+**build.gradle**
+```
+subprojects {
+    apply plugin: 'java'
+
+    // Disable the test report for the individual test task
+    test {
+        reports.html.enabled = false
+    }
+}
+
+task testReport(type: TestReport) {
+    destinationDir = file("$buildDir/reports/allTests")
+    // Include the results from the `test` task in all subprojects
+    reportOn subprojects*.test
+}
+```
+应该注意的是，TestReport型组合来自多个测试任务的结果，需要聚集个别测试类的结果。这意味着，如果一个给定的测试类是由多个测试任务执行时，测试报告将会包括那些类,但是很难区分该输出结果分别是出自哪个类.
+
+#### 22.13.7.1.TestNG的参数化方法和报告
+TestNG支持[参数化方法](http://testng.org/doc/documentation-main.html#parameters),允许一个特定的测试方法使用不同的输入被执行多次。Gradle会在测试报告中包含该方法的参数值.
+给出一个叫aTestMethod的测试方法,该方法有两个参数,在测试报告中会根据名字报告:aTestMethod(toStringValueOfParam1, toStringValueOfParam2). 这很容易识别的参数值的特定迭代.
+
+### 22.13.8.公共值
+**表22.14.Java插件-测试属性**
+
+任务属性           | 类型                                                                                                                                                                                                                                                    | 默认值
+-------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------
+testClassesDir | File | sourceSets.test.output.classesDir
+classpath | [FileCollection](https://docs.gradle.org/2.4/javadoc/org/gradle/api/file/FileCollection.html) | sourceSets.test.runtimeClasspath
+testResultsDir | File | testResultsDir
+testReportDir | File | testReportDir
+testSrcDirs | List<File> | sourceSets.test.java.srcDirs
+
+## 22.14.Jar
+jar任务创建包含项目的类文件和资源的JAR文件.JAR文件在archives的依赖配置中是作为一个artifact的声明.这意味着，JAR是相关项目一个可用的classpath.如果您上传您的项目到存储库，这个JAR会被声明为依赖描述符的一部分.可以再[Section 15.8, “Creating archives”](https://docs.gradle.org/2.4/userguide/working_with_files.html#sec:archives)与[Chapter 51, Publishing artifacts](https://docs.gradle.org/2.4/userguide/artifact_management.html)中了解更多关于JAR与archives与artifact configurations协同工作的更多细节.
+### 22.14.1.Manifest
+每个jar或war对象有一个manifest属性做为[Manifest](https://docs.gradle.org/2.4/javadoc/org/gradle/api/java/archives/Manifest.html)单独的实例,当生成存档，一个对应MANIFEST.MF文件被写入到档案中。
+**例22.15.MANIFEST.MF的定​​制**
+**build.gradle**
+```
+jar {
+    manifest {
+        attributes("Implementation-Title": "Gradle",
+                   "Implementation-Version": version)
+    }
+}
+```
+你可以创建一个manifest的独立实例。您可以使用如共享jar之间的manifest的信息。
+**例22.16.创建一个manifest对象**
+**build.gradle**
+```
+ext.sharedManifest = manifest {
+    attributes("Implementation-Title": "Gradle",
+               "Implementation-Version": version)
+}
+task fooJar(type: Jar) {
+    manifest = project.manifest {
+        from sharedManifest
+    }
+}
+```
+您可以合并其他manifest到任何Manifest对象。其它清单可能是通过文件路径描述或着像上所述，引用另一个Manifest对象。
+**例22.17.独立的MANIFEST.MF一个特定的归档**
+**build.gradle**
+```
+task barJar(type: Jar) {
+    manifest {
+        attributes key1: 'value1'
+        from sharedManifest, 'src/config/basemanifest.txt'
+        from('src/config/javabasemanifest.txt',
+             'src/config/libbasemanifest.txt') {
+            eachEntry { details ->
+                if (details.baseValue != details.mergeValue) {
+                    details.value = baseValue
+                }
+                if (details.key == 'foo') {
+                    details.exclude()
+                }
+            }
+        }
+    }
+}
+```
+清单合并的顺序与声明语句的顺序相同,如果基本清单和合并的清单都为相同的密钥定义值，那么那么合并清单将会被合并,您可以通过添加在其中您可以使用一个[ManifestMergeDetails](https://docs.gradle.org/2.4/javadoc/org/gradle/api/java/archives/ManifestMergeDetails.html)实例为每个条目实体完全自定义的合并行为。声明不会立即被来自触发合并。这是延迟执行的，要么产生jar时，或要求写入effectiveManifest时.
+你可以很容易地写一个清单到磁盘。
+**例22.17.独立的MANIFEST.MF一个特定的存档**
+**build.gradle**
+```
+jar.manifest.writeTo("$buildDir/mymanifest.mf")
+```
+
+## 22.15.上传
+
+如何上传archives在[Chapter 51, Publishing artifacts](https://docs.gradle.org/2.4/userguide/artifact_management.html)
+-------
+[[9](https://docs.gradle.org/2.4/userguide/java_plugin.html#N12A26)]JUnit的维基包含有关如何使用JUnit类工作的详细说明:https://github.com/junit-team/junit/wiki/Categories.
+
+[[10](https://docs.gradle.org/2.4/userguide/java_plugin.html#N12A26)]TestNG的文档包含关于测试组的更多详细信息:http://testng.org/doc/documentation-main.html#test-groups.
