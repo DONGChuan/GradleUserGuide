@@ -19,3 +19,4 @@
     > gradle -q hello
     configuring root project 'configureProjectUsingScript'
     hello from other script
+
