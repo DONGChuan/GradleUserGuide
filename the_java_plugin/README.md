@@ -1,8 +1,2 @@
-# Chapter 22 The Java Pulgin
-
-我会直接把一章直接翻译出来，直接存在一个 Markdown 文件中。
-
-这里会做一些备注与说明
-
-1. 22.2 资源设置部分感觉语句不是很通顺，希望可以润色下
-2. distributions不知道该叫什么
+# 22章 Java插件
+Java插件给一个项目增加了编译，测试以及绑定Java的能力，许多 Gradle 的插件都需要以 Java 插件为基础
