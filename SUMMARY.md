@@ -120,6 +120,8 @@
 * [Logging](logging/logging.md)
    * [选择日志等级](logging/choosing_a_log_level.md)
    * [编写自己的日志信息](logging/writing_your_own_log_messages.md)
+   * [外部工具和库的log](logging/logging_from_external_tools_and_libraries.md)
+   * [改变Gradle记录的内容](logging/changing_what_gradle_logs.md)
 * [Java插件](the_Java_plugin/README.md)
    * [使用](the_java_plugin/Useage.md)
    * [资源集](the_java_plugin/Source sets.md)
