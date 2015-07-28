@@ -139,4 +139,11 @@
    * [Jar](the_java_plugin/Jar.md)
    * [上传](the_java_plugin/Uploading.md)
 * [War插件](the_war_plugin/the_war_plugin.md)
+   * [使用](the_war_plugin/usage.md)
+   * [任务](the_war_plugin/tasks.md)
+   * [项目布局](the_war_plugin/project_layout.md)
+   * [依赖管理](the_war_plugin/dependency_management.md)
+   * [公共配置](the_war_plugin/convention_properties.md)
+   * [War](the_war_plugin/war.md)
+   * [定制War](the_war_plugin/customizing.md)
 
