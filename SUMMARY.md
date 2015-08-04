@@ -128,6 +128,8 @@
        * [如何启用的摇篮守护进程](the_gradle_daemon/how_do_i_enable_the_gradle_daemon.md)
        * [如何禁用Gradle的守护进程](the_gradle_daemon/how_do_i_disable_the_gradle_daemon.md)
        * [怎样抑制“please consider using the Gradle Daemon”消息](the_gradle_daemon/how_do_i_suppress_the_please_consider_using_the_gradle_daemon_message.md)
+       * [为什么会在机器上出现不只一个守护进程](the_gradle_daemon/why_is_there_more_than_one_daemon_process_on_my_machine.md)
+       * [How much memory does the Daemon use and can I give it more](the_gradle_daemon/how_much_memory_does_the_daemon_use_and_can_i_give_it_more)
 * [Java插件](the_Java_plugin/README.md)
    * [使用](the_java_plugin/Useage.md)
    * [资源集](the_java_plugin/Source sets.md)
