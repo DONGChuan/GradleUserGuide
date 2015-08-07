@@ -7,6 +7,7 @@
 **例 16.1.使用Ant任务**
 
 **build.gradle**
+
 ```gradle
 task hello << {
     String greeting = 'hello from Ant'
@@ -15,6 +16,7 @@ task hello << {
 ```
 
 `gradle hello`的输出
+
 >\> gradle hello
 >:hello
 >[ant:echo] hello from Ant
