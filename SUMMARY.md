@@ -110,7 +110,7 @@
    * [Locating files](working_with_files/locating_files.md)
    * [File collections](working_with_files/file_collections.md)
 * [使用 Ant 插件](using_ant_from_gradle/using_ant_from_gradle.md)
-   * [使用Ant任务和ant类型的构建](using_ant_from_gradle/using_ant_tasks_and_types_in_your_build.md)
+   * [使用 Ant 任务和 Ant 类型的构建](using_ant_from_gradle/using_ant_tasks_and_types_in_your_build.md)
        * [在构建中使用自定义Ant任务](using_ant_from_gradle/using_custom_ant_tasks_in_your_build.md)
    * [导入一个Ant构建](using_ant_from_gradle/importing_an_ant_build.md)
    * [Ant的属性与引用](using_ant_from_gradle/ant_properties_and_references.md)

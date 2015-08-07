@@ -1,10 +1,10 @@
-## 16.1.使用Ant任务和类型的构建
+## 16.1.使用 Ant 任务和 Ant 类型的构建
 
-在构建脚本中，ant属性是由Gradle提供的.这是一个参考的[AntBuilder](https://docs.gradle.org/current/javadoc/org/gradle/api/AntBuilder.html)实例.AntBuilder用于从构建脚本访问Ant任务，类型和属性。下面的例子解释了从Ant的`build.xml`格式到Grooy的映射.
+在构建脚本中, Ant 属性是由 Gradle提供的. 这是一个用于参考的 [AntBuilder](https://docs.gradle.org/current/javadoc/org/gradle/api/AntBuilder.html) 实例. AntBuilder 用于从构建脚本访问 Ant 任务, 类型和属性. 下面的例子解释了从 Ant 的 `build.xml` 格式到 Grooy 的映射.
 
-你可以通过调用AntBuilder实例的方法执行Ant任务.您可以使用任务名称作为方法名,比如,可以通过调用`anto.echo()`任务执行Ant`echo`任务.Ant任务属性通过Map参数传递给方法.下面是一个`echo`任务的例子,注意我们也可以混合使用Groovy代码和Ant任务标记,这点非常强大.
+你可以通过调用 AntBuilder 实例的方法执行 Ant 任务. 你可以使用任务名称作为方法名, 比如, 可以通过调用 `anto.echo()` 任务执行 Ant `echo` 任务. Ant 任务属性通过 Map 参数传递给方法. 下面是一个 `echo` 任务的例子, 注意我们也可以混合使用 Groovy 代码和 Ant 任务标记, 这点个功能非常强大.
 
-**例 16.1.使用Ant任务**
+**例 16.1.使用 Ant 任务**
 
 **build.gradle**
 
@@ -15,8 +15,8 @@ task hello << {
 }
 ```
 
-`gradle hello`的输出
-
+`gradle hello` 的输出
+```
 >\> gradle hello
 >:hello
 >[ant:echo] hello from Ant
@@ -24,8 +24,9 @@ task hello << {
 >BUILD SUCCESSFUL
 >
 >Total time: 1 secs
+```
 
-你可以添加嵌套元素添加到一个封闭的Ant任务的内部.定义嵌套元素跟定义任务的方式相同,通过与调用我们要定义的元素名相同的方法.
+你可以添加嵌套元素添加到一个封闭的 Ant 任务的内部. 定义嵌套元素跟定义任务的方式相同, 通过与调用我们要定义的元素名相同的方法.
 
 **例 16.3.添加嵌套元素到一个Ant任务**
 
@@ -41,9 +42,9 @@ task zip << {
 }
 ```
 
-你可以像访问任务一样访问ant type,只需要将type名作为方法名即可.该方法调用返回的ant数据类型，可以直接在构建脚本中使用.下面的例子中,我们创建了一个`ant path`对象,然后遍历他的内容.
+你可以像访问任务一样访问 Ant type,只需要将 type 名作为方法名即可. 该方法调用返回的 Ant 数据类型，可以直接在构建脚本中使用.下面的例子中,我们创建了一个`ant path`对象,然后遍历他的内容.
 
-**例 16.4.使用ant类型**
+**例 16.4.使用 Ant 类型**
 
 **build.gradle**
 ```gradle
@@ -57,5 +58,5 @@ task list << {
 }
 ```
 
-更多关于AntBuilder的信息可以参考'Groovy in Action'8.4或者[Groovy Wiki](http://groovy.codehaus.org/Using+Ant+from+Groovy).
+更多关于 AntBuilder 的信息可以参考 'Groovy in Action'8.4 或者[Groovy Wiki](http://groovy.codehaus.org/Using+Ant+from+Groovy).
 
