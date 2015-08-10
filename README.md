@@ -8,7 +8,7 @@
 
 * [Github托管地址](https://github.com/DONGChuan/GradleUserGuide)
 
-* [原文地址](https://docs.gradle.org/current/userguide/userguide.html) 请注意 目前翻译版本是 **2.4**
+* [原文地址](https://docs.gradle.org/current/userguide/userguide.html)
 
 * 我们会开放权限给每一个加入的伙伴 (翻译或者校对)，请提前邮箱联系 dongchuan55@gmail.com
 ----
