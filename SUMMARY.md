@@ -132,7 +132,7 @@
    * [清除](the_java_plugin/java_plugin_clean.md)
    * [资源](the_java_plugin/java_plugin_resources.md)
    * [编译 Java](the_java_plugin/java_plugin_compile_java.md)
-   * [增量 Java 编译](the_java_plugin/Ijava_plugin_incremental_java_compilation.md)
+   * [增量 Java 编译](the_java_plugin/java_plugin_incremental_java_compilation.md)
    * [测试](the_java_plugin/java_plugin_test.md)
        * [测试执行](the_java_plugin/test_execution.md)
        * [测试调试](the_java_plugin/test_debugging.md)
