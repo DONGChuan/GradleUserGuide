@@ -111,6 +111,7 @@
    * [File collections](working_with_files/file_collections.md)
    * [Using a file collection](working_with_files/using_a_file_collection.md)
    * [File trees](working_with_files/file_trees.md)
+   * [Using the contents of an archive as a file tree](working_with_files/using_the_contents_of_an_archive_as_a_file_tree)
 * [使用ant插件](using_ant_from_gradle/Useing ant from gradle.md)
    * [使用Ant任务和ant类型的构建](using_ant_from_gradle/Using Ant tasks and types in your build.md)
        * [在构建中使用自定义Ant任务](using_ant_from_gradle/Using custom Ant tasks in your build.md)
