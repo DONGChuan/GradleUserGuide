@@ -18,6 +18,8 @@ ant.importBuild 'build.xml'
 ```
 
 `gradle hello`的输出
+
+```
 >\> gradle hello
 >:hello
 >[ant:echo] Hello, from Ant
@@ -25,7 +27,7 @@ ant.importBuild 'build.xml'
 >BUILD SUCCESSFUL
 >
 >Total time: 1 secs
-
+```
 
 你可以添加一个依赖于`ant target`的任务:
 **例 16.9.依赖于ant target的任务**

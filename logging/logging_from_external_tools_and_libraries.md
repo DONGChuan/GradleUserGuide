@@ -1,6 +1,10 @@
 # 从外部工具和库记录日志
 
-在内部,Gradle使用Ant和lvy,都有自己的log系统,Gradle重定向他们的日志输出到Gradle日志系统.除了Ant/lvy的`TRACE`级别的日志,映射到Gradle的`DEBUG`级别,其余的都会有一个1:1的映射从Ant/lvy的日志等级到Gradlede 的日志等级.这意味着默认的Gradle日志级别将不会显示任何的Ant /lvy的输出，除非它是一个错误或警告。
+在内部, Gradle 使用 Ant 和 lvy ,
+都有自己的 log 系统,
+Gradle 重定向他们的日志输出到 Gradle 日志系统.
+除了Ant/lvy的`TRACE`级别的日志,  映射到Gradle的`DEBUG`级别,  其余的都会有一个1:1的映射从 Ant/lvy 的日志等级到 Gradle 的日志等级.
+这意味着默认的 Gradle 日志级别将不会显示任何的 Ant /lvy 的输出, 除非它是一个错误或警告.
 
 有许多工具仍然使用标准输出记录,默认的,Gradle将标准输出重定向到`QUIET`的日志级别和标准错误的`ERROR`级别.该行为是可配置的.该项目对象提供了一个[LoggerManager](https://docs.gradle.org/current/javadoc/org/gradle/api/logging/LoggingManager.html),当你构建脚本进行评估的时候,允许你改变标准输出或错误重定向的日志级别。
 

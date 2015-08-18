@@ -45,15 +45,34 @@ Gradle 完全支持 Maven 或者 lvy 仓库来发布或者提取依赖. Gradle �
 
 **9. 易于迁移**
 
-Gradle 可以兼容任何结构. Therefore you can always develop your Gradle build in the same branch where your production build lives and both can evolve in parallel. We usually recommend to write tests that make sure that the produced artifacts are similar. That way migration is as less disruptive and as reliable as possible. This is following the best-practices for refactoring by applying baby steps.
+Gradle 可以兼容任何结构.
+因此你总是可以直接在 production 构建的 branch 里直接开发构建,
+这样 production branch 的构建和 develop branch 的构建就可以同时开发. 我们通常建议编写一些测试代码来确保它们的功能是相同的.
+通过这种方式,
+在迁移的时候就不会显得那么混乱和不可靠,
+这是通过婴儿学步的方式来获得最佳的实践.
 
 **10. Groovy**
 
-Gradle's build scripts are written in Groovy, not XML. But unlike other approaches this is not for simply exposing the raw scripting power of a dynamic language. That would just lead to a very difficult to maintain build. The whole design of Gradle is oriented towards being used as a language, not as a rigid framework. And Groovy is our glue that allows you to tell your individual story with the abstractions Gradle (or you) provide. Gradle provides some standard stories but they are not privileged in any fo...(line truncated)...
+Gradle 的构建脚本是通过 Groovy 编写而不是 XML.
+但是并不像其他方式,
+这并不是为了简单的展示用动态语言编写的原始脚本有多么强大.
+不然的话,
+只会导致一个非常难以维护的构建.
+Gradle 的整个设计是朝着一种语言的方向开发的,
+并不是一种死板的框架.
+Groovy 就像胶水一样, 把你像实现的构想和抽象的 Gradle 粘在一起.
 
-**10. The Gradle wrapper**
+**10. Gradle wrapper**
 
-The Gradle Wrapper allows you to execute Gradle builds on machines where Gradle is not installed. This is useful for example for some continuous integration servers. It is also useful for an open source project to keep the barrier low for building it. The wrapper is also very interesting for the enterprise. It is a zero administration approach for the client machines. It also enforces the usage of a particular Gradle version thus minimizing support issues.
+Gradle Wrapper 允许你在没有安装 Gradle 的机器上运行 Gradle 构建.
+在一些持续集成的服务器上,
+这个功能将非常有用.
+它同样也能降低使用一个开源项目的门槛,
+也就是说构建它将会非常简单.
+Wrapper 对于公司来说也是非常有用的.
+它并不需要为客户机提供相应的管理防范.
+这种方式同样也能强制某一个版本 Gradle 的使用从而最小化某些支持问题.
 
 **11. 免费和开源**
 

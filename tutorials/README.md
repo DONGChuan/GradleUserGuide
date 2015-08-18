@@ -2,7 +2,7 @@
 
 接下来的教程讲先介绍Gradle的基础知识
 
-#### Chapter 3, 安装 Gradle
+#### Chapter 4, 安装 Gradle
 
 描述如何安装 Gradle.
 
