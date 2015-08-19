@@ -112,6 +112,7 @@
    * [Using a file collection](working_with_files/using_a_file_collection.md)
    * [File trees](working_with_files/file_trees.md)
    * [Using the contents of an archive as a file tree](working_with_files/using_the_contents_of_an_archive_as_a_file_tree.md)
+   * [Specifying a set of input files](working_with_files/specifying_a_set_of_input_files.md)
 * [使用 Ant 插件](using_ant_from_gradle/using_ant_from_gradle.md)
    * [使用 Ant 任务和 Ant 类型的构建](using_ant_from_gradle/using_ant_tasks_and_types_in_your_build.md)
        * [在构建中使用自定义 Ant 任务](using_ant_from_gradle/using_custom_ant_tasks_in_your_build.md)
