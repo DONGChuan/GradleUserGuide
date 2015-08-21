@@ -8,7 +8,7 @@
     apply plugin: "java"
 
     ext {
-        sptringVersion = "3.1.0.RELEASE"
+        springVersion = "3.1.0.RELEASE"
         emailNotification = "build@master.org"
     }
 
