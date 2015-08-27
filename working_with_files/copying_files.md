@@ -1,4 +1,4 @@
-# Copying files
+#Copying files
 You can use the Copy task to copy files. The copy task is very flexible, and allows you to, for example, filter the contents of the files as they are copied, and map to the file names.
 
 To use the Copy task, you must provide a set of source files to copy, and a destination directory to copy the files to. You may also specify how to transform the files as they are copied. You do all this using a copy spec. A copy spec is represented by the CopySpec interface. The Copy task implements this interface. You specify the source files using the CopySpec.from() method. To specify the destination directory, use the CopySpec.into() method.
@@ -101,7 +101,7 @@ It is preferable to use the Copy task wherever possible, as it supports incremen
 
 建议尽可能的使用复制任务,因为它支持增量化的构建和任务依赖推理，而不需要去额外的费力处理这些.不过 `copy()` 方法可以用来作为复制文件任务实现的一部分.即改 方法被用来在需要复制文件的自定义任务使用,请参考 [第60章 编写自定义任务](https://docs.gradle.org/current/userguide/custom_tasks.html).在这样的场景中，自定义任务应该充分声明与复制操作相关的输入/输出。
 
-**15.6.1 重命名文件**
+##15.6.1 重命名文件
 
 **例 15.15 在复制时重命名文件**
 
@@ -122,8 +122,65 @@ task rename(type: Copy) {
 
 ```
 
+##15.6.2 过滤文件
+
+**例 15.16 在复制时过滤文件**
+
+**build.gradle**
+
+```
+import org.apache.tools.ant.filters.FixCrLfFilter
+import org.apache.tools.ant.filters.ReplaceTokens
+
+task filter(type: Copy) {
+    from 'src/main/webapp'
+    into 'build/explodedWar'
+    // 在文件中替代属性标记
+    expand(copyright: '2009', version: '2.3.1')
+    expand(project.properties)
+    // 使用 Ant 提供的过滤器
+    filter(FixCrLfFilter)
+    filter(ReplaceTokens, tokens: [copyright: '2009', version: '2.3.1'])
+    // 用一个闭合来过滤每一行
+    filter { String line ->
+        "[$line]"
+    }
+    // 使用闭合来删除行
+    filter { String line ->
+        line.startsWith('-') ? null : line
+    }
+}
+
+```
+
+A “token” in a source file that both the “expand” and “filter” operations look for, is formatted like “@tokenName@” for a token named “tokenName”.
+
+扩大和过滤器操作都会查看的 `token`,格式类似 `@tokenName@` 名称为 `tokenName` 的 `token`.
+
+## 15.6.3  使用 CopySpec 类
+
+Copy specs form a hierarchy. A copy spec inherits its destination path, include patterns, exclude patterns, copy actions, name mappings and filters.
+
+复制规范来自于层次结构,一个复制规范继承其目标路径,包括模式,排除模式，复制操作,名称映射和过滤器.
+
+**例 15.17. 嵌套复制规范**
+
+**build.gradle**
+
+```
+task nestedSpecs(type: Copy) {
+    into 'build/explodedWar'
+    exclude '**/*staging*'
+    from('src/dist') {
+        include '**/*.html'
+    }
+    into('libs') {
+        from configurations.runtime
+    }
+}
 
 
+```
 
 
 
