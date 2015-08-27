@@ -134,6 +134,8 @@
        * [守护进程何时会出错](the_gradle_daemon/what_can_go_wrong_with_daemon.md)
    * [什么时候使用Gradle守护进程](the_gradle_daemon/when_should_i_not_use_the_gradle_daemon.md)
    * [工具和集成开发环境](the_gradle_daemon/tools_&_ides.md)
+   * [摇篮守护进程如何使构建速度更快](the_gradle_daemon/how_does_the_gradle_daemon_make_builds_faster.md)
+       * [未来可能的改进](the_gradle_daemon/potential_future_enhancements.md)
 * [Java插件](the_Java_plugin/README.md)
    * [使用](the_java_plugin/Useage.md)
    * [资源集](the_java_plugin/Source sets.md)
