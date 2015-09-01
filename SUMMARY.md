@@ -145,6 +145,7 @@
            * [二进制插件的位置](gradle_plugins/locations_of_binary_plugins.md)
    * [使用构建脚本块应用插件](gradle_plugins/applying_plugins_with_the_buildscript_block.md)
    * [使用插件的插件DSL](gradle_plugins/applying_plugins_with_the_plugins_dsl.md)
+       * [插件DSL的限制](gradle_plugins/limitations_of_the_plugins_dsl.md)
 * [Java插件](the_Java_plugin/README.md)
    * [使用](the_java_plugin/Useage.md)
    * [资源集](the_java_plugin/Source sets.md)
