@@ -26,7 +26,7 @@ task anotherCopyTask(type: Copy) {
     from 'src/staging/index.html'
     // 复制一个任务输出的文件
     from copyTask
-    // 显式使用outputs文件复制任务的输出
+    // 显式使用任务的 outputs 属性复制任务的输出文件
     from copyTaskWithPatterns.outputs
     // 复制一个 ZIP 压缩文件的内容
     from zipTree('src/main/assets.zip')
