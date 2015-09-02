@@ -1,11 +1,8 @@
 #复制文件
-You can use the Copy task to copy files. The copy task is very flexible, and allows you to, for example, filter the contents of the files as they are copied, and map to the file names.
 
-To use the Copy task, you must provide a set of source files to copy, and a destination directory to copy the files to. You may also specify how to transform the files as they are copied. You do all this using a copy spec. A copy spec is represented by the CopySpec interface. The Copy task implements this interface. You specify the source files using the CopySpec.from() method. To specify the destination directory, use the CopySpec.into() method.
+你可以使用复制任务( `Copy` )去复制文件. 复制任务扩展性很强,能够过滤复制文件的内容, 映射文件名.
 
-你可以使用 `Copy` 任务去复制文件. 复制任务扩展性很强,能够过滤复制文件的内容, 映射文件名.
-
-使用 `Copy` 任务时需要提供想要复制的源文件和一个目标目录,如果你要指定的文件被复制时如何转换文件，可以使用 _复制规则_. 复制规则被 `CopySpec` 接口抽象,`Copy` 任务实现了这个接口. 使用 `CopySpec.from()` 方法指定源文件.使用 `CopySpec.into()` 方法指定目标目录.
+使用复制任务时需要提供想要复制的源文件和一个目标目录,如果你要指定文件被复制时的转换方式，可以使用 _复制规则_. 复制规则被 `CopySpec` 接口抽象,复制任务实现了这个接口. 使用 `CopySpec.from()` 方法指定源文件.使用 `CopySpec.into()` 方法指定目标目录.
 
 **例 15.10. 使用复制任务复制文件**
 **build.gradle**
