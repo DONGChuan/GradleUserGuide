@@ -132,7 +132,7 @@ You can use the Project.copySpec() method to share content between archives.
 
 Often you will want to publish an archive, so that it is usable from another project. This process is described in Chapter 53, Publishing artifacts.
 
-你可以使用 `Project.copySpec()` 在不用归档文件间分享内容.
+你可以使用 `Project.copySpec()` 在不用归档文件间共享内容.
 如果你想发布一个文档,然后在另一个项目中使用，这部分将在第 53 章 [发布文档](https://docs.gradle.org/current/userguide/artifact_management.html) 讲述
 
 
