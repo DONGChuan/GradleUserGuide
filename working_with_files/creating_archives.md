@@ -57,7 +57,7 @@ This adds a Zip archive task with the name myZip which produces ZIP file zipProj
 
 There are a number of properties which you can set on an archive task. These are listed below in Table 15.1, “Archive tasks - naming properties”. You can, for example, change the name of the archive:
 
-上面例子使用一个名为 myZip的 Zip 归档任务生成名称为 zipProject-1.0.zip 的ZIP文档,区分文档任务名和最终生成的文档名非常重要
+上面例子使用一个名为 myZip的 Zip 归档任务生成名称为 zipProject-1.0.zip 的 ZIP 文档,区分文档任务名和最终生成的文档名非常重要
 
 可以通过项目属性 `archivesBaseName` 修改生成文档的默认名.文档的名称也可以通过其他方法随时更改.
 
