@@ -1,4 +1,4 @@
-# File collections
+# 文件集合
 
  文件集合表示一组文件，Gradle 使用 `FileCollection` 接口表示文件集合, Gradle API 中的许多项目都实现了这个接口,例如 [dependency configurations ](https://docs.gradle.org/current/userguide/dependency_management.html#sub:configurations).
 
