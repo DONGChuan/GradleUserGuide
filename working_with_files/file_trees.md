@@ -37,7 +37,7 @@ You use a file tree in the same way you use a file collection. You can also visi
 
 就像使用普通文件集合一样,你可以访问文件树的内容，使用`Ant-style`规则选择一个子树。
 
-**例子15.6 使用文件树**
+**例15.6 使用文件树**
 **build.gradle**
 
 ```
