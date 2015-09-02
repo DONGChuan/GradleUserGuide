@@ -107,7 +107,7 @@
        * [配置任意对象](more_about_tasks/config_any_object.md)
        * [缓存](more_about_tasks/cache.md)
 * [Working With Files](working_with_files/README.md)
-   * [Locating files](working_with_files/locating_files.md)
+   * [定位文件](working_with_files/locating_files.md)
    * [File collections](working_with_files/file_collections.md)
    * [File trees](working_with_files/file_trees.md)
    * [Using the contents of an archive as a file tree](working_with_files/using_the_contents_of_an_archive_as_a_file_tree.md)
