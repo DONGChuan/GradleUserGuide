@@ -108,7 +108,7 @@
        * [缓存](more_about_tasks/cache.md)
 * [Working With Files](working_with_files/README.md)
    * [定位文件](working_with_files/locating_files.md)
-   * [File collections](working_with_files/file_collections.md)
+   * [文件集合](working_with_files/file_collections.md)
    * [File trees](working_with_files/file_trees.md)
    * [Using the contents of an archive as a file tree](working_with_files/using_the_contents_of_an_archive_as_a_file_tree.md)
    * [Specifying a set of input files](working_with_files/specifying_a_set_of_input_files.md)
