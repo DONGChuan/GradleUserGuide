@@ -54,9 +54,9 @@ task copyTaskWithPatterns(type: Copy) {
 }
 ```
 
-You can also use the Project.copy() method to copy files. It works the same way as the task with some major limitations though. First, the copy() is not incremental (see Section 14.9, “Skipping tasks that are up-to-date”).
+You can also use the Project.copy() method to copy files. It works the same way as the task with some major limitations though. First, the copy() is not incremental (see Section 14.9, “Skipping tasks that are up-to-date”).Secondly, the copy() method can not honor task dependencies when a task is used as a copy source (i.e. as an argument to from()) because it's a method and not a task. As such, if you are using the copy() method as part of a task action, you must explicitly declare all inputs and outputs in order to get the correct behavior.
 
-你也可以使用 `Project.copy()` 方法复制文件,它的工作方式和复制任务的一些主要限制相似,但是首先该方法不是增量的,请参考 [第 14.9节 跳过 最新的任务](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:up_to_date_checks).第二,当一个任务被用来作为复制源时,这个 `copy()` 方法不能够实现任务依赖,因为它是一个普通的方法不是一个任务.因此,如果你使用 `copy()`方法作为一个任务功能的一部分,为了得到这个证的结果,你需要显式的声明所有的输入和输出.
+你也可以使用 `Project.copy()` 方法复制文件,它的工作方式和复制任务的一些主要限制相似,但是,首先该方法不是增量的,请参考 [第 14.9节 跳过 最新的任务](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:up_to_date_checks).第二,当一个任务被用来作为复制源时,这个 `copy()` 方法不能够实现任务依赖,因为它是一个普通的方法不是一个任务.因此,如果你使用 `copy()`方法作为一个任务的一部分功能,你需要显式的声明所有的输入和输出以确保获得正确的结果.
 
 **例 15.13 在没有 up-to-date 检查的情况下使用 copy() 方法复制文件**
 
