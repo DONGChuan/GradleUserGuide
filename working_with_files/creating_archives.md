@@ -1,7 +1,5 @@
 # 创建归档文件
 
-A project can have as many JAR archives as you want. You can also add WAR, ZIP and TAR archives to your project. Archives are created using the various archive tasks: Zip, Tar, Jar, War, and Ear. They all work the same way, so let's look at how you create a ZIP file.
-
 一个项目可以有很多 JAR 文件,你可以向项目中添加 WAR , ZIP 和 TAR 文档,使用归档任务可以创建这些文档: Zip , Tar , Jar , War 和Ear. 它门都以同样的机制工作.
 
 **例子 15.19 创建一个 ZIP 文档 **
