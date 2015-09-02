@@ -53,7 +53,7 @@ task copyTaskWithPatterns(type: Copy) {
 
 You can also use the Project.copy() method to copy files. It works the same way as the task with some major limitations though. First, the copy() is not incremental (see Section 14.9, “Skipping tasks that are up-to-date”).
 
-你也可以使用 `Project.copy()` 方法复制文件,它的工作方式和复制任务的一些主要限制相似,但是首先该方法不是增量的,请参考 [第 14.9节 跳过 up-to-date的任务](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:up_to_date_checks)
+你也可以使用 `Project.copy()` 方法复制文件,它的工作方式和复制任务的一些主要限制相似,但是首先该方法不是增量的,请参考 [第 14.9节 跳过 up-to-date的任务](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:up_to_date_checks).
 
 **例 15.13 在没有 up-to-date 检查的情况下使用 copy() 方法复制文件**
 
