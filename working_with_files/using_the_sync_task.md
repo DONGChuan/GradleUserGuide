@@ -3,7 +3,7 @@ The Sync task extends the Copy task. When it executes, it copies the source file
 
 Here is an example which maintains a copy of the project's runtime dependencies in the build/libs directory.
 
-同步任务 ( `Sync` ) 任务继承自复制 任务 ( `Copy` ) , 当它执行时,其复制源文件到目标目录中,然后从目标目录中的删除所有非复制的文件,这种方式非常有用,比如安装应用,创建一个文档的副本,或者复制项目的依赖关系副本.
+同步任务 ( `Sync` ) 任务继承自复制 任务 ( `Copy` ) , 当它执行时,其复制源文件到目标目录中,然后从目标目录中的删除所有非复制的文件,这种方式非常有用,比如安装一个应用,创建一个文档的副本,或者复制项目的依赖关系副本.
 
 下面有一个例子,复制 `build/libs` 目录下项目运行时的依赖副本
 
