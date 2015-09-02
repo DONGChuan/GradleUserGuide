@@ -1,4 +1,4 @@
-#Copying files
+#复制文件
 You can use the Copy task to copy files. The copy task is very flexible, and allows you to, for example, filter the contents of the files as they are copied, and map to the file names.
 
 To use the Copy task, you must provide a set of source files to copy, and a destination directory to copy the files to. You may also specify how to transform the files as they are copied. You do all this using a copy spec. A copy spec is represented by the CopySpec interface. The Copy task implements this interface. You specify the source files using the CopySpec.from() method. To specify the destination directory, use the CopySpec.into() method.
