@@ -49,7 +49,7 @@ compile {
     // 使用字符路径添加源目录
     source 'src/main/java', 'src/main/groovy'
 
-    // 使用File对象添加源目录
+    // 使用 File 对象添加源目录
     source file('../shared/java')
 
     // 使用闭合添加源目录
