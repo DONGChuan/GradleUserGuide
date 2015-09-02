@@ -22,7 +22,7 @@ task zip(type: Zip) {
 
 ##重命名文档
 
-The format of projectName-version.type is used for generated archive file names. For example:
+
 
 `projectName-vsersion.type` 格式可以被用来生成文档名,例如:
 
