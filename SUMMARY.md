@@ -112,7 +112,7 @@
    * [文件树](working_with_files/file_trees.md)
    * [使用一个归档文件的内容作为文件树](working_with_files/using_the_contents_of_an_archive_as_a_file_tree.md)
    * [指定一组输入文件](working_with_files/specifying_a_set_of_input_files.md)
-   * [Copying files](working_with_files/copying_files.md)
+   * [复制文件](working_with_files/copying_files.md)
    * [Using the Sync task](working_with_files/using_the_sync_task.md)
    * [Creating archives](working_with_files/creating_archives.md)
 * [使用 Ant 插件](using_ant_from_gradle/using_ant_from_gradle.md)
