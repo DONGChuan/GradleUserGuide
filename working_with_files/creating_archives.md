@@ -126,7 +126,7 @@ gradle-wrapper-1.0-src.zip
 
 ```
 
-##在不同归档文件间分享内容
+##多个文档共享内容
 
 You can use the Project.copySpec() method to share content between archives.
 
