@@ -59,7 +59,7 @@ There are a number of properties which you can set on an archive task. These are
 
 上面例子使用一个名为 myZip的 Zip 归档任务生成名称为 zipProject-1.0.zip 的 ZIP 文档,区分文档任务名和最终生成的文档名非常的重要
 
-可以通过设置项目属性 `archivesBaseName` 的值来 修改生成文档的默认名.文档的名称也可以通过其他方法随时更改.
+可以通过设置项目属性 `archivesBaseName` 的值来 修改生成文档的默认名.当然,文档的名称也可以通过其他方法随时更改.
 
 归档任务中有些属性可以配置,如表 15.1 所示:
 
