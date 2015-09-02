@@ -1,9 +1,9 @@
-# File trees
+# 文件树
 A file tree is a collection of files arranged in a hierarchy. For example, a file tree might represent a directory tree or the contents of a ZIP file. It is represented by the FileTree interface. The FileTree interface extends FileCollection, so you can treat a file tree exactly the same way as you would a file collection. Several objects in Gradle implement the FileTree interface, such as source sets.
 
 One way to obtain a FileTree instance is to use the Project.fileTree() method. This creates a FileTree defined with a base directory, and optionally some Ant-style include and exclude patterns.
 
-文件树就是一个按照层次结构分布的文件集合,例如,一个文件树可能代表一个目录树结构或者一个ZIP压缩文件的内容.它被抽象为`FileTree`结构,`FileTree`继承自`FileCollection`,所以你可以像处理普通文件集合一样处理文件树, Gradle 有些对象实现了`FileTree`接口,例如 [source](https://docs.gradle.org/current/userguide/java_plugin.html#sec:source_sets).
+文件树就是一个按照层次结构分布的文件集合,例如,一个文件树可以代表一个目录树结构或者一个ZIP压缩文件的内容.它被抽象为`FileTree`结构,`FileTree`继承自`FileCollection`,所以你可以像处理普通文件集合一样处理文件树, Gradle 有些对象实现了`FileTree`接口,例如 [source](https://docs.gradle.org/current/userguide/java_plugin.html#sec:source_sets).
 使用`Project.fileTree()`方法可以得到`FileTree`的实例,它会创建一个基于基准目录的对象,然后视需要使用一些`Ant-style`的包含和排除规则.
 
 **例子 15.5 创建文件树**
