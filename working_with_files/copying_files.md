@@ -37,7 +37,7 @@ task anotherCopyTask(type: Copy) {
 ```
 You can select the files to copy using Ant-style include or exclude patterns, or using a closure:
 
-你可以使用`Ant-style` 规则选择要复制文件,或者使用一个闭合.
+你可以使用`Ant-style` 规则或者一个闭合选择要复制文件.
 
 **例 15.12 选择性的复制文件**
 **build.gradle**
