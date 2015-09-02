@@ -114,7 +114,7 @@
    * [指定一组输入文件](working_with_files/specifying_a_set_of_input_files.md)
    * [复制文件](working_with_files/copying_files.md)
    * [使用同步任务](working_with_files/using_the_sync_task.md)
-   * [Creating archives](working_with_files/creating_archives.md)
+   * [创建归档文件](working_with_files/creating_archives.md)
 * [使用 Ant 插件](using_ant_from_gradle/using_ant_from_gradle.md)
    * [使用 Ant 任务和 Ant 类型的构建](using_ant_from_gradle/using_ant_tasks_and_types_in_your_build.md)
        * [在构建中使用自定义 Ant 任务](using_ant_from_gradle/using_custom_ant_tasks_in_your_build.md)
