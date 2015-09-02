@@ -22,7 +22,7 @@ task copyTask(type: Copy) {
 task anotherCopyTask(type: Copy) {
     // 复制 src/main/webapp 目录下的所有文件
     from 'src/main/webapp'
-    // 单独复制一个文件
+    // 复制一个单独文件
     from 'src/staging/index.html'
     // 复制一个任务输出的文件
     from copyTask
