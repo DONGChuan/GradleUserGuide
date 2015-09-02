@@ -5,6 +5,7 @@
 使用复制任务时需要提供想要复制的源文件和一个目标目录,如果你要指定文件被复制时的转换方式，可以使用 _复制规则_. 复制规则被 `CopySpec` 接口抽象,复制任务实现了这个接口. 使用 `CopySpec.from()` 方法指定源文件.使用 `CopySpec.into()` 方法指定目标目录.
 
 **例 15.10. 使用复制任务复制文件**
+
 **build.gradle**
 ```
 task copyTask(type: Copy) {
@@ -17,6 +18,7 @@ task copyTask(type: Copy) {
 `from()` 方法接收任何 `files()` 方法支持的参数. 当参数被解析为一个目录时,在这个目录下的任何文件都会被递归地复制到目标目录(但不是目录本身).当一个参数解析为一个文件时,该文件被复制到目标目录中.当参数被解析为一个不存在的文件时,这个参数就会忽略.如果这个参数是一个任务,任务的输出文件(这个任务创建的文件)会被复制,然后这个任务会被自动添加为复制任务的依赖.
 
 **Example 15.11. 指定复制任务的源文件和目标目录**
+
 **build.gradle**
 ```
 task anotherCopyTask(type: Copy) {
@@ -36,9 +38,10 @@ task anotherCopyTask(type: Copy) {
 
 ```
 
-你可以使用`Ant-style` 规则或者一个闭合选择要复制文件.
+你可以使用`Ant-style` 规则或者一个闭合选择要复制的文件.
 
-**例 15.12 选择复制文件**
+**例 15.12 选择要复制文件**
+
 **build.gradle**
 ```
 task copyTaskWithPatterns(type: Copy) {
@@ -53,7 +56,7 @@ task copyTaskWithPatterns(type: Copy) {
 
 You can also use the Project.copy() method to copy files. It works the same way as the task with some major limitations though. First, the copy() is not incremental (see Section 14.9, “Skipping tasks that are up-to-date”).
 
-你也可以使用 `Project.copy()` 方法复制文件,它的工作方式和复制任务的一些主要限制相似,但是首先该方法不是增量的,请参考 [第 14.9节 跳过 up-to-date的任务](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:up_to_date_checks).
+你也可以使用 `Project.copy()` 方法复制文件,它的工作方式和复制任务的一些主要限制相似,但是首先该方法不是增量的,请参考 [第 14.9节 跳过 最新的任务](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:up_to_date_checks).
 
 **例 15.13 在没有 up-to-date 检查的情况下使用 copy() 方法复制文件**
 
