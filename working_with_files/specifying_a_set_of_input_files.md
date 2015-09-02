@@ -1,4 +1,4 @@
-# Specifying a set of input files
+# 指定一组输入文件
 Many objects in Gradle have properties which accept a set of input files. For example, the JavaCompile task has a source property, which defines the source files to compile. You can set the value of this property using any of the types supported by the files() method, which was shown above. This means you can set the property using, for example, a File, String, collection, FileCollection or even a closure. Here are some examples:
 
 在 `Gradle` 中一些对象的某些属性可以接收输入文件集合.例如,`JavaComplile` 任务有一个 `source` 属性,它定义了编译的源文件,你可以设置 `files()` 方法支持的任何类型的值. 这意味着你可以使用 `File`,`String`,`collection`,`FileCollection`
