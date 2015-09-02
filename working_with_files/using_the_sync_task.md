@@ -1,4 +1,4 @@
-# Using the Sync task
+# 使用同步任务
 The Sync task extends the Copy task. When it executes, it copies the source files into the destination directory, and then removes any files from the destination directory which it did not copy. This can be useful for doing things such as installing your application, creating an exploded copy of your archives, or maintaining a copy of the project's dependencies.
 
 Here is an example which maintains a copy of the project's runtime dependencies in the build/libs directory.
