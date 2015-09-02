@@ -1,6 +1,9 @@
 ### 22.14.1.Manifest
-每个jar或war对象有一个manifest属性做为[Manifest](https://docs.gradle.org/2.4/javadoc/org/gradle/api/java/archives/Manifest.html)单独的实例,当生成存档，一个对应MANIFEST.MF文件被写入到档案中。
-**例22.15.MANIFEST.MF的定​​制**
+
+每个 jar 或 war 对象有一个 manifest 属性做为[Manifest](https://docs.gradle.org/2.4/javadoc/org/gradle/api/java/archives/Manifest.html)单独的实例, 
+当生成存档, 一个对应MANIFEST.MF文件被写入到档案中.
+
+**例22.15.MANIFEST.MF的定​​制**  
 **build.gradle**
 ```
 jar {
@@ -10,8 +13,10 @@ jar {
     }
 }
 ```
-你可以创建一个manifest的独立实例。您可以使用如共享jar之间的manifest的信息。
-**例22.16.创建一个manifest对象**
+你可以创建一个 manifest 的独立实例. 
+您可以使用如共享 jar 之间的 manifest 的信息.
+
+**例22.16.创建一个manifest对象**  
 **build.gradle**
 ```
 ext.sharedManifest = manifest {
@@ -24,8 +29,9 @@ task fooJar(type: Jar) {
     }
 }
 ```
-您可以合并其他manifest到任何Manifest对象。其它清单可能是通过文件路径描述或着像上所述，引用另一个Manifest对象。
-**例22.17.独立的MANIFEST.MF一个特定的归档**
+您可以合并其他 manifest 到任何 Manifest 对象. 其它清单可能是通过文件路径描述或着像上所述, 引用另一个Manifest对象.
+
+**例22.17.独立的MANIFEST.MF一个特定的归档**  
 **build.gradle**
 ```
 task barJar(type: Jar) {
