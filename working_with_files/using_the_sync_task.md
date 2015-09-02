@@ -8,6 +8,7 @@ Here is an example which maintains a copy of the project's runtime dependencies 
 下面有一个例子,复制 `build/libs` 目录下项目运行时的依赖副本
 
 **例 15.7 使用 Sync 任务复制依赖**
+
 **build.gradle**
 
 ```
