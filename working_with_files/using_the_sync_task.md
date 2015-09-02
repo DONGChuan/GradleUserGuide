@@ -7,7 +7,7 @@ Here is an example which maintains a copy of the project's runtime dependencies 
 
 下面有一个例子,维护 `build/libs` 目录下项目在运行时的依赖
 
-**例 15.7 使用 Sync 任务复制依赖**
+**例 15.7 使用 Sync 任务复制依赖关系**
 
 **build.gradle**
 
