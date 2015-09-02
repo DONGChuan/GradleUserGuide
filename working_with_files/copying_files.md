@@ -149,8 +149,6 @@ task filter(type: Copy) {
 
 ## 15.6.3  使用 CopySpec 类
 
-Copy specs form a hierarchy. A copy spec inherits its destination path, include patterns, exclude patterns, copy actions, name mappings and filters.
-
 复制规范来自于层次结构,一个复制规范继承其目标路径,包括模式,排除模式，复制操作,名称映射和过滤器.
 
 **例 15.17. 嵌套复制规范**
