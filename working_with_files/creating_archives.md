@@ -64,7 +64,7 @@ build/distributions/zipProject-1.0.zip
 
 属性名 | 类型 | 默认值 | 描述
 -------|------|---------|----
-archiveName     | String | baseName-appendix-version-classifier.extension,如果这些任何一个都是空的,则不添加名称|归档文件的基本文件名
+archiveName     | String | baseName-appendix-version-classifier.extension,如果其中任何一个都是空的,则不添加名称|归档文件的基本文件名
 archivePath     | File   | destinationDir/archiveName |生成归档文件的绝对路径。
 destinationDir	| File   | 取决于文档类型, JAR 和 WAR 使用project.buildDir/distributions. project.buildDir/libraries.ZIP 和 TAR|归档文件的目录
 baseName	    | String | project.name|归档文件名的基础部分。
