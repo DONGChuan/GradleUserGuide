@@ -110,7 +110,7 @@
    * [定位文件](working_with_files/locating_files.md)
    * [文件集合](working_with_files/file_collections.md)
    * [文件树](working_with_files/file_trees.md)
-   * [Using the contents of an archive as a file tree](working_with_files/using_the_contents_of_an_archive_as_a_file_tree.md)
+   * [使用一个归档文件的内容作为文件树](working_with_files/using_the_contents_of_an_archive_as_a_file_tree.md)
    * [Specifying a set of input files](working_with_files/specifying_a_set_of_input_files.md)
    * [Copying files](working_with_files/copying_files.md)
    * [Using the Sync task](working_with_files/using_the_sync_task.md)
