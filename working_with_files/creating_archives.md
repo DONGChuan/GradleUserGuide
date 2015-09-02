@@ -24,7 +24,7 @@ task zip(type: Zip) {
 
 The format of projectName-version.type is used for generated archive file names. For example:
 
-`projectName-vsersion.type` 可以被用来生成文档名,例如:
+`projectName-vsersion.type` 格式可以被用来生成文档名,例如:
 
 **例 15.20 创建压缩文档**
 
