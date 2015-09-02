@@ -148,7 +148,8 @@ task filter(type: Copy) {
 
 A “token” in a source file that both the “expand” and “filter” operations look for, is formatted like “@tokenName@” for a token named “tokenName”.
 
-扩展和过滤操作都会查看的 `token`,格式类似 `@tokenName@` 名称为 `tokenName` 的 `token`.
+
+源文件中扩展和过滤操作都会查找的 `token`,格式类似 `@tokenName@` 被命名为 `tokenName` .
 
 ## 15.6.3  使用 CopySpec 类
 
