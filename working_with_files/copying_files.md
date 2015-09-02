@@ -20,7 +20,7 @@ task copyTask(type: Copy) {
 **build.gradle**
 ```
 task anotherCopyTask(type: Copy) {
-    // 复制 src/main/webapp 目录下的任何文件
+    // 复制 src/main/webapp 目录下的所有文件
     from 'src/main/webapp'
     // 单独复制一个文件
     from 'src/staging/index.html'
