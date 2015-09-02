@@ -155,7 +155,7 @@ A “token” in a source file that both the “expand” and “filter” opera
 
 Copy specs form a hierarchy. A copy spec inherits its destination path, include patterns, exclude patterns, copy actions, name mappings and filters.
 
-源文件中扩展和过滤操作都会查找的 `token`,
+复制规范来自于层次结构,一个复制规范继承其目标路径,包括模式,排除模式，复制操作,名称映射和过滤器.
 
 **例 15.17. 嵌套复制规范**
 
