@@ -145,7 +145,7 @@ task filter(type: Copy) {
 }
 
 ```
-源文件中扩展和过滤操作都会查找的 `token`,如果它的名字是 `tokenName` , 它的格式应该类似于 `@tokenName@`.
+在源文件中扩展和过滤操作都会查找的某个标志 `token`,如果它的名字是 `tokenName` , 它的格式应该类似于 `@tokenName@`.
 
 ## 15.6.3  使用 CopySpec 类
 
