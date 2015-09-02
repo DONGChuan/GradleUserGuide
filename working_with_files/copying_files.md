@@ -92,8 +92,6 @@ task copyMethodWithExplicitDependencies{
 
 ```
 
-It is preferable to use the Copy task wherever possible, as it supports incremental building and task dependency inference without any extra effort on your part. The copy() method can be used to copy files as part of a task's implementation. That is, the copy method is intended to be used by custom tasks (see Chapter 60, Writing Custom Task Classes) that need to copy files as part of their function. In such a scenario, the custom task should sufficiently declare the inputs/outputs relevant to the copy action.
-
 建议尽可能的使用复制任务,因为它支持增量化的构建和任务依赖推理，而不需要去额外的费力处理这些.不过 `copy()` 方法可以用作复制任务实现的一部分.即该 方法被在自定义复制任务中使用,请参考 [第60章 编写自定义任务](https://docs.gradle.org/current/userguide/custom_tasks.html).在这样的场景下，自定义任务应该充分声明与复制操作相关的输入/输出。
 
 ##15.6.1 重命名文件
