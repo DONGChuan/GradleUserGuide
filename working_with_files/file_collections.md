@@ -1,13 +1,11 @@
 # File collections
-A file collection is simply a set of files. It is represented by the FileCollection interface. Many objects in the Gradle API implement this interface. For example, dependency configurations implement FileCollection.
 
-One way to obtain a FileCollection instance is to use the Project.files() method. You can pass this method any number of objects, which are then converted into a set of File objects. The files() method accepts any type of object as its parameters. These are evaluated relative to the project directory, as per the file() method, described in Section 15.1, “Locating files”. You can also pass collections, iterables, maps and arrays to the files() method. These are flattened and the contents converted to File instances.
+ 文件集合表示一组文件，Gradle 使用 `FileCollection` 接口表示文件集合, Gradle API 中的许多项目都实现了这个接口,例如 [dependency configurations ](https://docs.gradle.org/current/userguide/dependency_management.html#sub:configurations).
 
- `file collection`表示一组文件，Gradle 中使用 `FileCollection` 接口表示,Gradle API中的许多项目都实现了这个接口,例如 [dependency configurations ](https://docs.gradle.org/current/userguide/dependency_management.html#sub:configurations).
+ 获取 `FileCollection` 实例的一种方法是使用 `Project.files()` 方法.你可以传递任何数量的对象参数,这个方法能将你传递的对象集合转换为一组文件对象.`files()` 方法接收任何类型对象参数.每一个 `file()` 方法都依赖于项目目录(在第 15 章,第一小节中介绍).`files()`方法也接收 `collections `, `iterables`, `maps` 和 `arrays` 类型参数.这些参数的内容会被解析，然后被转换为文件对象.
 
- 获取`FileCollection`实例的一种方法是使用`Project.files()`方法.你可以传递任何数量的对象参数,这个方法能将你传递的对象集合转换为一组文件对象.`files()`方法接收任何类型对象参数.每一个`file()`方法都依赖于项目目录(在第15章,第一小节中介绍).`files()`方法也接收 collections , iterables, maps 和 arrays 类型参数.这些参数的内容会被解析，然后被转换为文件对象.
+**例 15.2 创建文件集合 **
 
-**例子 15.2 创建文件集合 **
 **build.gradle**
 ```
 FileCollection collection = files('src/file1.txt',
@@ -15,12 +13,11 @@ FileCollection collection = files('src/file1.txt',
                                   ['src/file3.txt', 'src/file4.txt'])
 ```
 
-A file collection is iterable, and can be converted to a number of other types using the as operator. You can also add 2 file collections together using the + operator, or subtract one file collection from another using the - operator. Here are some examples of what you can do with a file collection.
+文件集合可以被迭代器,使用迭代操作能够将其转换为其他的一些类型.你可以使用 `+` 操作将两个文件集合合并,使用 `-` 操作能够对一个文件集合做减法.下面一些例子介绍如何操作文件集合.
 
-文件集合可以被迭代器,使用迭代操作能够将其转换为其他的一些类型.你可以使用`+`将两个文件集合合并,使用`-`能够对一个文件集合做减法.下面一些例子介绍如何操作文件集合.
 **例子 15.3 使用文件集合**
 
-***build.gradle**
+**build.gradle**
 
 ```
 // 对文件集合进行迭代
@@ -42,11 +39,10 @@ def different = collection - files('src/file3.txt')
 
 ```
 
-You can also pass the files() method a closure or a Callable instance. This is called when the contents of the collection are queried, and its return value is converted to a set of File instances. The return value can be an object of any of the types supported by the files() method. This is a simple way to 'implement' the FileCollection interface.
-
-你也可以向 `files()` 方法专递一个闭合或者可回调的实例参数.当查询集合的内容时就会调用它,然后将返回值转换为一些文件实例.返回值可以是`files()`方法支持的任何类型的对象.下面有个简单的例子来演示实现`FileCollection`接口
+你也可以向 `files()` 方法专递一个闭合或者可回调的实例参数.当查询集合的内容时就会调用它,然后将返回值转换为一些文件实例.返回值可以是 `files()` 方法支持的任何类型的对象.下面有个简单的例子来演示实现 `FileCollection` 接口
 
 **例子15.4 实现一个文件集合**
+
 **build.gradle**
 ```
 task list << {
@@ -65,7 +61,7 @@ task list << {
 }
 
 ```
-使用`gradle -q list`输出结果
+使用 `gradle -q list` 输出结果
 
 ```
 > gradle -q list
@@ -78,19 +74,21 @@ src2/dir2
 
 ```
 
-`files()`方法也接收其他类型的参数:
+另外, `files()` 方法也接收其他类型的参数:
 
 **FileCollection**
-These are flattened and the contents included in the file collection.
+
+内容损坏的文件包含在文件集合中.
+
 **Task**
-The output files of the TaskOutputs are included in the file collection.
+
+任务的输出文件包含在文件集合中.
 
 **TaskOutputs**
-The output files of the TaskOutputs are included in the file collection.
 
-It is important to note that the content of a file collection is evaluated lazily, when it is needed. This means you can, for example, create a FileCollection that represents files which will be created in the future by, say, some task.
+`TaskOutputs` 的输出文件包含在文件集合中
 
-值得注意的是文件集合的内容是被惰性,当你需要的时候，就比如创建一个`FileCollecion`代表文件集合会被一些`task`在需要的时候被创建.
+值得注意的是当有需要时文件集合的内容会被被惰性处理,就比如一些任务在需要的时候会创建一个 `FileCollecion` 代表的文件集合.
 
 
 
