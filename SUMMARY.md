@@ -157,6 +157,7 @@
    * [集成插件](standard_gradle_plugins/integration_plugins.md)
    * [孵化中的集成插件](standard_gradle_plugins/incubating_integration_plugins.md)
    * [软件开发插件](standard_gradle_plugins/software_development_plugins.md)
+   * [孵化中的软件开发插件](standard_gradle_plugins/incubating_software_development_plugins.md)
 * [Java插件](the_Java_plugin/README.md)
    * [使用](the_java_plugin/Useage.md)
    * [资源集](the_java_plugin/Source sets.md)

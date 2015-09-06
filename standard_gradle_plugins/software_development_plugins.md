@@ -12,11 +12,11 @@
 | [codenarc](https://docs.gradle.org/current/userguide/codenarc_plugin.html) | groovy-base | - | 使用[CodeNarc](http://codenarc.sourceforge.net/index.html)对项目的Groovy的源文件进行质量检测,并生成检测报告 |
 | [eclipse](https://docs.gradle.org/current/userguide/eclipse_plugin.html) | - | java,groovy, scala | 生成Eclipse IDE的文件,从而能够以导入项目到Eclipse.参见[Chapter 7, Java Quickstart](https://docs.gradle.org/current/userguide/tutorial_java_projects.html) |
 | [eclipse-wtp](https://docs.gradle.org/current/userguide/eclipse_plugin.html) | - | ear, war | 与eclipse插件一样,生成eclipse WPT(Web Tools Platform)配置文件, 导入到Eclipse中war/ear项目应配置与WTP工作.参见参见[Chapter 7, Java Quickstart](https://docs.gradle.org/current/userguide/tutorial_java_projects.html)|
-| [findbugs](https://docs.gradle.org/current/userguide/findbugs_plugin.html) | java-base | - | 3:8 |
-| 0:9 | 1:9 | 2:9 | 3:9 |
-| 0:10 | 1:10 | 2:10 | 3:10 |
-| 0:11 | 1:11 | 2:11 | 3:11 |
-| 0:12 | 1:12 | 2:12 | 3:12 |
-| 0:13 | 1:13 | 2:13 | 3:13 |
-| 0:14 | 1:14 | 2:14 | 3:14 |
+| [findbugs](https://docs.gradle.org/current/userguide/findbugs_plugin.html) | java-base | - | 使用[FindBugs](http://findbugs.sourceforge.net/)执行项目的Java源文件质量检测,并生成检测报告 |
+| [idea](https://docs.gradle.org/current/userguide/idea_plugin.html) | - | java | 生成[Intellij IDEA IDE](http://www.jetbrains.com/idea/index.html)配置文件,从而可以将项目导入IDEA。 |
+| [jdepend](https://docs.gradle.org/current/userguide/jdepend_plugin.html) | java-base | - | 使用[JDepend](http://clarkware.com/software/JDepend.html)执行项目的源文件质量检测,并生成检测报告 |
+| [pmd](https://docs.gradle.org/current/userguide/pmd_plugin.html) | java-base | - | 使用[PMD](http://pmd.sourceforge.net/)执行项目的源文件质量检测,并生成检测报告 |
+| [project-report](https://docs.gradle.org/current/userguide/project_reports_plugin.html) | reporting-base | - | 生成一个包含关于您的Gradle构建有用信息的报告。 |
+| [signing](https://docs.gradle.org/current/userguide/signing_plugin.html) | base | - | 添加数字签名档案和artifacts的能力。 |
+| [sonar](https://docs.gradle.org/current/userguide/sonar_plugin.html) | - | java-base, java, jacoco | 与[Sonar](http://www.sonarsource.org/)代码质量平台整合.由[sonar-runner](https://docs.gradle.org/current/userguide/sonar_runner_plugin.html)插件提供 |
 
