@@ -159,6 +159,7 @@
    * [软件开发插件](standard_gradle_plugins/software_development_plugins.md)
    * [孵化中的软件开发插件](standard_gradle_plugins/incubating_software_development_plugins.md)
    * [基础插件](standard_gradle_plugins/base_plugins.md)
+   * [第三方插件](standard_gradle_plugins/third_party_plugins.md)
 * [Java插件](the_Java_plugin/README.md)
    * [使用](the_java_plugin/Useage.md)
    * [资源集](the_java_plugin/Source sets.md)
