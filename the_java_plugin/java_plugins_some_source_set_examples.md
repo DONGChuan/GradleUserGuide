@@ -14,7 +14,7 @@ task intTestJar(type: Jar) {
 
 为 source set 生成 javadoc:
 
-**例22.9.为source set生成javadoc**
+**例22.9.为 source set 生成 javadoc**
 
 **build.gradle**
 
