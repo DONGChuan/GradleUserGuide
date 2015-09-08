@@ -1,7 +1,7 @@
-## 22.11.编译java
-java插件为项目的每一个source set增加了一个[JavaCompile](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.compile.JavaCompile.html)实例,最常见的配置选项如下所示:
+## 22.11.编译 java
+java 插件为项目的每一个 source set 增加了一个 [JavaCompile](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.compile.JavaCompile.html) 实例, 最常见的配置选项如下所示:
 
-**表22.13.java插件-编译配置**
+**表22.13.java 插件-编译配置**
 
 任务属性 | 类型 | 默认值
 -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------
