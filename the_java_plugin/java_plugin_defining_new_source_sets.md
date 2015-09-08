@@ -1,5 +1,6 @@
 ### 22.7.2.定义一个新的 source set
-要定义一个新的源组, sourceSets {}块中引用它.下面是一个例子：
+
+要定义一个新的源组, sourceSets {} 块中引用它.下面是一个例子：
 
 **例22.5.定义一个新的 source set**
 
@@ -30,7 +31,7 @@ dependencies {
 
 java 插件增加了一些如[Table 22.2, "Java plugin - source set tasks"](https://docs.gradle.org/current/userguide/java_plugin.html#java_source_set_tasks)为该source set组装classes文件的任务,例如，对于一个叫intTest的source set，为此source set编译classes任务运行`gradle intTestClasses`完成。
 
-**例22.7.编译一个source set**
+**例22.7.编译一个 source set**
 
 `gradle intTestClasses`命令的输出
 
