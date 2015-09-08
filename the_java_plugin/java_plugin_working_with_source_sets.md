@@ -25,7 +25,7 @@ sourceSets.all {
 }
 ```
 
-To configure an existing source set, you simply use one of the above access methods to set the properties of the source set. The properties are described below. Here is an example which configures the main Java and resources directories:
+为了配置一个已经存在的资源集, 你只需要使用上面提及的访问方法来设置资源集的属性. 下面就是一个配置 Java 资源目录的例子:
 
 **例 22.4. 配置资源集的源目录**
 
