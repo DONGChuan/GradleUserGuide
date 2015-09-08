@@ -1,5 +1,5 @@
-### 22.7.1.source Set配置
-下表列出了source Set的一些重要属性,更多细节请查看[SourceSet](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.SourceSet.html)的API文档.
+### 22.7.1.Source Set 属性
+下表列出了 Source Set 的一些重要属性, 更多细节请查看[SourceSet](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.SourceSet.html)的API文档.
 
 **表22.9.java插件-source Set配置**
 
