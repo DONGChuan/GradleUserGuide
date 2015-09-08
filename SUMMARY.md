@@ -158,7 +158,7 @@
 * [Gradle插件规范](standard_gradle_plugins/README.md)
    * [语言插件](standard_gradle_plugins/language_plugins.md)
    * [孵化中的语言插件](standard_gradle_plugins/incubating_language_plugins.md)
-   * [集成插件](standard_gradle_plugins/integration_plugins)
+   * [集成插件](standard_gradle_plugins/integration_plugins.md)
    * [孵化中的集成插件](standard_gradle_plugins/incubating_integration_plugins.md)
    * [软件开发插件](standard_gradle_plugins/software_development_plugins.md)
    * [孵化中的软件开发插件](standard_gradle_plugins/incubating_software_development_plugins.md)
