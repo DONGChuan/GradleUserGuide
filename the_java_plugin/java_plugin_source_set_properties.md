@@ -1,11 +1,11 @@
 ### 22.7.1.Source Set 属性
-下表列出了 Source Set 的一些重要属性, 更多细节请查看[SourceSet](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.SourceSet.html)的API文档.
+下表列出了 Source Set 的一些重要属性, 更多细节请查看 [SourceSet](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.SourceSet.html) 的 API 文档.
 
-**表22.9.java插件-source Set配置**
+**表22.9.java 插件- Source Set 属性**
 
-配置名称                | 类型                                                                                                                                                                        | 默认值                                     | 描述
+配置名称 | 类型 | 默认值                                     | 描述
 ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | --------------------------------------------------------------------------------------------
-name                | String (read-only)                                                                                                                                                        | Not null                                | 用来识别source set的名称
+name | String (read-only) | Not null | 用来识别source set的名称
 output              | [SourceSetOutput](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.SourceSetOutput.html)(read-only)                                                               | Not null                                | source set的输出文件,包含其编译的classes和resources
 output.classesDir   | File                                                                                                                                                                      | buildDir/classes/name                   | 在该目录下生成存放这个source set的classes文件
 output.resourcesDir | File                                                                                                                                                                      | buildDir/resources/name                 | 在该目录下生成存放这个source set的resources文件
