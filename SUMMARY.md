@@ -47,6 +47,7 @@
    * [外部的依赖](dependency_management_basics/external_dependencies.md)
    * [仓库](dependency_management_basics/repositories.md)
    * [发布 artifacts](dependency_management_basics/publishing_artifacts.md)
+   * [下一步?](dependency_management_basics/where_to_next.md)
 * [Groovy 快速入门](groovy_quickstart/README.md)
    * [一个基本的 Groovy 项目](groovy_quickstart/a_basic_groovy_project.md)
    * [总结](groovy_quickstart/summary.md)
