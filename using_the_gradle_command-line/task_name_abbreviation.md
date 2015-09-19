@@ -5,11 +5,11 @@
 只需提供足够的可以唯一区分出该任务的字符即可.
 例如,
 上面的例子你也可以这么写.
-用 **gradle di** 来直接调用 dist 任务:
+用 `gradle di` 来直接调用 dist 任务:
 
-例 10.3. 简化任务名
+**例 11.3. 简化任务名**
 
-**gradle di** 命令的输出
+`gradle di` 命令的输出
 
     > gradle di
     :compile
@@ -27,11 +27,11 @@
 
 你也可以用在驼峰命名方式 (通俗的说就是每个单词的第一个字母大写,除了第一个单词) 的任务中每个单词的首字母进行调用.
 例如,
-可以执行 **gradle compTest** 或者 **gradle cT** 来调用 compileTest 任务
+可以执行 `gradle compTest` 或者 `gradle cT` 来调用 compileTest 任务
 
-例 11.4. 简化驼峰方式的任务名
+**例 11.4. 简化驼峰方式的任务名**
 
-**gradle cT** 命令的输出
+`gradle cT` 命令的输出
 
     > gradle cT
     :compile

@@ -1,13 +1,13 @@
-# 选择文件构建
+# 选择执行构建
 
 调用 gradle 命令时,
 默认情况下总是会构建当前目录下的文件, 可以使用 **-b** 参数选择其他目录的构建文件,
 并且当你使用此参数时 settings.gradle 将不会生效,
 看下面的例子:
 
-例 10.5. 选择文件构建
+**例 11.5. 选择文件构建**
 
-subdir/myproject.gradle
+**subdir/myproject.gradle**
 
     task hello << {
         println "using build file '$buildFile.name' in '$buildFile.parentFile.name'."
