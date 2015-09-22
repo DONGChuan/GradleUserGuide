@@ -4,7 +4,8 @@
 举个例子, 
 为了配置它们或者使用它们作为依赖. 有许多种方式都可以来实现定位. 
 首先, 
-每一个任务都必须是一个 project 的有效属性, 并使用任务名来作为属性名:
+每一个任务都必须是一个 project 的有效属性, 
+并使用任务名来作为属性名:
 
 **例子 15.4. 通过属性获取 tasks**
 
@@ -29,7 +30,8 @@ println tasks.hello.name
 println tasks['hello'].name
 ```
 
-You can access tasks from any project using the task's path using the tasks.getByPath() method. You can call the getByPath() method with a task name, or a relative path, or an absolute path.
+你也可以使用 tasks.getByPath() 方法通过任务的路径来使用任何 project 里的任务. 
+你可以通过使用任务的名字, 任务的相对路径或者绝对路径作为 getByPath() 方法的输入.
 
 **例子 15.6. 通过路径获取 tasks**
 
