@@ -2,9 +2,9 @@
 
 你可以用命令行选项-x来排除某些任务,让我们用上面的例子来示范一下.
 
-*例子 10.2. 排除任务*
+*例子 11.2. 排除任务*
 
-**gradle dist -x test**  命令的输出
+`gradle dist -x test` 命令的输出
 
     > gradle dist -x test
     :compile

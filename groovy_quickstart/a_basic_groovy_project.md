@@ -2,11 +2,13 @@
 
 让我们看一个例子. 为了使用 Groovy 插件, 加入下面的代码:
 
-*例子 8.1. Groovy 插件*
+**例子 8.1. Groovy 插件**
 
-*build.gradle*
+**build.gradle**
 
     apply plugin: 'groovy'
+
+> 注意:这个例子的代码可以在 `samples/groovy/quickstart` 在Gradle分布的 `"-all"` 中找到.
 
 它也会同时把 Java 插件加入到你的项目里. Groovy 插件扩展了编译任务, 这个任务会在 src/main/groovy 目录里寻找源代码文件, 并且加入了编译测试任务来寻找 src/test/groovy 目录里的测试源代码. 编译任务使用 联合编译 (joint compilation) 来编译这些目录, 这里的联合指的是它们混合有 java 和 groovy 的源文件.
 

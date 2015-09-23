@@ -37,7 +37,7 @@
 
 #### 第三步别忘了更新 Trello 里自己任务的状态!
 ---
-### 许可证  
+### 许可证
 
 本作品采用 Apache License 2.0 国际许可协议 进行许可. 传播此文档时请注意遵循以上许可协议.  关于本许可证的更多详情可参考 http://www.apache.org/licenses/LICENSE-2.0
 
