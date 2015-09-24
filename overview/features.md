@@ -42,13 +42,11 @@ Gradle 提供了局部构建的功能. 如果你构建一个单独的子项目, 
 Ant 的 tasks是 Gradle 中很重要的部分, 更有趣是 Ant 的 projects 也是十分重要的部分. Gradle 可以直接引入Ant 项目, 并在运行时直接将 Ant targets 转换成 Gradle tasks.
 你可以从 Gradle 中依赖它们, 并增强它们的功能, 甚至可以在 build.xml 文件中声明 Gradle tasks 的依赖.  并且properties, paths 等也可以通过同样的方法集成进来.
 
-Gradle 完全支持 Maven 或者 lvy 仓库来发布或者提取依赖. Gradle 也提供了一个转化器, 用来将 maven 的 pom.xml 转换成 Gradle 脚本. 运行时引入 Maven 项目也会在稍后推出.
+Gradle 完全支持你已有的 Maven 或者 lvy 仓库来构造发布或者提取依赖. Gradle 也提供了一个转化器, 用来将 maven 的 pom.xml 文件转换成 Gradle 脚本. 在运行时引入 Maven 项目也会在稍后推出.
 
 **9. 易于迁移**
 
-Gradle 可以兼容任何结构.
-因此你总是可以直接在 production 构建的 branch 里直接开发构建,
-这样 production branch 的构建和 develop branch 的构建就可以同时开发. 我们通常建议编写一些测试代码来确保它们的功能是相同的.
+Gradle 可以兼容任何结构. 因此你可以直接在你的产品构建的分支上开发你的 Gradle 构建, 并且二者可以并行.  我们通常建议编写一些测试代码来确保它们的功能是相同的.
 通过这种方式,
 在迁移的时候就不会显得那么混乱和不可靠,
 这是通过婴儿学步的方式来获得最佳的实践.
