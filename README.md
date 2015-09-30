@@ -49,7 +49,7 @@
 dongchuan55  | dongchuan55@gmail.com | [Github](https://github.com/DONGChuan)
 UFreedom  | sunfreedom@sina.cn  | [Github](https://github.com/UFreedom)
 张扬  | zhangyang911120@gmail.com  | [Github](https://github.com/dreamkidd)
-黄丽莉  | huang13644252441@gamil.com  | [Github](https://github.com/HuangLily)
+黄丽莉  | huang13644252441@gmail.com  | [Github](https://github.com/HuangLily)
 
 
 
