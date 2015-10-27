@@ -14,7 +14,7 @@ Groovy 不仅仅被用来定义一个任务可以做什么.
         }
     }
 
-这里动态的创建了 task1, task2, task3, task4
+这里动态的创建了 task0, task1, task2, task3
 
 **gradle -q task1** 命令的输出
 
