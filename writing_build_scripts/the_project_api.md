@@ -1,6 +1,6 @@
 # 项目 API
 
-在第七章 Java快速入门那部分我们使用了 apply() 方法，这个方法是从哪里来的呢? 我们之前说过Gradle在构建脚本中定义了一个项目. 对于构建脚本中每个项目，Gradle 都创建了一个 [Project](http://gradle.org/docs/current/dsl/org.gradle.api.Project.html) 类型的对象用来关联此项目. 当构建脚本执行时，它会去配置所关联的 Project 对象.
+在第七章 Java构建入门那部分我们使用了 apply() 方法，这个方法是从哪里来的呢? 我们之前说过Gradle在构建脚本中定义了一个项目. 对于构建脚本中每个项目，Gradle 都创建了一个 [Project](http://gradle.org/docs/current/dsl/org.gradle.api.Project.html) 类型的对象用来关联此项目. 当构建脚本执行时，它会去配置所关联的 Project 对象.
 
  * 构建脚本中每个被调用的方法（这些方法并未在构建脚本中定义）都被委托给当前 Project 对象（使用 Project 对象引用方法）。
 
@@ -16,13 +16,13 @@
     println project.name
 
 
-使用 **gradle -q check** 命令输出结果：
+使用 **gradle -q check** 命令输出结果: 
 
     > gradle -q check
     projectApi
     projectApi
 
-如您所见，两个 **println** 语句都输出了相同的属性，第一个输出使用的是自动委托 ( auto-delegation )，因为当前属性并没有在构建脚本中定义. 另一个语句使用了项目一个属性，这个属性在任何构建脚本中都可用，它的返回值是被关联的 Peoject 对象的目录名。当您定义了一个属性或者一个方法和 Project 对象的某个成员的属性相同是，你应该使用第二种方法指明是哪个项目的.
+如您所见，两个 **println** 语句都输出了相同的属性，第一个输出使用的是自动委托 ( auto-delegation ), 因为当前属性并没有在构建脚本中定义. 另一个语句使用了项目一个属性，这个属性在任何构建脚本中都可用，它的返回值是被关联的项目对象.  只有当您定义了一个属性或者一个方法, 它的名字和项目对象的某个成员的名字相同时, 你应该使用项目属性. 
 
 
 
