@@ -31,7 +31,6 @@ Gitbook 提供了非常棒的在线编辑功能, 所以想贡献的同学可以�
 dongchuan55  | dongchuan55@gmail.com | [Github](https://github.com/DONGChuan)
 UFreedom  | sunfreedom@sina.cn  | [Github](https://github.com/UFreedom)
 张扬  | zhangyang911120@gmail.com  | [Github](https://github.com/dreamkidd)
-黄丽莉  | huang13644252441@gmail.com  | [Github](https://github.com/HuangLily)
 
 
 
