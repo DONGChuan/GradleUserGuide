@@ -2,7 +2,7 @@
 
 在 Gradle 里, 依赖可以组合成*configurations(配置)*. 一个配置简单地说就是一系列的依赖. 我们称它们为*(dependency configuration)依赖配置*. 你可以使用它们声明项目的外部依赖. 正如我们将在后面看到, 它们也被用来声明项目的发布.
 
-Java 插件定义了许多标准的配置. 下面列出了一些, 你也可以在[Table 23.5, “Java 插件 - 依赖配置”](Table 23.5, “Java plugin - dependency configurations”)里发现更多具体的信息.
+Java 插件定义了许多标准的配置. 下面列出了一些, 你也可以在[Table 23.5, “Java 插件 - 依赖管理”](https://dongchuan.gitbooks.io/gradle-user-guide-/content/the_java_plugin/java_plugin_dependency_management.html)里发现更多具体的信息.
 
 **compile**
 
