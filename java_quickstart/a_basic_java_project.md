@@ -16,7 +16,7 @@ apply plugin: 'java'
 
 它将会把 Java 插件加入到你的项目中,  这意味着许多预定制的任务会被自动加入到你的项目里.
 
-Gradle 希望能在 **src/main/java** 找到你的正式（生产）源码, 在 **src/test/java** 找到你的测试源码,  
+Gradle 默认在 **src/main/java** 目录下寻找到你的正式（生产）源码, 在 **src/test/java** 目录下寻找到你的测试源码, 并在`src/main/resources`目录下寻找到你的  
 也就是说 Gradle 默认地在这些路径里查找资源.  
 另外,  
 任何在 src/main/resources 的文件都将被包含在 JAR 文件里,  
