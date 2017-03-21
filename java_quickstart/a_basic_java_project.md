@@ -16,11 +16,7 @@ apply plugin: 'java'
 
 它将会把 Java 插件加入到你的项目中,  这意味着许多预定制的任务会被自动加入到你的项目里.
 
-Gradle 默认在 **src/main/java** 目录下寻找到你的正式（生产）源码, 在 **src/test/java** 目录下寻找到你的测试源码, 并在**src/main/resources**目录下寻找到你的
-也就是说 Gradle 默认地在这些路径里查找资源.  
-另外,  
-任何在 src/main/resources 的文件都将被包含在 JAR 文件里,  
-同时任何在 src/test/resources 的文件会被加入到 classpath 中以运行测试代码. 所有的输出文件将会被创建在构建目录里,  
+Gradle 默认在 **src/main/java** 目录下寻找到你的正式（生产）源码, 在 **src/test/java** 目录下寻找到你的测试源码, 并在**src/main/resources**目录下寻找到你准备打包进jar的资源文件。测试代码会被加入到环境变量中设置的目录里以运行测试代码。所有的输出文件都会被创建在构建目录里,  
 JAR 文件存放在 build/libs 文件夹里.
 
 **都有什么可以执行的任务呢?**
