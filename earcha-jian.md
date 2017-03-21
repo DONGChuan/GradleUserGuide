@@ -42,7 +42,7 @@ src/main/application | Ear资源,比如**META-INF**目录
 ## 51.4.依赖管理
 Ear插件添加了两个依赖配置：**deploy**和**earlib**。 **deploy**中的所有依赖关系都放在EAR存档的根目录中，并且是不可传递的（not transitive）。 **earlib**配置中的所有依赖关系都放在EAR存档中的'lib'目录中，并且是可传递的（transitive）。
 
-## 25.5.公共配置
+## 51.5.公共配置
 
 **表25.4.War插件-目录配置**
 
