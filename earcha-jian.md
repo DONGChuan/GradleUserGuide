@@ -2,25 +2,25 @@
 
 Ear插件添加了对组装Web应用程序EAR文件的支持。 它将添加默认EAR文件生成任务。 它不需要Java插件，对于使用Java插件的项目，它会禁用默认的JAR文件生成。
 
-## 25.1.使用
+## 51.1.使用
 使用ear插件需要在构建脚本下包括以下内容
 
-**例25.1.使用war插件**
+**例51.1.使用ear插件**
 
 **build.gradle**
 
 ```
-apply plugin 'war'
+apply plugin 'ear'
 ```
 
-## 25.2.任务
+## 51.2.任务
 War插件会添加下列任务到项目.
 
-**表25.1.War插件-任务**
+**表51.2.War插件-任务**
 
 任务名     | 依赖        |  类型 | 描述
 --------- | ---------- | ---- | -----------
-war | compile | [War](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.War.html) | 组装应用程序War文件
+ear | compile (仅在java插件存在时) | [Ear](https://docs.gradle.org/current/dsl/org.gradle.plugins.ear.Ear.html) | 组装应用程序Ear文件
 
 War插件由Java插件添加下列依赖任务.
 
