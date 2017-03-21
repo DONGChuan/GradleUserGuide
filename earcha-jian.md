@@ -50,8 +50,7 @@ Ear插件添加了两个依赖配置：**deploy**和**earlib**。 **deploy**中�
  ----- | ---- | ---- | ----
  appDirName | String | src/main/application | 应用的资源文件夹，为与项目的相对路径
  libDirName | String | lib | 生成的ear文件中lib目录的名字
- deploymentDescriptor | org.gradle.plugins.ear.descriptor.DeploymentDescriptor | 在一个默认的构部署配置文件里：
- application.xml | 生成部署描述符文件的元数据，例如 application.xml。 如果此文件已存在于appDirName / META-INF中，则将使用现有文件内容，并忽略ear.deploymentDescriptor中的显式配置。
+ deploymentDescriptor | org.gradle.plugins.ear.descriptor.DeploymentDescriptor | 在一个默认的构部署配置文件里：application.xml | 生成部署描述符文件的元数据，例如 application.xml。 如果此文件已存在于appDirName / META-INF中，则将使用现有文件内容，并忽略ear.deploymentDescriptor中的显式配置。
 
  这些属性由一个[WarPluginConvention](https://docs.gradle.org/current/dsl/org.gradle.api.plugins.WarPluginConvention.html)公共对象提供
 
