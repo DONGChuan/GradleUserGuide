@@ -24,7 +24,7 @@ ear | compile (仅在java插件存在时) | [Ear](https://docs.gradle.org/curren
 
 War插件由Java插件添加下列依赖任务.
 
-**表25.2.War插件-附加的依赖任务**
+**表51.2.Ear插件-附加的依赖任务**
 
 任务名    | 依赖
 -------- | ------
