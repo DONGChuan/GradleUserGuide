@@ -54,12 +54,12 @@ Ear插件添加了两个依赖配置：**deploy**和**earlib**。 **deploy**中�
 
  这些属性由一个[EarPluginConvention](https://docs.gradle.org/current/dsl/org.gradle.plugins.ear.EarPluginConvention.html)公共对象提供
 **-/-/-/-/-//-/-/-/--/-/-/-/-/-当前进度↑↑-/-/-/-/-/--/-/-/-/-/-/-/-/-/**
-## 25.6.Ear
+## 51.6.Ear
 War任务默认会把`src/main/application`的内容复制到归档目录的根目录。如果配置文件**META-INF/application.xml**不存在，它将被自动生成。
 
 API文档中有更多关于[Ear](https://docs.gradle.org/current/dsl/org.gradle.plugins.ear.Ear.html)的信息.
 
-## 25.7.定制Ear
+## 51.7.定制Ear
 下面的例子中有一些重要的自定义选项
 
 **例25.2.定制Ear插件**
