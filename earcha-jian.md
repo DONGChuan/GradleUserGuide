@@ -44,12 +44,12 @@ Ear插件添加了两个依赖配置：**deploy**和**earlib**。 **deploy**中�
 
 ## 51.5.常用配置
 
-**表51.4.War插件-目录配置**
+**表51.4.Ear插件-目录配置**
 
 属性名称 | 类型 | 默认值 | 描述
  ----- | ---- | ---- | ----
- appDirName | String | src/main/application | 应用的资源文件夹，为于项目的相对路径
- webAppDir | File (read-only) | projectDir/webAppDirName | Web应用的资源路径
+ appDirName | String | src/main/application | 应用的资源文件夹，为与项目的相对路径
+ libDirName | String | lib | 生成的ear文件中lib目录的名字
 
  这些属性由一个[WarPluginConvention](https://docs.gradle.org/current/dsl/org.gradle.api.plugins.WarPluginConvention.html)公共对象提供
 
