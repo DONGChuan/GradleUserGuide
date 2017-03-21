@@ -67,40 +67,45 @@ API文档中有更多关于[Ear](https://docs.gradle.org/current/dsl/org.gradle.
 **build.gradle**
 
 ```
-configuration{
-  moreLibs
+pply plugin: 'ear'
+apply plugin: 'java'
+
+repositories { mavenCentral() }
+
+dependencies {
+    // The following dependencies will be the ear modules and
+    // will be placed in the ear root
+    deploy project(path: ':war', configuration: 'archives')
+
+    // The following dependencies will become ear libs and will
+    // be placed in a dir configured via the libDirName property
+    earlib group: 'log4j', name: 'log4j', version: '1.2.15', ext: 'jar'
 }
 
-respositories{
-  faltDir {dirs "lib"}
-  mavenCentral()
-}
-
-dependencies{
-  compile module(":compile:1.0") {
-        dependency ":compile-transitive-1.0@jar"
-        dependency ":providedCompile-transitive:1.0@jar"
-  }
-  providedCompile "javax.servlet:servlet-api:2.5"
-    providedCompile module(":providedCompile:1.0") {
-        dependency ":providedCompile-transitive:1.0@jar"
-  }
-  runtime ":runtime:1.0"
-  providedRuntime ":providedRuntime:1.0@jar"
-  testCompile "junit:junit:4.12"
-  moreLibs ":otherLib:1.0"
-}
-
-war{
-  from 'src/rootContent' // 增加一个目录到归档根目录
-  webInf {from 'src/additionalWebInf'} // 增加一个目录到 WEB-INF 下
-  classpath fileTree('additionalLibs') // 增加一个目录到 WEB-INF/lib下.
-  classpath configurations.moreLibs // 增加更多地设置到 WEB-INF/lib 下.
-  webXml = file('src/someWeb.xml') // 复制xml文件到 WEB-INF/web.xml.
+ear {
+    appDirName 'src/main/app'  // use application metadata found in this folder
+    // put dependent libraries into APP-INF/lib inside the generated EAR
+    libDirName 'APP-INF/lib'
+    deploymentDescriptor {  // custom entries for application.xml:
+//      fileName = "application.xml"  // same as the default value
+//      version = "6"  // same as the default value
+        applicationName = "customear"
+        initializeInOrder = true
+        displayName = "Custom Ear"  // defaults to project.name
+        // defaults to project.description if not set
+        description = "My customized EAR for the Gradle documentation"
+//      libraryDirectory = "APP-INF/lib"  // not needed, above libDirName setting does this
+//      module("my.jar", "java")  // won't deploy as my.jar isn't deploy dependency
+//      webModule("my.war", "/")  // won't deploy as my.war isn't deploy dependency
+        securityRole "admin"
+        securityRole "superadmin"
+        withXml { provider -> // add a custom node to the XML
+            provider.asNode().appendNode("data-source", "my/data/source")
+        }
+    }
 }
 ```
-
-当然,可以用一个封闭的标签定义一个文件是否存打包到War文件中.
+你也可以使用一些**Ear**任务提供的自定义选项，如**from**和**metaInf**.
 
 ---
 [[13](https://docs.gradle.org/current/userguide/war_plugin.html#N1325D)]`runtime`配置将会继承`compile`配置.
