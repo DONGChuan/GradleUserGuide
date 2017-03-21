@@ -52,7 +52,7 @@ Ear插件添加了两个依赖配置：**deploy**和**earlib**。 **deploy**中�
  libDirName | String | lib | 生成的ear文件中lib目录的名字
  deploymentDescriptor | org.gradle.plugins.ear.descriptor.DeploymentDescriptor | 在一个默认的构部署配置文件里：application.xml | 生成部署描述符文件的元数据，例如 application.xml。 如果此文件已存在于appDirName / META-INF中，则将使用现有文件内容，并忽略ear.deploymentDescriptor中的显式配置。
 
- 这些属性由一个[WarPluginConvention](https://docs.gradle.org/current/dsl/org.gradle.api.plugins.WarPluginConvention.html)公共对象提供
+ 这些属性由一个[EarPluginConvention](https://docs.gradle.org/current/dsl/org.gradle.plugins.ear.EarPluginConvention.html)公共对象提供
 
 ## 25.6.War
 War任务默认会把`src/main/webapp`的内容复制到归档目录的根目录.webapp文件夹下会包含一个`WEB-INF`子文件夹,里面可能会有一个web.xml文件.编译后的class文件会在`WEB-INF/classes`下,所有runtime<sup>[[13](https://docs.gradle.org/current/userguide/war_plugin.html#ftn.N1325D)]</sup>的依赖配置会被拷贝至`WEB-INF/lib`下.
