@@ -18,7 +18,7 @@ War插件会添加下列任务到项目.
 
 **表51.2.War插件-任务**
 
-任务名     | 依赖        |  类型 | 描述
+任务名     | 依赖于        |  类型 | 描述
 --------- | ---------- | ---- | -----------
 ear | compile (仅在java插件存在时) | [Ear](https://docs.gradle.org/current/dsl/org.gradle.plugins.ear.Ear.html) | 组装应用程序Ear文件
 
@@ -26,14 +26,12 @@ Ear插件由其他已存在的插件添加下列依赖任务.
 
 **表51.2.Ear插件-附加的依赖任务**
 
-任务名    | 依赖
+任务名    | 依赖于
 -------- | ------
 assemble | ear
 
-**图25.1.War插件-任务**
-![war plugin-tasks](https://docs.gradle.org/current/userguide/img/warPluginTasks.png)
 
-## 25.3.项目布局
+## 51.3.项目布局
 
 **表25.3.War插件-项目布局**
 文件夹    | 含义
