@@ -103,4 +103,4 @@ war{
 当然,可以用一个封闭的标签定义一个文件是否存打包到War文件中.
 
 ---
-[[13](https://docs.gradle.org/current/userguide/war_plugin.html#N1325D)]`runtime`配置扩展了`compile`配置.
+[[13](https://docs.gradle.org/current/userguide/war_plugin.html#N1325D)]`runtime`配置将会继承`compile`配置.
