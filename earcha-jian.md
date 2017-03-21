@@ -106,6 +106,6 @@ ear {
 }
 ```
 你也可以使用一些**Ear**任务提供的自定义选项，如**from**和**metaInf**.
+## 51.8.使用自定义的配置文件
 
----
-[[13](https://docs.gradle.org/current/userguide/war_plugin.html#N1325D)]`runtime`配置将会继承`compile`配置.
+
