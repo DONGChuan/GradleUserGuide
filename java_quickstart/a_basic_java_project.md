@@ -12,7 +12,9 @@ _build.gradle_
 apply plugin: 'java'
 ```
 
-这个例子的代码可以在 samples/java/quickstart 里找到, 二进制代码和源代码里都包含这些文件.  
+（注：此例子的代码可以再所有“-all”结尾的发行版的samples/java/quickstart目录下找到）
+
+  
 它将会把 Java 插件加入到你的项目中,  
 这意味着许多预定制的任务被自动加入到了你的项目里.
 
