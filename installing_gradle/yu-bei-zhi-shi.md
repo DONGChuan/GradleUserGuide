@@ -11,7 +11,5 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.151-b12, mixed mode)
 
 Gradle 自带 Groovy library, 所以用户不需要安装 Groovy. 所有已经安装的 Groovy 都会被 Gradle 忽略.
 
-Gradle uses whatever JDK it finds in your path. Alternatively, you can set the`JAVA_HOME`environment variable to point to the installation directory of the desired JDK.
-
-
+Gradle 会直接使用你路径里默认的 JDK.  或者, 你可以设置环境变量`JAVA_HOME `来指定需要使用的 JDK.
 
