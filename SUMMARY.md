@@ -13,6 +13,8 @@
   * [手动安装](installing_gradle/shou-dong-an-zhuang.md)
   * [确认是否安装成功](installing_gradle/que-ren-shi-fou-an-zhuang-cheng-gong.md)
   * [下一步](installing_gradle/xia-yi-bu.md)
+* 创建一个 Gradle 项目
+  * [初始化项目](chu-shi-hua-xiang-mu.md)
 * [构建脚本基础](build_script_basics/README.md)
   * [Projects 和 tasks](build_script_basics/projects_and_tasks.md)
   * [Hello world](build_script_basics/hello_world.md)
@@ -203,5 +205,6 @@
   * [公共配置](the_war_plugin/convention_properties.md)
   * [War](the_war_plugin/war.md)
   * [定制War](the_war_plugin/customizing.md)
-* [Ear插件](earcha-jian.md)
+* 创建一个 Gradle 项目
+  * 初始化项目
 
