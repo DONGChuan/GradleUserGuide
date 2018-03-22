@@ -1,16 +1,13 @@
 # 创建一个 Gradle 项目
 
-Following this guide, you’ll create a trivial Gradle project, invoke some of the basic Gradle commands, and get a sense of how Gradle manages the project.
+跟随这篇教程, 你将创建一个 Gradle 项目, 使用一些基础的 Gradle 命令, 了解 Gradle 是如何管理项目的.
 
 ## 你需要什么 {#what_you_ll_need}
 
 * 大约 11 分钟
-
-* A terminal or IDE application
-
-* A Java Development Kit \(JDK\), version 1.7 or better \(only necessary to run Gradle\)
-
-* A[Gradle distribution](https://gradle.org/install), version 4.6 or better
+* 一个终端或 IDE
+* Java Development Kit \(JDK\), 1.7 版本及以上
+* 安装好 [Gradle](https://gradle.org/install), 4.6 版本及以上
 
 
 
