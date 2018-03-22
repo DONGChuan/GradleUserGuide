@@ -13,6 +13,7 @@
   * [手动安装](installing_gradle/shou-dong-an-zhuang.md)
   * [JVM选项](installing_gradle/jvm_options.md)
   * [下载与安装](installing_gradle/download.md)
+  * [确认是否安装成功](installing_gradle/que-ren-shi-fou-an-zhuang-cheng-gong.md)
 * [排除故障](troubleshooting/README.md)
 * [构建脚本基础](build_script_basics/README.md)
   * [Projects 和 tasks](build_script_basics/projects_and_tasks.md)
