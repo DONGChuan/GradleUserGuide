@@ -29,14 +29,21 @@ LICENSE  NOTICE  bin  getting-started.html  init.d  lib  media
 
 ### Step 3. 配置系统环境
 
-首先需要添加环境变量`GRADLE_HOME`. 指向解压后的文件所在的文件夹. 然后添加_`GRADLE_HOME/bin`_ 到环境变量`PATH` 中.
+1. 添加环境变量`GRADLE_HOME`. 指向解压后的文件所在的文件夹.
+2. 添加`GRADLE_HOME/bin` 到环境变量`PATH` 中.
 
 #### Linux & MacOS
 
-配置`PATH`指向解压后的 `bin`文件目录, e.g.:
+假设下载好的 Gradle 文件在 /Users/UFreedom/gradle 目录
 
 ```
-❯ export PATH=$PATH:/opt/gradle/gradle-4.6/bin
+1.vim ~/.bash_profile
+
+2.添加下面内容：
+export GRADLE_HOME = /Users/UFreedom/gradle
+export export PATH=$PATH:$GRADLE_HOME/bin
+
+3.source ~/.brash_profile
 ```
 
 
