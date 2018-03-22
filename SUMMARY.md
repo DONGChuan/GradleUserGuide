@@ -10,6 +10,7 @@
 * [安装Gradle](installing_gradle/README.md)
   * [预备知识](installing_gradle/yu-bei-zhi-shi.md)
   * [通过 Package Manager 安装](installing_gradle/tong-guo-package-manager-an-zhuang.md)
+  * [手动安装](installing_gradle/shou-dong-an-zhuang.md)
   * [JVM选项](installing_gradle/jvm_options.md)
   * [下载与安装](installing_gradle/download.md)
 * [排除故障](troubleshooting/README.md)
