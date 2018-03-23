@@ -15,6 +15,7 @@
   * [下一步](installing_gradle/xia-yi-bu.md)
 * [创建一个 Gradle 项目](chuangjian-yi-ge-gradle-xiang-mu.md)
   * [初始化项目](chu-shi-hua-xiang-mu.md)
+  * [创建 Task](chuang-jian-task.md)
 * [构建脚本基础](build_script_basics/README.md)
   * [Projects 和 tasks](build_script_basics/projects_and_tasks.md)
   * [Hello world](build_script_basics/hello_world.md)
