@@ -19,6 +19,7 @@
   * [使用插件](shi-yong-cha-jian.md)
   * [探索和DEBUG你的构建](tan-suo-he-debug-ni-de-gou-jian.md)
   * [下一步](xia-yi-bu.md)
+* [创建 Build Scans](chuang-jian-build-scans.md)
 * [构建脚本基础](build_script_basics/README.md)
   * [Projects 和 tasks](build_script_basics/projects_and_tasks.md)
   * [Hello world](build_script_basics/hello_world.md)
