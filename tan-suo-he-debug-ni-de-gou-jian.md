@@ -85,12 +85,48 @@ Gradle Cloud Services license agreement accepted.
 
 Publishing build scan...
 https://gradle.com/s/repnge6srr5qs
-
 ```
 
-
-
 如果你仔细浏览你的 build scan, 你应该可以直观的发现任务执行的位置以及时长, 以及其他信息. 如果需要学习更多的 build scans 的用法, 请查阅 [Build Scan Plugin User Manual](https://docs.gradle.com/build-scan-plugin/).
+
+### 查阅项目相关属性 {#discover_available_properties}
+
+通过`properties`命令来查阅项目的各项属性.
+
+```
+❯ ./gradlew properties
+```
+
+将输出很多内容, 我们只展示其中的一部分显示的属性:
+
+```
+> Task :properties
+
+------------------------------------------------------------
+Root project
+------------------------------------------------------------
+
+buildDir: /Users/.../basic-demo/build
+buildFile: /Users/.../basic-demo/build.gradle
+description: null
+group:
+name: basic-demo
+projectDir: /Users/.../basic-demo
+version: unspecified
+
+BUILD SUCCESSFUL
+```
+
+`name `默认是文件夹的名称, 你可以设设置`group`和`version`属性, 但现在它们都是显示的默认值.
+
+`buildFile`属性指出了`build.gradle`的路径,  一般来说, `build`是`projectDir`的子文件夹, 这个文件夹包含`build.gradle`文件.
+
+你可以改编项目的许多属性. 比如, 你可以尝试加入以下脚本到 `build.gradle`中, 再次执行`gradle properties`.
+
+```
+description = "A trivial Gradle build"
+version = "1.0"
+```
 
 
 
