@@ -1,35 +1,13 @@
 # 创建 Build Scans
 
-A build scan is a shareable and centralized record of a build that provides insights into what happened and why. By applying the build scan plugin to your project, you can publish build scans to[https://scans.gradle.com](https://scans.gradle.com/)for free.
+build scan 是一种可分享的, 构建的集中记录. 通过它, 你可以对项目发生了什么以及为什么有一个全局的了解. 通过在项目中加入 build scan 插件, 你可以免费将 build scans 发布到 [https://scans.gradle.com](https://scans.gradle.com/) .
 
-Contents
+这篇教程将展示:
 
-* [What you’ll create](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#what_you_ll_create)
-* [What you’ll need](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#what_you_ll_need)
-* [Select a sample project](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#select_a_sample_project)
-* [Auto-apply the build scan plugin](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#auto_apply_the_build_scan_plugin)
-* [Enable build scans on all builds of your project](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#enable_build_scans_on_all_builds_of_your_project)
-* [Accept the license agreement](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#accept_the_license_agreement)
-* [Publish a build scan](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#publish_a_build_scan)
-* [Access the build scan online](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#access_the_build_scan_online)
-* [Enable build scans for all builds \(optional\)](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#enable_build_scans_for_all_builds_optional)
-* [Summary](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#summary)
-* [Next steps](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#next_steps)
-* [Help improve this guide](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#help_improve_this_guide)
+1. 如何不改编任何构建脚本来发布 build scans ad-hoc. 
+2. 如何更改构建脚本来使用对整个项目的所有构建使用 build scans 功能.
 
-## [What you’ll create](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#what_you_ll_create) {#what_you_ll_create}
-
-This guide shows you how to publish build scans ad-hoc without any build script modifications. You will also learn how to modify a build script to enable build scans for all builds of a given project. Optionally, you will also modify an init script to enable build scans for all of your projects.
-
-## [What you’ll need](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#what_you_ll_need) {#what_you_ll_need}
-
-* Either your own sample project, or you can use the sample project available from Gradle
-
-* Access to the Internet
-
-* Access to your email
-
-* About7 minutes
+选择 
 
 ## [Select a sample project](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#select_a_sample_project) {#select_a_sample_project}
 
