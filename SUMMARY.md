@@ -17,6 +17,7 @@
   * [初始化项目](chu-shi-hua-xiang-mu.md)
   * [创建 Task](chuang-jian-task.md)
   * [使用插件](shi-yong-cha-jian.md)
+  * [探索和DEBUG你的构建](tan-suo-he-debug-ni-de-gou-jian.md)
 * [构建脚本基础](build_script_basics/README.md)
   * [Projects 和 tasks](build_script_basics/projects_and_tasks.md)
   * [Hello world](build_script_basics/hello_world.md)
