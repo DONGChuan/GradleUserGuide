@@ -1,50 +1,26 @@
 # 使用插件
 
-Gradle includes a range of plugins, and many, many more are available at[the Gradle plugin portal](http://plugins.gradle.org/). One of the plugins included with the distribution is the`base`plugin. Combined with a core type called[`Zip`](https://docs.gradle.org/4.6/dsl/org.gradle.api.tasks.bundling.Zip.html), you can create a zip archive of your project with a configured name and location.
+Gradle 包含各式各样的插件, 你可以在这里查阅它们 [Gradle 插件汇总](http://plugins.gradle.org/). 其中一个已经包含在发布的 Gradle 中的插件叫做`base`插件. 和另外一种核心类型 [`Zip`](https://docs.gradle.org/4.6/dsl/org.gradle.api.tasks.bundling.Zip.html) 任务组合使用, 你可以将你的项目打包成一个 Zip 文件.
 
-Add the`base`plugin to your`build.gradle`file using the`plugins`syntax. Be sure to add the`plugins {}`block at the top of the file.
+将`base`插件添加到`build.gradle`中. `plugins {}`语句块一定要放在文件的开头.
 
 ```
 plugins {
-    id 
-"
-base
-"
-
+    id "base"
 }
 
 ... rest of the build file ...
 ```
 
-Now add a task that creates a zip archive from the`src`directory.
+现在添加一个任务用来打包项目的 `src`文件夹.
 
 ```
-task zip(
-type
-: Zip, 
-group
-: 
-"
-Archive
-"
-, 
-description
-: 
-"
-Archives sources in a zip file
-"
-) {
-    from 
-"
-src
-"
-
+task zip(type: Zip, group: "Archive", description: "Archives sources in a zip file") {
+    from "src"
 }
 ```
 
-The`base`plugin works with the settings to create an archive file called`basic-demo-1.0.zip`in the`build/distributions`folder.
-
-In this case, simply run the new`zip`task and see that the generated zip file is where you expect.
+执行该任务,`base`插件会在 `build/distributions` 文件夹中生成`basic-demo-1.0.zip` :
 
 ```
 ❯ ./gradlew zip
