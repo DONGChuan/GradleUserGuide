@@ -6,8 +6,6 @@
 
 `tasks`命令会列出我们当前可以调用的 Gradle 任务,包括通过`base`插件添加的任务以及我们刚刚添加的任务.
 
-
-
 ```
 ❯ ./gradlew tasks
 
@@ -71,7 +69,28 @@ BUILD SUCCESSFUL in 0s
 
 Gradle 提供了一个基于网页的分析工具 [build scan](https://scans.gradle.com/)
 
-.
+.![](/assets/basic-demo-build-scan.png)可以通过`--scan`选项或者显式的在项目中添加 build scan 插件, 你就可以免费的在 link:scans.gradle.com 上创建一个 buildscan. 将 build scans 发布到 scans.gradle.com 将传输[该项数据](https://docs.gradle.com/scans/#captured_information) 到 Gradle 的服务器. 如果要在你自己的服务器中保管数据, 请查阅 [Gradle Enterprise](https://gradle.com/enterprise).
+
+下面来尝试在执行任务的时候添加 `--scan` 选项:
+
+```
+❯ ./gradlew zip --scan
+
+BUILD SUCCESSFUL in 0s
+1 actionable task: 1 up-to-date
+
+Publishing a build scan to scans.gradle.com requires accepting the Terms of Service defined 
+at https://scans.gradle.com/terms-of-service. Do you accept these terms? [yes, no]
+Gradle Cloud Services license agreement accepted.
+
+Publishing build scan...
+https://gradle.com/s/repnge6srr5qs
+
+```
+
+
+
+如果你仔细浏览你的 build scan, 你应该可以直观的发现任务执行的位置以及时长, 以及其他信息. 如果需要学习更多的 build scans 的用法, 请查阅 [Build Scan Plugin User Manual](https://docs.gradle.com/build-scan-plugin/).
 
 
 
