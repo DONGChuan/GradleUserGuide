@@ -20,6 +20,7 @@
   * [探索和DEBUG你的构建](tan-suo-he-debug-ni-de-gou-jian.md)
   * [下一步](xia-yi-bu.md)
 * [创建 Build Scans](chuang-jian-build-scans.md)
+* [从 Maven 迁移到 Gradle](cong-maven-qian-yi-dao-gradle.md)
 * [构建脚本基础](build_script_basics/README.md)
   * [Projects 和 tasks](build_script_basics/projects_and_tasks.md)
   * [Hello world](build_script_basics/hello_world.md)
@@ -77,11 +78,7 @@
     * [查看特定依赖](using_the_gradle_command-line/getting_the_insight_into_a_particular_dependency.md)
     * [获取项目属性列表](using_the_gradle_command-line/listing_project_properties.md)
     * [构建日志](using_the_gradle_command-line/profiling_a_build.md)
-* [使用 Gradle 图形界面](using_the_gradle_graphical_user_interface/README.md)
-  * [任务树](using_the_gradle_graphical_user_interface/task_tree.md)
-  * [收藏夹](using_the_gradle_graphical_user_interface/favorities.md)
-  * [命令行](using_the_gradle_graphical_user_interface/command_line.md)
-  * [设置](using_the_gradle_graphical_user_interface/setup.md)
+* 从 Maven 迁移到 Gradle
 * [编写构建脚本](writing_build_scripts/README.md)
   * [Gradle 构建语言](writing_build_scripts/the_gradle_build_language.md)
   * [项目 API](writing_build_scripts/the_project_api.md)
@@ -211,5 +208,5 @@
   * [War](the_war_plugin/war.md)
   * [定制War](the_war_plugin/customizing.md)
 * 创建一个 Gradle 项目
-  * 初始化项目
+  * [初始化项目](chu-shi-hua-xiang-mu.md)
 
