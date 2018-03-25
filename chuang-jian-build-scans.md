@@ -7,15 +7,13 @@ build scan 是一种可分享的, 构建的集中记录. 通过它, 你可以对
 1. 如何不改编任何构建脚本来发布 build scans ad-hoc. 
 2. 如何更改构建脚本来使用对整个项目的所有构建使用 build scans 功能.
 
-选择 
+### 选择一个示例项目
 
-## [Select a sample project](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#select_a_sample_project) {#select_a_sample_project}
+Gradle 提供了一个简单的 Java 项目给用户来尝试 build scan. 下载地址 [https://github.com/gradle/gradle-build-scan-quickstart](https://github.com/gradle/gradle-build-scan-quickstart). 你可以使用自己的项目.
 
-Gradle makes available a simple Java project that you can use to demonstrate build scan capabilities. If you wish to use it, clone or download the repository located at[https://github.com/gradle/gradle-build-scan-quickstart](https://github.com/gradle/gradle-build-scan-quickstart). If you prefer to use your own project, you can skip this step.
+### 自动使用 build scan 插件
 
-## [Auto-apply the build scan plugin](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#auto_apply_the_build_scan_plugin) {#auto_apply_the_build_scan_plugin}
-
-Starting with Gradle 4.3, you can enable build scans without any additional configuration in your build script. When using the command line option`--scan`to publish a build scan, the required build scan plugin is applied automatically. Before the end of the build, you are asked to accept the license agreement on the command line. The following console output demonstrates the behavior.
+从 Gradle 4.3 开始, 你可以直接使用 build scans, 不再需要添加额外的配置. 当使用命令行选项 `--scan` 来发布一个 build scan,  build scan 插件就会自动被运行. 在构建结束之前, 你会被询问是否同意接受 license agreement:
 
 ```
 $ ./gradlew build --scan
