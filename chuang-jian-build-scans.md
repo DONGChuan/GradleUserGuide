@@ -28,7 +28,7 @@ Publishing build scan...
 https://gradle.com/s/czajmbyg73t62
 ```
 
-This mechanism makes it very easy to generate ad-hoc, one-off build scans without having to configure the build scan plugin in your build. If you need finer grained configuration, you can configure the build scan plugin in a build or init script as described in the following sections.
+这样就可以非常简单的创建 ad-hoc, 一次性的 build scans 而不需要进行额外的配置. If you need finer grained configuration, you can configure the build scan plugin in a build or init script as described in the following sections.
 
 ## [Enable build scans on all builds of your project](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#enable_build_scans_on_all_builds_of_your_project) {#enable_build_scans_on_all_builds_of_your_project}
 
