@@ -28,58 +28,38 @@ Publishing build scan...
 https://gradle.com/s/czajmbyg73t62
 ```
 
-这样就可以非常简单的创建 ad-hoc, 一次性的 build scans 而不需要进行额外的配置. If you need finer grained configuration, you can configure the build scan plugin in a build or init script as described in the following sections.
+这样就可以非常简单的创建点对点形式的, 一次性的 build scans 而不需要进行额外的配置. 如果你需要更优化的配置方案, 你可以跟随下面的教程.
 
-## [Enable build scans on all builds of your project](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#enable_build_scans_on_all_builds_of_your_project) {#enable_build_scans_on_all_builds_of_your_project}
+### 在你项目的所有构建里都启动 build scans
 
-Add a`plugins`block to the`build.gradle`file with the following contents:
+在`build.gradle`文件里加入以下代码:
 
 ```
 plugins {
-    id 
-'
-com.gradle.build-scan
-'
- version 
-'
-1.12.1
-'
-
+    id 'com.gradle.build-scan' version '1.12.1'
 }
 ```
 
-|  | Use latest plugin version which can be found on the[Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.gradle.build-scan). |
-| :--- | :--- |
+如果你已经有`plugins` 代码块了, 请把 build scan 插件放在第一个. 如果加在其它插件下面, 它任然能工作, 但是许多有用的信息可能就扫描不到了.
 
+### 接受 license agreement
 
-If you already have a`plugins`block, always put the build scan plugin first. Adding it below any existing plugins will still work, but will miss useful information.
-
-## [Accept the license agreement](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#accept_the_license_agreement) {#accept_the_license_agreement}
-
-In order to publish build scans to[https://scans.gradle.com](https://scans.gradle.com/), you need to accept the license agreement. This can be done ad-hoc via the command line when publishing, but can also be specified in your Gradle build file, by adding the following section:
+为了发布扫描结果到 [https://scans.gradle.com](https://scans.gradle.com/), 你需要接受 license 协议. 可以在发布的时候通过命令行接受, 也可以在 Gradle build 文件里提前配置好:
 
 ```
 buildScan {
-    licenseAgreementUrl = 
-'
-https://gradle.com/terms-of-service
-'
-
-    licenseAgree = 
-'
-yes
-'
-
+    licenseAgreementUrl = 'https://gradle.com/terms-of-service'
+    licenseAgree = 'yes'
 }
 ```
 
-The`buildScan`block allows you to configure the plugin. Here you are setting two properties necessary to accept the license agreement. Other properties are available. See the[Build Scans User Manual](https://docs.gradle.com/build-scan-plugin/)for details.
+`buildScan`代码块是专门用来配置这个插件的. 这里仅列举了2个属性, 其余属性可以参见 [Build Scans User Manual](https://docs.gradle.com/build-scan-plugin/).
 
-## [Publish a build scan](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#publish_a_build_scan) {#publish_a_build_scan}
+### 发布 build scan
 
-A build scan is published using a command-line flag called`--scan`.
+只需要添加在命令行末尾添加`--scan就可以发布` build scan.
 
-Run a`build`task with the`--scan`option. When the build is completed, after uploading the build data to scans.gradle.com, you will be presented with a link to see your build scan.
+运行`build --scan`任务. 当构建完成, 你就可以通过产生的链接去查看了
 
 ```
 $ ./gradlew build --scan
@@ -90,80 +70,46 @@ Publishing build scan...
 https://gradle.com/s/47i5oe7dhgz2c
 ```
 
-## [Access the build scan online](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#access_the_build_scan_online) {#access_the_build_scan_online}
+### 查看网上的 build scan
 
-The first time you follow the link, you will be asked to activate the created build scan.
-
-The email you receive to activate your build scan will look similar to:
+你第一次打开链接的时候, 需要通过邮箱激活, 邮件类似下图:
 
 ![](https://guides.gradle.org/creating-build-scans/images/build_scan_email.png "build scan email")
 
-Follow the link provided in the email, and you will see the created build scan.
+点击邮件内的链接, 就可以查看 build scan 了:
 
 ![](https://guides.gradle.org/creating-build-scans/images/build_scan_page.png "build scan page")
 
-You can now explore all the information contained in the build scan, including the time taken for tasks to execute, the time required during each stage of the build, the results of any tests, plugins used and other dependencies, any command-line switches used, and more.
+## 对系统上的所有构建都激活 Build Scan {#enable_build_scans_for_all_builds_optional}
 
-## [Enable build scans for all builds \(optional\)](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#enable_build_scans_for_all_builds_optional) {#enable_build_scans_for_all_builds_optional}
-
-You can avoid having to add the plugin and license agreement to every build by using a Gradle init script. Create a file called`buildScan.gradle`in the directory`~/.gradle/init.d`\(where the tilde represents your home directory\) with the following contents:
+你并不需要在项目里的每一个构建里都进行上述的操作. 你可以在HOME下面的`~/.gradle/init.d`创建一个叫做 `buildScan.gradl`的文件:
 
 ```
 initscript {
     repositories {
-        maven { url 
-'
-https://plugins.gradle.org/m2
-'
- }
+        maven { url 'https://plugins.gradle.org/m2'}
     }
 
     dependencies {
-        classpath 
-'
-com.gradle:build-scan-plugin:1.12.1
-'
-
+        classpath 'com.gradle:build-scan-plugin:1.12.1'
     }
 }
 
 rootProject {
-    apply 
-plugin
-: com.gradle.scan.plugin.BuildScanPlugin
+    apply plugin: com.gradle.scan.plugin.BuildScanPlugin
 
     buildScan {
-        licenseAgreementUrl = 
-'
-https://gradle.com/terms-of-service
-'
-
-        licenseAgree = 
-'
-yes
-'
-
+        licenseAgreementUrl = 'https://gradle.com/terms-of-service'
+        licenseAgree = 'yes'
     }
 }
 ```
 
-The init script downloads the build scan plugin if necessary and applies it to every project, and accepts the license agreement. Now you can use the`--scan`flag on any build on your system.
+然后, 在该系统的任何构建里, 你只需要添加`--scan` 就可以直接使用 Build Scan 了.
 
-There are additional capabilities you can add to the script, such as under what conditions to publish the scan information. For details, see the[Build Scans User Manual](https://docs.gradle.com/build-scan-plugin/).
+### 下一步
 
-## [Summary](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#summary) {#summary}
-
-In this guide, you learned how to:
-
-* Generate a build scan
-
-* View the build scan information online
-
-* Create an init script to enable build scans for all builds
-
-## [Next steps](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#next_steps) {#next_steps}
-
-Additional information can be found in the[Build Scans User Manual](https://docs.gradle.com/build-scan-plugin/).
+可以查看 [Build Scans User Manual](https://docs.gradle.com/build-scan-plugin/) 获得更多关于该插件的信息
 
 ## [ ](https://guides.gradle.org/creating-build-scans/?_ga=2.115847618.599696663.1521685504-557532416.1521019880#help_improve_this_guide) {#help_improve_this_guide}
 
