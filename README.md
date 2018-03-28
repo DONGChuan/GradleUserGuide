@@ -14,9 +14,13 @@
 
 ---
 
-### 如何参与
+### 如何参与&联系我们
 
-任何问题都欢迎直接联系我 dongchuanyz@163.com或者我们的 QQ群 324020116
+* 邮箱 dongchuanyz@163.com
+* 微信 dongchuan55
+* QQ群 324020116
+
+任何问题都欢迎直接联系我们
 
 Gitbook 提供了非常棒的在线编辑功能, 所以想贡献的同学可以直接联系我申请权限！
 
@@ -32,7 +36,7 @@ Gitbook 提供了非常棒的在线编辑功能, 所以想贡献的同学可以�
 
 | 成员 | 联系方式 | Github |
 | :--- | :--- | :--- |
-| dongchuan55 | dongchuan55@gmail.com | [Github](https://github.com/DONGChuan) |
+| dongchuan55 | dongchuanyz@163.com | [Github](https://github.com/DONGChuan) |
 | UFreedom | sunfreedom@sina.cn | [Github](https://github.com/UFreedom) |
 | 张扬 | zhangyang911120@gmail.com | [Github](https://github.com/dreamkidd) |
 | d0048 | d0048@foxmail.com | [Github](https://github.com/D0048) |
