@@ -1,7 +1,5 @@
 # 从 Maven 迁移到 Gradle
 
-"Welcome to the Gradle community!"…​ at least that’s what we hope to say once you’ve completed this guide.
-
 Converting a build can be scary, but you don’t have to do it alone. You can search docs, forums, and StackOverflow from[help.gradle.org](https://gradle.org/help)or reach out to the[Gradle community on the forums](https://discuss.gradle.org/c/help-discuss)if you get stuck.
 
 [Apache Maven](https://maven.apache.org/)is a build tool for Java and other JVM-based projects that’s in widespread use, and so people that want to use Gradle often have to migrate an existing Maven build. This guide will help with such a migration by explaining the differences and similarities between the two tools' models and providing steps that you can follow to ease the process.
