@@ -1,16 +1,66 @@
 # Gradle User Guide 中文版
 
-### [阅读地址](http://dongchuan.gitbooks.io/gradle-user-guide-/)
-
 * Gradle User Guide 中文版目前正在更新到 4.6, 希望大家理解也欢迎大家一起加入和完善
-
 * 如果发现不通顺或者有歧义的地方, 可以在评论里指出来, 我们会及时改正的.
-
 * [Github托管地址](https://github.com/DONGChuan/GradleUserGuide)
-
 * [原文地址](https://docs.gradle.org/current/userguide/userguide.html)
+* 我们会开放权限给每一个加入的伙伴 \(翻译或者校对\)，请联系我们
 
-* 我们会开放权限给每一个加入的伙伴 \(翻译或者校对\)，请提前邮箱联系 dongchuanyz@163.com
+### 进度
+
+##### 开始
+
+* [x] [Installing Gradle](https://docs.gradle.org/current/userguide/installation.html)
+* [x] [Creating New Gradle Builds](https://guides.gradle.org/creating-new-gradle-builds/)
+* [x] [Creating Build Scans](https://guides.gradle.org/creating-build-scans/)
+* [ ] [Migrating From Maven](https://guides.gradle.org/migrating-from-maven/)
+
+##### 使用 Gradle 构建
+
+* [ ] [Command-Line Interface](https://docs.gradle.org/current/userguide/command_line_interface.html)
+* [ ] [Customizing Execution](https://docs.gradle.org/current/userguide/userguide.html#customizing-execution)
+* [ ] [Executing Multi-Project Builds](https://docs.gradle.org/current/userguide/intro_multi_project_builds.html)
+* [ ] [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html)
+* [ ] [Troubleshooting](https://docs.gradle.org/current/userguide/troubleshooting.html)
+* [ ] [Using Build Scans](https://docs.gradle.com/build-scan-plugin)
+
+##### 项目教程
+
+* [ ] [Android](https://docs.gradle.org/current/userguide/userguide.html#building-android-projects)
+* [ ] [C++](https://docs.gradle.org/current/userguide/userguide.html#building-cpp-projects)
+* [ ] [Groovy](https://docs.gradle.org/current/userguide/userguide.html#building-groovy-projects)
+* [ ] [Java](https://docs.gradle.org/current/userguide/userguide.html#building-java-projects)
+* [ ] [JavaScript](https://docs.gradle.org/current/userguide/userguide.html#building-javascript-projects)
+* [ ] [Kotlin](https://docs.gradle.org/current/userguide/userguide.html#building-kotlin-projects)
+* [ ] [Scala](https://docs.gradle.org/current/userguide/userguide.html#building-scala-projects)
+
+##### Authoring Gradle Builds
+
+* [ ] [Groovy DSL Reference](https://docs.gradle.org/current/dsl/)
+* [ ] [Gradle API Javadoc](https://docs.gradle.org/current/javadoc/)
+* [ ] [Gradle Feature Lifecycle](https://docs.gradle.org/current/userguide/feature_lifecycle.html)
+* [ ] [Best Practices](https://docs.gradle.org/current/userguide/userguide.html#best-practices)
+* [ ] [Build Configuration Scripts](https://docs.gradle.org/current/userguide/userguide.html#authoring-build-scripts)
+* [ ] [Dependency Management](https://docs.gradle.org/current/userguide/userguide.html#dependency-management)
+* [ ] [Publishing Artifacts](https://docs.gradle.org/current/userguide/userguide.html#publishing-artifacts)
+* [ ] [Sample Gradle Builds](https://docs.gradle.org/current/userguide/userguide.html#sample-gradle-builds)
+* [ ] [C++ Projects](https://docs.gradle.org/current/userguide/userguide.html#cpp-projects)
+* [ ] [Groovy Projects](https://docs.gradle.org/current/userguide/userguide.html#groovy-projects)
+* [ ] [Java Projects](https://docs.gradle.org/current/userguide/userguide.html#java-projects)
+* [ ] [Java Web Projects](https://docs.gradle.org/current/userguide/userguide.html#java-web-projects)
+* [ ] [Scala Projects](https://docs.gradle.org/current/userguide/userguide.html#scala-projects)
+
+##### 集成 Gradle
+
+* [ ] [IDE Integration](https://docs.gradle.org/current/userguide/userguide.html#ide-integration)
+
+##### 扩展 Gradle
+
+* [ ] [Plugin Development Guides](https://docs.gradle.org/current/userguide/userguide.html#plugins-tutorials)
+* [ ] [Developing Parallel Tasks](https://guides.gradle.org/using-the-worker-api/)
+* [ ] [Lazy Task Configuration](https://docs.gradle.org/current/userguide/lazy_configuration.html)
+* [ ] [Plugin Development Plugin](https://docs.gradle.org/current/userguide/java_gradle_plugin.html)
+* [ ] [Writing Custom Plugins](https://docs.gradle.org/current/userguide/custom_plugins.html)
 
 ---
 
