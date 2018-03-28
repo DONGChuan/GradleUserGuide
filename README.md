@@ -2,23 +2,19 @@
 
 ### [阅读地址](http://dongchuan.gitbooks.io/gradle-user-guide-/)
 
-* Gradle User Guide 中文版 目前正在更新到官方4.6版本 \(branch/\#22\), 将会在翻译完主要内容后合并的该分支. 因工作量大, 希望大家理解, 也欢迎大家一起加入和完善.
-
+* Gradle User Guide 中文版 目前正在更新到官方**4.6**版本 \(branch/\#22\), 将会在翻译完主要内容后合并的该分支. 因工作量大, 希望大家耐心等待, 也欢迎大家一起加入和完善.
 * 如果发现不通顺或者有歧义的地方, 可以在评论里指出来, 我们会及时改正的.
-
 * [Github托管地址](https://github.com/DONGChuan/GradleUserGuide)
-
 * [原文地址](https://docs.gradle.org/current/userguide/userguide.html)
+* [查看4.6翻译进度](https://github.com/DONGChuan/GradleUserGuide/tree/changes/22)
 
 ---
 
 ### 如何参与&联系我们
 
-邮箱: dongchuanyz@163.com
-
-微信: dongchuan55
-
-QQ群: 324020116
+* 邮箱: dongchuanyz@163.com
+* 微信: dongchuan55
+* QQ群: 324020116
 
 任何问题都欢迎直接联系我们
 
