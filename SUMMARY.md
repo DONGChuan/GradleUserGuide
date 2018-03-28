@@ -193,8 +193,6 @@
   * [公共配置](the_war_plugin/convention_properties.md)
   * [War](the_war_plugin/war.md)
   * [定制War](the_war_plugin/customizing.md)
-* 创建一个 Gradle 项目
-  * [初始化项目](chu-shi-hua-xiang-mu.md)
 
 ## 开始
 
