@@ -222,4 +222,7 @@
   * [命令行补全](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/ming-ling-xing-bu-quan.md)
   * [Debug 选项](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/debug-xuan-xiang.md)
   * [Performance 选项](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/performance-xuan-xiang.md)
+  * [Logging 选项](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/logging-xuan-xiang.md)
+  * [Execution 选项](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/execution-xuan-xiang.md)
+  * [Environment 选项](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/environment-xuan-xiang.md)
 
