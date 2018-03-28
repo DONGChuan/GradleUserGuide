@@ -1,8 +1,10 @@
-The command-line interface is one of the primary methods of interacting with Gradle. The following serves as a reference of executing and customizing Gradle use of a command-line or when writing scripts or configuring continuous integration.
+# 命令行界面
+
+直接使用命令行界面是使用 Gradle 的主要方法之一. The following serves as a reference of executing and customizing Gradle use of a command-line or when writing scripts or configuring continuous integration.
 
 Use of the[Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html)is highly encouraged. You should substitute`./gradlew`or`gradlew.bat`for`gradle`in all following examples when using the Wrapper.
 
-Executing Gradle on the command-line conforms to the following structure. Options are allowed before and after task names.
+执行 Gradle 的命令行遵循以下结构. Options 既可以添加在任务名之前也可以在任务名之后:
 
 ```
 gradle [taskName...] [--option-name...]
@@ -23,7 +25,7 @@ Options that enable behavior have long-form options with inverses specified with
 --no-build-cache
 ```
 
-Many long-form options, have short option equivalents. The following are equivalent:
+许多长的 option 都有缩写形式, 比如:
 
 ```
 --help
