@@ -10,9 +10,9 @@ Gradle 是一个开源的自动化构建工具. 专注于灵活性和高性能. 
 
 ## 使用 Gradle 构建新项目 {#new-projects}
 
-Getting started with Gradle is easy! First, follow our guide to[download and install Gradle](https://docs.gradle.org/current/userguide/installation.html), then check out Gradle[getting started guides](https://gradle.org/guides/#getting-started)to create your first build.
+开始使用 Gradle 非常简单! 请开始阅读[ 开始](https://gradle.org/guides/#getting-started) 来创建你的第一个构建.
 
-If you're currently using Maven, see a visual[Gradle vs Maven comparison](https://gradle.org/maven-vs-gradle/)and follow the guide for[migrating from Maven to Gradle](https://guides.gradle.org/migrating-from-maven/).
+如果你正在使用 Maven, 可以看一看 [Gradle vs Maven 对比](https://gradle.org/maven-vs-gradle/) 以及[ 从 Maven 迁移到 Gradle](https://guides.gradle.org/migrating-from-maven/).
 
 ## 使用已经存在的 Gradle 构建 {#existing-projects}
 
