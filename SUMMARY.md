@@ -21,7 +21,6 @@
     * [通用配置](java_quickstart/common_configuration.md)
     * [项目之间的依赖](java_quickstart/dependencies_between_projects.md)
     * [创建一个发行版本](java_quickstart/creating_a_distribution.md)
-* [从 Maven 迁移到 Gradle](cong-maven-qian-yi-dao-gradle.md)
 * [深入了解 Tasks](more_about_tasks/README.md)
   * [定义 tasks](more_about_tasks/defining_tasks.md)
   * [定位 tasks](more_about_tasks/locating_tasks.md)
