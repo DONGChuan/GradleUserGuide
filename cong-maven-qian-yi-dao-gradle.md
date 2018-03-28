@@ -38,7 +38,7 @@ One especially useful feature for understanding your new Gradle build is[build s
 
 You can use build scans to debug dependency resolution, Gradle task execution, and many other aspects of your build.
 
-Once you’ve decided to go ahead with the migration, what should you do first? The best starting point is_recording the inputs and outputs_of your Maven build, so that you can verify that your new Gradle build is functionally equivalent.
+Once you’ve decided to go ahead with the migration, what should you do first? The best starting point is\_recording the inputs and outputs\_of your Maven build, so that you can verify that your new Gradle build is functionally equivalent.
 
 ## [Automated conversion](https://guides.gradle.org/migrating-from-maven/?_ga=2.79140304.599696663.1521685504-557532416.1521019880#automated_conversion) {#automated_conversion}
 
@@ -71,11 +71,7 @@ Gradle 4.6 and above supports importing BOMs, though in versions before Gradle 5
 settings.gradle
 
 ```
-enableFeaturePreview(
-"
-IMPROVED_POM_SUPPORT
-"
-)
+enableFeaturePreview("IMPROVED_POM_SUPPORT")
 ```
 
 The BOM support in Gradle works similar to using`<scope>import</scope>`when depending on a BOM in Maven. In Gradle however, it is done via a regular dependency declaration on the BOM.
@@ -84,22 +80,9 @@ build.gradle
 
 ```
 dependencies {
-    implementation 
-'
-org.springframework.boot:spring-boot-dependencies:1.5.8.RELEASE
-'
-
-
-    implementation 
-'
-com.google.code.gson:gson
-'
-
-    implementation 
-'
-dom4j:dom4j
-'
-
+    implementation 'org.springframework.boot:spring-boot-dependencies:1.5.8.RELEASE'
+    implementation 'com.google.code.gson:gson'
+    implementation 'dom4j:dom4j'
 }
 ```
 
@@ -141,31 +124,16 @@ Those aren’t the only options, so if you are interested in finding out more ab
 
 One important piece of behavior you need to be aware of is what happens when the same property is defined in both the build file and one of the external properties files: the build file value takes precedence. Always. Fortunately, you can mimic the concept of profiles to provide overridable default values.
 
-Which brings us on to Maven profiles. These are a way to enable and disable different configurations based on environment, target platform, or any other similar factor. Logically, they are nothing more than limited ‘if' statements. And since Gradle has much more powerful ways to declare conditions, it does not need to have formal support for profiles \(except in the POMs of dependencies\). You can easily get the same behavior by combining conditions with secondary build files, as you’ll see next.
+Which brings us on to Maven profiles. These are a way to enable and disable different configurations based on environment, target platform, or any other similar factor. Logically, they are nothing more than limited ‘if' statements. And since Gradle has much more powerful ways to declare conditions, it does not need to have formal support for profiles \(except in the POMs of dependencies\). You can easily get the same behavior by combining conditions with secondary build files, as you’ll see next.
 
 Let’s say you have different deployment settings depending on environment: local development \(the default\), a test environment, and production. To add profile-like behavior, first create build files for each environment in the project root:`profile-default.gradle`,`profile-test.gradle`, and`profile-prod.gradle`. Next, add a condition similar to the following to the main build file:
 
 ```
 if
- (!hasProperty(
-'
-buildProfile
-'
-)) ext.buildProfile = 
-'
-default
-'
+ (!hasProperty('buildProfile'
+)) ext.buildProfile = 'default'
 
-apply 
-from
-: 
-"
-profile-
-${
-buildProfile
-}
-.gradle
-"
+apply from: "profile-${buildProfile}.gradle"
 ```
 
 All you have to do then is put the environment-specific configuration, such as project properties, dependencies, etc., in the corresponding build file. To activate a particular profile, you can just pass in the relevant project property on the command line:
@@ -239,26 +207,13 @@ build.gradle
 
 ```
 dependencies {
-    
+
 // ...
 
-    integTestCompile 
-'
-org.codehaus.groovy:groovy-all:2.4.3
-'
-
-    integTestCompile 
-'
-org.spockframework:spock-core:0.7-groovy-2.0
-'
+    integTestCompile 'org.codehaus.groovy:groovy-all:2.4.3'
+    integTestCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
 , {
-        exclude 
-module
-: 
-'
-groovy-all
-'
-
+        exclude module: 'groovy-all'
     }
 }
 ```
@@ -498,6 +453,4 @@ Finally, don’t be afraid to ask for a build scan if another build user encount
 ## [Help improve this guide](https://guides.gradle.org/migrating-from-maven/?_ga=2.79140304.599696663.1521685504-557532416.1521019880#help_improve_this_guide) {#help_improve_this_guide}
 
 Have feedback or a question? Found a typo? Like all Gradle guides, help is just a GitHub issue away. Please add an issue or pull request to[gradle-guides/migrating-from-maven](https://github.com/gradle-guides/migrating-from-maven/)and we’ll get back to you.
-
-
 
