@@ -30,7 +30,7 @@
 ❯ gradle taskName
 ```
 
-当在子项目中执行 Gradle Wrapper, 必须引用`gradlew `的相对路径. 举个例子:`../gradlew taskName`. 社区 [gdub project](http://www.gdub.rocks/) 可以提供更多的支持.
+当在子项目中执行 Gradle Wrapper, 必须引用`gradlew`的相对路径. 举个例子:`../gradlew taskName`. 社区 [gdub project](http://www.gdub.rocks/) 可以提供更多的支持.
 
 ### 执行多个 tasks
 
@@ -63,11 +63,11 @@ BUILD SUCCESSFUL in 0s
 2 actionable tasks: 2 executed
 ```
 
-你可以看到`test`任务没有被执行, 即使它是`dist`任务的依赖. `test`任务的依赖比如`compileTest`也没有被执行. 但是其他依赖, 比如`compile`, 它仍被其它的任务依赖, 所以仍然会被执行.
+你可以看到`test`任务没有被执行, 即使它是`dist`任务的依赖. `test`任务的依赖比如`compileTest`也没有被执行. 但是其他依赖, 比如`compile`, 它仍被其它的任务所依赖, 所以仍然会被执行.
 
-### Forcing tasks to execute
+### 强制执行任务
 
-You can force Gradle to execute all tasks ignoring[up-to-date checks](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:up_to_date_checks)using the`--rerun-tasks`option:
+你可以强制 Gradle to execute all tasks ignoring[up-to-date checks](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:up_to_date_checks)using the`--rerun-tasks`option:
 
 ```
 ❯ gradle test --rerun-tasks
