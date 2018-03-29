@@ -10,20 +10,22 @@ You can learn about what projects and tasks are available in the [project report
 
 ### Executing tasks in multi-project builds
 
-In a[multi-project build](https://docs.gradle.org/current/userguide/intro_multi_project_builds.html), subproject tasks can be executed with ":" separating subproject name and task name. The following are equivalent_when run from the root project_.
+在一个 [多项目构建当中](https://docs.gradle.org/current/userguide/intro_multi_project_builds.html), 子项目的 tasks 可以通过在子项目名后添加 ":" 和 task 名来执行:
 
 ```
 ❯ gradle :mySubproject:taskName
 ❯ gradle mySubproject:taskName
 ```
 
-You can also run a task for all subprojects using the task name only. For example, this will run the "test" task for all subprojects when invoked from the root project directory.
+> 当从根项目执行时, 上面2个是相等的
+
+当只使用 task 名时, 这个任务是对所有子项目都执行的. 举个例子, 在项目根目录运行下面的命令将对所有子项目都执行 "test" task.
 
 ```
 ❯ gradle test
 ```
 
-When invoking Gradle from within a subproject, the project name should be omitted:
+当在一个子项目中执行命令, 就不需要显式的指定子项目名称, 且该任务只对子项目本身执行:
 
 ```
 ❯ cd mySubproject
