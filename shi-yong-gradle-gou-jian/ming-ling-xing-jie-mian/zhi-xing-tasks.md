@@ -6,9 +6,7 @@
 ❯ gradle myTask
 ```
 
-You can learn about what projects and tasks are available in the [project reporting section](https://docs.gradle.org/current/userguide/command_line_interface.html#sec:command_line_project_reporting).
-
-### Executing tasks in multi-project builds
+### 在多项目构建中执行 tasks
 
 在一个 [多项目构建当中](https://docs.gradle.org/current/userguide/intro_multi_project_builds.html), 子项目的 tasks 可以通过在子项目名后添加 ":" 和 task 名来执行:
 
@@ -32,19 +30,19 @@ You can learn about what projects and tasks are available in the [project report
 ❯ gradle taskName
 ```
 
-When executing the Gradle Wrapper from subprojects, one must reference`gradlew`relatively. For example:`../gradlew taskName`. The community[gdub project](http://www.gdub.rocks/)aims to make this more convenient.
+当在子项目中执行 Gradle Wrapper, 必须引用`gradlew `的相对路径. 举个例子:`../gradlew taskName`. 社区 [gdub project](http://www.gdub.rocks/) 可以提供更多的支持.
 
-### Executing multiple tasks
+### 执行多个 tasks
 
-You can also specify multiple tasks. For example, the following will execute the`test`and`deploy`tasks in the order that they are listed on the command-line and will also execute the dependencies for each task.
+你也可以同时指定执行多个任务. 举个例子, 下面的命令将按命令行中的顺序执行`test`和`deploy`命令, 当然, 也会执行各个 task 的依赖:
 
 ```
 ❯ gradle test deploy
 ```
 
-### Excluding tasks from execution
+### 从执行中排除 tasks
 
-You can exclude a task from being executed using the`-x`or`--exclude-task`command-line option and providing the name of the task to exclude.
+你可以通过使用`-x`或`--exclude-task`加上任务名排除某个 task 的执行:
 
 **Figure: Example Task Graph**
 
@@ -52,11 +50,10 @@ You can exclude a task from being executed using the`-x`or`--exclude-task`comman
 
 **Example: Excluding tasks**
 
-Output of`gradle dist --exclude-task test`
+`gradle dist --exclude-task test`的输出:
 
 ```
->
- gradle dist --exclude-task test
+>gradle dist --exclude-task test
 :compile
 compiling source
 :dist
@@ -66,7 +63,7 @@ BUILD SUCCESSFUL in 0s
 2 actionable tasks: 2 executed
 ```
 
-You can see that the`test`task is not executed, even though it is a dependency of the`dist`task. The`test`task’s dependencies such as`compileTest`are not executed either. Those dependencies of`test`that are required by another task, such as`compile`, are still executed.
+你可以看到`test`任务没有被执行, 即使它是`dist`任务的依赖. `test`任务的依赖比如`compileTest`也没有被执行. 但是其他依赖, 比如`compile`, 它仍被其它的任务依赖, 所以仍然会被执行.
 
 ### Forcing tasks to execute
 
