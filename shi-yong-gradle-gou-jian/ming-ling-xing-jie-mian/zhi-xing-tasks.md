@@ -67,13 +67,13 @@ BUILD SUCCESSFUL in 0s
 
 ### 强制执行任务
 
-你可以强制 Gradle to execute all tasks ignoring[up-to-date checks](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:up_to_date_checks)using the`--rerun-tasks`option:
+许多任务, 特别是 Gradle 本身提供的任务都支持增量版本. 这些任务可以根据它们的输入或输出自上次运行以来是否发生变化来确定它们是否需要运行. 当 Gradle 在构建运行期间在其名称旁边显示文本`UP-TO-DATE`时，你就可以轻松识别参与增量构建的任务. 但是有时你可能偶尔想强制 Gradle 运行所有的任务, 不需要判断是否需要运行. 如果是这样, 只要使用`--rerun-tasks`选项即可:
 
 ```
 ❯ gradle test --rerun-tasks
 ```
 
-This will force`test`and\_all\_task dependencies of`test`to execute. It’s a little like running`gradle clean test`, but without the build’s generated output being deleted.
+该命令就会强制执行`test`以及它所有的依赖.
 
 ### Continuing the build when a failure occurs
 
