@@ -1,12 +1,12 @@
 # 执行 Tasks
 
-You can run a task and all of its[dependencies](https://docs.gradle.org/current/userguide/tutorial_using_tasks.html#sec:task_dependencies).
+你可以运行一个 task 和它所有的[依赖](https://docs.gradle.org/current/userguide/tutorial_using_tasks.html#sec:task_dependencies).
 
 ```
 ❯ gradle myTask
 ```
 
-You can learn about what projects and tasks are available in the[project reporting section](https://docs.gradle.org/current/userguide/command_line_interface.html#sec:command_line_project_reporting).
+You can learn about what projects and tasks are available in the [project reporting section](https://docs.gradle.org/current/userguide/command_line_interface.html#sec:command_line_project_reporting).
 
 ### Executing tasks in multi-project builds
 
