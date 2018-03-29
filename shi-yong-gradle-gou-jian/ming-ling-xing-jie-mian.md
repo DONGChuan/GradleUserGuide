@@ -10,15 +10,15 @@
 gradle [taskName...] [--option-name...]
 ```
 
-If multiple tasks are specified, they should be separated with a space.
+如果需要执行多个任务, 需要在任务名称之间添加空格.
 
-Options that accept values can be specified with or without`=`between the option and argument; however, use of`=`is recommended.
+部分需要赋值的 Options 不是强制需要在它和对应的值之间添加`=`; 但是, 还是强烈推荐使用`=`.
 
 ```
 --console=plain
 ```
 
-Options that enable behavior have long-form options with inverses specified with`--no-`. The following are opposites.
+部分启动某些行为的 Options, 它的相反的选项就是在之前添加`--no-`. 比如:
 
 ```
 --build-cache
@@ -32,7 +32,5 @@ Options that enable behavior have long-form options with inverses specified with
 -h
 ```
 
-Many command-line flags can be specified in`gradle.properties`to avoid needing to be typed. See the[configuring build environment guide](https://docs.gradle.org/current/userguide/build_environment.html#sec:gradle_configuration_properties)for details.
-
-The following sections describe use of the Gradle command-line interface, grouped roughly by user goal. Some plugins also add their own command line options, for example[`--tests`for Java test filtering](https://docs.gradle.org/current/userguide/java_plugin.html#test_filtering). For more information on exposing command line options for your own tasks, see[the section called “Declaring and Using Command Line Options”](https://docs.gradle.org/current/userguide/custom_tasks.html#sec:declaring_and_using_command_line_options).
+许多命令行标志都可以在`gradle.properties`中直接指定. 可以查看 [configuring build environment guide](https://docs.gradle.org/current/userguide/build_environment.html#sec:gradle_configuration_properties) 了解更多.
 
