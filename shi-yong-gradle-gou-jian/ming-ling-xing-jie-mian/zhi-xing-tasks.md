@@ -1,3 +1,5 @@
+# 执行 Tasks
+
 You can run a task and all of its[dependencies](https://docs.gradle.org/current/userguide/tutorial_using_tasks.html#sec:task_dependencies).
 
 ```
@@ -42,17 +44,13 @@ You can also specify multiple tasks. For example, the following will execute the
 
 You can exclude a task from being executed using the`-x`or`--exclude-task`command-line option and providing the name of the task to exclude.
 
-
-
 **Figure: Example Task Graph**
 
 ![](https://docs.gradle.org/current/userguide/img/commandLineTutorialTasks.png "Example Task Graph")
 
-
-
 **Example: Excluding tasks**
 
-Output of**`gradle dist --exclude-task test`**
+Output of`gradle dist --exclude-task test`
 
 ```
 >
@@ -64,7 +62,6 @@ building the distribution
 
 BUILD SUCCESSFUL in 0s
 2 actionable tasks: 2 executed
-
 ```
 
 You can see that the`test`task is not executed, even though it is a dependency of the`dist`task. The`test`task’s dependencies such as`compileTest`are not executed either. Those dependencies of`test`that are required by another task, such as`compile`, are still executed.
@@ -77,7 +74,7 @@ You can force Gradle to execute all tasks ignoring[up-to-date checks](https://do
 ❯ gradle test --rerun-tasks
 ```
 
-This will force`test`and_all_task dependencies of`test`to execute. It’s a little like running`gradle clean test`, but without the build’s generated output being deleted.
+This will force`test`and\_all\_task dependencies of`test`to execute. It’s a little like running`gradle clean test`, but without the build’s generated output being deleted.
 
 ### Continuing the build when a failure occurs
 
@@ -87,7 +84,7 @@ By default, Gradle will abort execution and fail the build as soon as any task f
 ❯ gradle test --continue
 ```
 
-When executed with`--continue`, Gradle will execute_every_task to be executed where all of the dependencies for that task completed without failure, instead of stopping as soon as the first failure is encountered. Each of the encountered failures will be reported at the end of the build.
+When executed with`--continue`, Gradle will execute\_every\_task to be executed where all of the dependencies for that task completed without failure, instead of stopping as soon as the first failure is encountered. Each of the encountered failures will be reported at the end of the build.
 
 If a task fails, any subsequent tasks that were depending on it will not be executed. For example, tests will not run if there is a compilation failure in the code under test; because the test task will depend on the compilation task \(either directly or indirectly\).
 
@@ -97,11 +94,9 @@ When you specify tasks on the command-line, you don’t have to provide the full
 
 You can also abbreviate each word in a camel case task name. For example, you can execute task`compileTest`by running`gradle compTest`or even`gradle cT`.
 
-
-
 **Example: Abbreviated camel case task name**
 
-Output of**`gradle cT`**
+Output of`gradle cT`
 
 ```
 >
@@ -113,7 +108,6 @@ compiling unit tests
 
 BUILD SUCCESSFUL in 0s
 2 actionable tasks: 2 executed
-
 ```
 
 You can also use these abbreviations with the -x command-line option.
