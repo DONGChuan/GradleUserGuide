@@ -1,8 +1,8 @@
 # 命令行界面
 
-直接使用命令行界面是使用 Gradle 的主要方法之一. The following serves as a reference of executing and customizing Gradle use of a command-line or when writing scripts or configuring continuous integration.
+直接使用命令行界面是使用 Gradle 的主要方法之一. 接下来将学习如何使用命令行执行和自定义 Gradle.
 
-Use of the[Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html)is highly encouraged. You should substitute`./gradlew`or`gradlew.bat`for`gradle`in all following examples when using the Wrapper.
+强烈建议使用 [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html). 你应该使用`gradle` 来代替`./gradlew` 和 `gradlew.bat`.
 
 执行 Gradle 的命令行遵循以下结构. Options 既可以添加在任务名之前也可以在任务名之后:
 
