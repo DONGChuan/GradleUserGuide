@@ -23,7 +23,7 @@
 ## 使用 Gradle 构建
 
 * [命令行界面](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian.md)
-  * [执行 tasks](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/zhi-xing-tasks.md)
+  * [执行 tasks](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/executing-tasks.md)
   * [常用 tasks](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/common-tasks.md)
   * [项目报告](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/xiang-mu-bao-gao.md)
   * [命令行补全](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/ming-ling-xing-bu-quan.md)

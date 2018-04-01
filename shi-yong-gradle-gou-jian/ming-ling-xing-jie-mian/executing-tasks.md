@@ -3,7 +3,7 @@
 你可以运行一个 task 和它所有的[依赖](https://docs.gradle.org/current/userguide/tutorial_using_tasks.html#sec:task_dependencies).
 
 ```
-❯ gradle myTask
+> gradle myTask
 ```
 
 ### 在多项目构建中执行 tasks
@@ -11,8 +11,8 @@
 在一个 [多项目构建当中](https://docs.gradle.org/current/userguide/intro_multi_project_builds.html), 子项目的 tasks 可以通过在子项目名后添加 ":" 和 task 名来执行:
 
 ```
-❯ gradle :mySubproject:taskName
-❯ gradle mySubproject:taskName
+> gradle :mySubproject:taskName
+> gradle mySubproject:taskName
 ```
 
 > 当从根项目执行时, 上面2个是相等的
@@ -26,8 +26,8 @@
 当在一个子项目中执行命令, 就不需要显式的指定子项目名称, 且该任务只对子项目本身执行:
 
 ```
-❯ cd mySubproject
-❯ gradle taskName
+> cd mySubproject
+> gradle taskName
 ```
 
 当在子项目中执行 Gradle Wrapper, 必须引用`gradlew`的相对路径. 举个例子:`../gradlew taskName`. 社区 [gdub project](http://www.gdub.rocks/) 可以提供更多的支持.
@@ -37,7 +37,7 @@
 你也可以同时指定执行多个任务. 举个例子, 下面的命令将按命令行中的顺序执行`test`和`deploy`命令, 当然, 也会执行各个 task 的依赖:
 
 ```
-❯ gradle test deploy
+> gradle test deploy
 ```
 
 ### 从执行中排除 tasks
@@ -48,12 +48,12 @@
 
 ![](https://docs.gradle.org/current/userguide/img/commandLineTutorialTasks.png "Example Task Graph")
 
-**Example: Excluding tasks**
+**Example: 排除任务**
 
 `gradle dist --exclude-task test`的输出:
 
 ```
->gradle dist --exclude-task test
+> gradle dist --exclude-task test
 :compile
 compiling source
 :dist
@@ -70,36 +70,35 @@ BUILD SUCCESSFUL in 0s
 许多任务, 特别是 Gradle 本身提供的任务都支持增量版本. 这些任务可以根据它们的输入或输出自上次运行以来是否发生变化来确定它们是否需要运行. 当 Gradle 在构建运行期间在其名称旁边显示文本`UP-TO-DATE`时，你就可以轻松识别参与增量构建的任务. 但是有时你可能偶尔想强制 Gradle 运行所有的任务, 不需要判断是否需要运行. 如果是这样, 只要使用`--rerun-tasks`选项即可:
 
 ```
-❯ gradle test --rerun-tasks
+> gradle test --rerun-tasks
 ```
 
 该命令就会强制执行`test`以及它所有的依赖.
 
-### Continuing the build when a failure occurs
+### 发生错误时继续执行构建
 
-By default, Gradle will abort execution and fail the build as soon as any task fails. This allows the build to complete sooner, but hides other failures that would have occurred. In order to discover as many failures as possible in a single build execution, you can use the`--continue`option.
-
-```
-❯ gradle test --continue
-```
-
-When executed with`--continue`, Gradle will execute\_every\_task to be executed where all of the dependencies for that task completed without failure, instead of stopping as soon as the first failure is encountered. Each of the encountered failures will be reported at the end of the build.
-
-If a task fails, any subsequent tasks that were depending on it will not be executed. For example, tests will not run if there is a compilation failure in the code under test; because the test task will depend on the compilation task \(either directly or indirectly\).
-
-### Task name abbreviation
-
-When you specify tasks on the command-line, you don’t have to provide the full name of the task. You only need to provide enough of the task name to uniquely identify the task. For example, it’s likely`gradle che`is enough for Gradle to identify the`check`task.
-
-You can also abbreviate each word in a camel case task name. For example, you can execute task`compileTest`by running`gradle compTest`or even`gradle cT`.
-
-**Example: Abbreviated camel case task name**
-
-Output of`gradle cT`
+默认, 只要任务失败, Gradle 就会放弃执行构建. 随后其他的任务都不会执行了, 但是这样会漏掉这些还未执行的任务里的错误, 你可以使用 `--continue` 选项来解决这个问题.
 
 ```
->
- gradle cT
+> gradle test --continue
+```
+
+当执行 `--continue` 时, Gradle 将执行每一个任务, 前提是这每一个任务的依赖都不出错. 这样所有可以执行的任务都将执行, 而不是出现第一个错误就停止. 每一个监听到的错误都会在构建结束后打印出来.
+
+如果一个任务失败, 所有随后依赖于它的任务都不会执行. 比如, 如果有个编译错误, 那随后的任务就不会执行. 因为测试任务是依赖于编译任务的(直接或间接).
+
+### 任务名缩写
+
+当你在命令行里写任务名称时, 不需要写任务的全名. 只需要输入能唯一识别该任务的名称即可. 比如, `gradle che` 可以缩写为 `check` 任务.
+
+你也可以使用驼峰形式的缩写来识别任务. 比如任务 `compileTest` 可以缩写为 `gradle compTest` 或者 `gradle cT`.
+
+**Example: 驼峰式缩写**
+
+`gradle cT` 的输出:
+
+```
+> gradle cT
 :compile
 compiling source
 :compileTest
@@ -109,5 +108,5 @@ BUILD SUCCESSFUL in 0s
 2 actionable tasks: 2 executed
 ```
 
-You can also use these abbreviations with the -x command-line option.
 
+当使用之前讲的 -x 命令行来排除某个任务执行的时候也可以使用任务名缩写.
