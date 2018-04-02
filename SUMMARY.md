@@ -27,7 +27,7 @@
   * [常用 tasks](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/common-tasks.md)
   * [项目报告](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/xiang-mu-bao-gao.md)
   * [命令行补全](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/ming-ling-xing-bu-quan.md)
-  * [Debug 选项](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/debug-xuan-xiang.md)
+  * [Debug 选项](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/debugging-options.md)
   * [Performance 选项](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/performance-xuan-xiang.md)
   * [Logging 选项](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/logging-xuan-xiang.md)
   * [Execution 选项](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/execution-xuan-xiang.md)
