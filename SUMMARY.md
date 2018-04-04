@@ -32,4 +32,5 @@
   * [Logging 选项](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/logging-xuan-xiang.md)
   * [Execution 选项](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/execution-xuan-xiang.md)
   * [Environment 选项](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/environment-xuan-xiang.md)
+  * [Bootstrapping new projects](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/bootstrapping-new-projects.md)
 
