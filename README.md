@@ -33,7 +33,7 @@ Gitbook 提供了非常棒的在线编辑功能, 所以想贡献的同学可以�
 | 成员 | 联系方式 | Github |
 | :--- | :--- | :--- |
 | dongchuan55 | dongchuan55@gmail.com | [Github](https://github.com/DONGChuan) |
-| UFreedom | sunfreedom@sina.cn | [Github](https://github.com/UFreedom) |
+| UFreedom | sunfreedomsun@gmail.com | [Github](https://github.com/UFreedom) |
 | 张扬 | zhangyang911120@gmail.com | [Github](https://github.com/dreamkidd) |
 | d0048 | d0048@foxmail.com | [Github](https://github.com/D0048) |
 
