@@ -22,6 +22,8 @@
 
 ## 使用 Gradle 构建
 
+* [Customizing Execution](shi-yong-gradle-gou-jian/customizing-execution.md)
+  * [Configuring Build Environment](shi-yong-gradle-gou-jian/customizing-execution/configuring-build-environment.md)
 * [命令行界面](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian.md)
   * [执行 tasks](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/executing-tasks.md)
   * [常用 tasks](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/common-tasks.md)
