@@ -22,10 +22,6 @@
 
 ## 使用 Gradle 构建
 
-* [Customizing Execution](shi-yong-gradle-gou-jian/customizing-execution.md)
-  * [Configuring Build Environment](shi-yong-gradle-gou-jian/customizing-execution/configuring-build-environment.md)
-  * [Configuring Gradle Daemon](shi-yong-gradle-gou-jian/customizing-execution/configuring-gradle-daemon.md)
-  * [Initialization Scripts](shi-yong-gradle-gou-jian/customizing-execution/initialization-scripts.md)
 * [命令行界面](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian.md)
   * [执行 tasks](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/executing-tasks.md)
   * [常用 tasks](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/common-tasks.md)
@@ -38,4 +34,9 @@
   * [Environment 选项](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/environment-xuan-xiang.md)
   * [Bootstrapping new projects](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/bootstrapping-new-projects.md)
   * [Continuous Build](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/continuous-build.md)
+* [Customizing Execution](shi-yong-gradle-gou-jian/customizing-execution.md)
+  * [Configuring Build Environment](shi-yong-gradle-gou-jian/customizing-execution/configuring-build-environment.md)
+  * [Configuring Gradle Daemon](shi-yong-gradle-gou-jian/customizing-execution/configuring-gradle-daemon.md)
+  * [Initialization Scripts](shi-yong-gradle-gou-jian/customizing-execution/initialization-scripts.md)
+* [Executing Multi-Project Builds](executing-multi-project-builds.md)
 
