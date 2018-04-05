@@ -30,7 +30,7 @@
   * [Debug 选项](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/debugging-options.md)
   * [Performance 选项](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/performance-xuan-xiang.md)
   * [Logging 选项](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/logging-xuan-xiang.md)
-  * [Execution 选项](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/execution-xuan-xiang.md)
+  * [Execution 选项](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/execution-options.md)
   * [Environment 选项](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/environment-options.md)
   * [Bootstrapping new projects](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/bootstrapping-new-projects.md)
   * [Continuous Build](shi-yong-gradle-gou-jian/ming-ling-xing-jie-mian/continuous-build.md)
