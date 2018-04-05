@@ -1,48 +1,32 @@
 # Logging 选项
 
-### Setting log level
+### 设置 log level
 
-You can customize the verbosity of Gradle logging with the following options, ordered from least verbose to most verbose. Learn more in the[logging documentation](https://docs.gradle.org/current/userguide/logging.html).
+以下为自定义 Gradle logging 相关的选项, 从显示最少的信息到最多的信息. 阅读[logging documentation](https://docs.gradle.org/current/userguide/logging.html)了解更多.
 
 `-Dorg.gradle.logging.level=(quiet,warn,lifecycle,info,debug)`
 
 Set logging level via Gradle properties.
 
-`-q`
+`-q`,`--quiet`
 
-,
+安静模式, 只显示 erros. 其余一概不显示.
 
-`--quiet`
-
-Log errors only.
-
-`-w`
-
-,
-
-`--warn`
+`-w`,`--warn`
 
 Set log level to warn.
 
-`-i`
-
-,
-
-`--info`
+`-i`,`--info`
 
 Set log level to info.
 
-`-d`
-
-,
-
-`--debug`
+`-d`,`--debug`
 
 Log in debug mode \(includes normal stacktrace\).
 
 Lifecycle is the default log level.
 
-### Customizing log format
+### 自定义 log 样式
 
 You can control the use of rich output \(colors and font variants\) by specifying the "console" mode in the following ways:
 

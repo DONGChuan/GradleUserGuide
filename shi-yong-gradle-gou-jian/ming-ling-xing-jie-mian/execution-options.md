@@ -16,4 +16,4 @@
 
 `--dry-run`
 
-Run Gradle with all task actions disabled. Use this to show which task would have executed.
+运行 Gradle 的时候禁用所有任务的动作. 我们可以使用这个选项来查看我们定义的依赖或者插件里的依赖是否都正确定义了. 我们可以在输出中查看都有哪些依赖被执行了.
