@@ -1,12 +1,14 @@
-### Creating new Gradle builds
+# 创建新项目
 
-Use the built-in`gradle init`task to create a new Gradle builds, with new or existing projects.
+### 创建新的 Gradle 构建
+
+可以在一个全新的或者已经存在的项目里使用内建的 `gradle init` 任务来创建一个新的 Gradle 构建.
 
 ```
 ❯ gradle init
 ```
 
-Most of the time you’ll want to specify a project type. Available types include`basic`\(default\),`java-library`,`java-application`, and more. See[init plugin documentation](https://docs.gradle.org/4.6/userguide/build_init_plugin.html)for details.
+许多时候, 你可能想要指定项目的类型. 一般有`basic`\(默认的\),`java-library`,`java-application` 等等. 阅读[初始化插件](https://docs.gradle.org/4.6/userguide/build_init_plugin.html)了解更多.
 
 ```
 ❯ gradle init --type java-library
@@ -14,11 +16,11 @@ Most of the time you’ll want to specify a project type. Available types includ
 
 ### Standardize and provision Gradle
 
-The built-in`gradle wrapper`task generates a script,`gradlew`, that invokes a declared version of Gradle, downloading it beforehand if necessary.
+内建的 `gradle wrapper` 任务会生成一个脚本,`gradlew`, 将调用声明的 Gradle 版本, 如果需要的话, 会提前下载 Gradle.
 
 ```
 ❯ gradle wrapper --gradle-version=4.4
 ```
 
-You can also specify`--distribution-type=(bin|all)`,`--gradle-distribution-url`,`--gradle-distribution-sha256-sum`in addition to`--gradle-version`. Full details on how to use these options are documented in the[Gradle wrapper section](https://docs.gradle.org/4.6/userguide/gradle_wrapper.html).
+你可以使用 `--distribution-type=(bin|all)`,`--gradle-distribution-url`,`--gradle-distribution-sha256-sum`包括`--gradle-version` 来进行一些特殊的指定. 具体可以查看[Gradle Wrapper](https://docs.gradle.org/4.6/userguide/gradle_wrapper.html).
 
