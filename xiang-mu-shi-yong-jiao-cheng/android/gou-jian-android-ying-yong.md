@@ -1,4 +1,4 @@
-# Building Android Apps
+# 构建Android应用
 
 Android applications \(known colloquially as_apps_\) use Gradle as their build tool, normally through the only supported IDE, Android Studio. Many resources are available for learning how to build Android applications. This guide, however, focuses on the details of the Gradle build files generated when creating a new Android application, and how to use Gradle to invoke relevant build tasks for them.
 
@@ -35,15 +35,15 @@ After downloading and installing Android Studio, start the application. On the w
 
 ![](https://guides.gradle.org/building-android-apps/images/Welcome-to-Android-Studio.png "Welcome to Android Studio")
 
-On the "Create Android Project" screen, set the application name to "HelloWorldGradle", the company domain to your own \(the domain_gradle.org_is used in the accompanying figure\), and select any convenient directory for the project location. Then click_Next_.
+On the "Create Android Project" screen, set the application name to "HelloWorldGradle", the company domain to your own \(the domain_gradle.org\_is used in the accompanying figure\), and select any convenient directory for the project location. Then click\_Next_.
 
 ![](https://guides.gradle.org/building-android-apps/images/Create-New-Project.png "Create New Project")
 
-On the "Target Android Devices" screen, select_Phone and Tablet_and choose any recent API level from the_Minimum SDK_drop-down list. The figure shows API 19, which is common, but the value chose will not affect the rest of this guide.
+On the "Target Android Devices" screen, select\_Phone and Tablet\_and choose any recent API level from the\_Minimum SDK\_drop-down list. The figure shows API 19, which is common, but the value chose will not affect the rest of this guide.
 
 ![](https://guides.gradle.org/building-android-apps/images/Target-Android-Devices.png "Target Android Devices")
 
-On the "Add an Activity" screen, select_Empty Activity_and click_Next_.
+On the "Add an Activity" screen, select_Empty Activity\_and click\_Next_.
 
 Accept all the defaults on the "Configure Activity" screen and click_Finish_.
 
