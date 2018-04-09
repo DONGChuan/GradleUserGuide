@@ -40,3 +40,8 @@
   * [Initialization Scripts](shi-yong-gradle-gou-jian/customizing-execution/initialization-scripts.md)
 * [Executing Multi-Project Builds](executing-multi-project-builds.md)
 
+## 项目使用教程
+
+* [Android](xiang-mu-shi-yong-jiao-cheng/android.md)
+  * [构建Android应用](xiang-mu-shi-yong-jiao-cheng/android/gou-jian-android-ying-yong.md)
+
