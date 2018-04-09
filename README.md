@@ -26,7 +26,7 @@
 
 ##### 项目教程
 
-* [ ] [Android](https://docs.gradle.org/current/userguide/userguide.html#building-android-projects)
+* [x] [Android](https://docs.gradle.org/current/userguide/userguide.html#building-android-projects)
 * [ ] [C++](https://docs.gradle.org/current/userguide/userguide.html#building-cpp-projects)
 * [ ] [Groovy](https://docs.gradle.org/current/userguide/userguide.html#building-groovy-projects)
 * [ ] [Java](https://docs.gradle.org/current/userguide/userguide.html#building-java-projects)
