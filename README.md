@@ -10,14 +10,14 @@
 
 ##### 开始
 
-* [x] [Installing Gradle](https://docs.gradle.org/current/userguide/installation.html)
-* [x] [Creating New Gradle Builds](https://guides.gradle.org/creating-new-gradle-builds/)
-* [x] [Creating Build Scans](https://guides.gradle.org/creating-build-scans/)
+* [x] [Installing Gradle](https://docs.gradle.org/current/userguide/installation.html) ([@DONGChuan](https://github.com/DONGChuan))
+* [x] [Creating New Gradle Builds](https://guides.gradle.org/creating-new-gradle-builds/) ([@DONGChuan](https://github.com/DONGChuan))
+* [x] [Creating Build Scans](https://guides.gradle.org/creating-build-scans/) ([@DONGChuan](https://github.com/DONGChuan))
 * [ ] [Migrating From Maven](https://guides.gradle.org/migrating-from-maven/)
 
 ##### 使用 Gradle 构建
 
-* [ ] [Command-Line Interface](https://docs.gradle.org/current/userguide/command_line_interface.html)
+* [ ] [Command-Line Interface](https://docs.gradle.org/current/userguide/command_line_interface.html) ([@DONGChuan](https://github.com/DONGChuan))
 * [ ] [Customizing Execution](https://docs.gradle.org/current/userguide/userguide.html#customizing-execution)
 * [ ] [Executing Multi-Project Builds](https://docs.gradle.org/current/userguide/intro_multi_project_builds.html)
 * [ ] [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html)
@@ -26,7 +26,7 @@
 
 ##### 项目教程
 
-* [x] [Android](https://docs.gradle.org/current/userguide/userguide.html#building-android-projects)
+* [ ] [Android](https://docs.gradle.org/current/userguide/userguide.html#building-android-projects) ([@BurjalHou](https://github.com/BurjalHou))
 * [ ] [C++](https://docs.gradle.org/current/userguide/userguide.html#building-cpp-projects)
 * [ ] [Groovy](https://docs.gradle.org/current/userguide/userguide.html#building-groovy-projects)
 * [ ] [Java](https://docs.gradle.org/current/userguide/userguide.html#building-java-projects)
@@ -90,6 +90,7 @@ Gitbook 提供了非常棒的在线编辑功能, 所以想贡献的同学可以�
 | UFreedom | sunfreedom@sina.cn | [Github](https://github.com/UFreedom) |
 | 张扬 | zhangyang911120@gmail.com | [Github](https://github.com/dreamkidd) |
 | d0048 | d0048@foxmail.com | [Github](https://github.com/D0048) |
+| BurjalHou | burjalhou@gmail.com | [Github](https://github.com/BurjalHou) |
 
 
 
