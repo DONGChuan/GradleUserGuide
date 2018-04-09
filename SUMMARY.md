@@ -6,7 +6,7 @@
 ## 开始
 
 * [安装Gradle](installing_gradle/README.md)
-  * [预备知识](installing_gradle/yu-bei-zhi-shi.md)
+  * [预备知识](installing_gradle/prerequisites.md)
   * [通过 Package Manager 安装](installing_gradle/tong-guo-package-manager-an-zhuang.md)
   * [手动安装](installing_gradle/shou-dong-an-zhuang.md)
   * [确认是否安装成功](installing_gradle/que-ren-shi-fou-an-zhuang-cheng-gong.md)
@@ -29,7 +29,7 @@
   * [命令行补全](shi-yong-gradle-gou-jian/command-line-interface/command-line-completion.md)
   * [Debug 选项](shi-yong-gradle-gou-jian/command-line-interface/debugging-options.md)
   * [Performance 选项](shi-yong-gradle-gou-jian/command-line-interface/performance-options.md)
-  * [Logging 选项](shi-yong-gradle-gou-jian/command-line-interface/logging-xuan-xiang.md)
+  * [Logging 选项](shi-yong-gradle-gou-jian/command-line-interface/logging-options.md)
   * [Execution 选项](shi-yong-gradle-gou-jian/command-line-interface/execution-options.md)
   * [Environment 选项](shi-yong-gradle-gou-jian/command-line-interface/environment-options.md)
   * [Bootstrapping new projects](shi-yong-gradle-gou-jian/command-line-interface/bootstrapping-new-projects.md)
