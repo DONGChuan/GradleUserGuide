@@ -1,8 +1,15 @@
-# 准备阶段
+# 预备知识
 
-Gradle 需要运行在一个 Java 环境里
+Gradle 可以在所有的主流操作系统上运行. 只需要安装 [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 以及更高的版本. 用户可以通过运行 `java -version` 命令来查看Java JDK 的版本:
 
-* 安装一个 Java JDK 或者 JRE. 而且 Java 版本必须至少是 6 以上.
-* Gradle 自带 Groovy 库, 所以没必要安装 Groovy. 任何已经安装的 Groovy 会被 Gradle 忽略.
+```
+❯ java -version
+java version "1.8.0_151"
+Java(TM) SE Runtime Environment (build 1.8.0_151-b12)
+Java HotSpot(TM) 64-Bit Server VM (build 25.151-b12, mixed mode)
+```
 
-Gradle 使用任何已经存在在你的路径中的 JDK (可以通过 **java -version** 检查, 如果有就说明系统已经安装了 Java 环境). 或者, 你也可以设置 JAVA_HOME 环境参数来指定希望使用的JDK的安装目录.
+Gradle 自带 Groovy library, 所以用户不需要安装 Groovy. 所有已经安装的 Groovy 都会被 Gradle 忽略.
+
+Gradle 会直接使用你路径里默认的 JDK.  或者, 你可以设置环境变量`JAVA_HOME `来指定需要使用的 JDK.
+
