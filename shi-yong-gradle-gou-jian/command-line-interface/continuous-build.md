@@ -1,58 +1,60 @@
-Continuous Build allows you to automatically re-execute the requested tasks when task inputs change.
+# 持续构建
 
-For example, you can continuously run the`test`task and all dependent tasks by running:
+当有任务输入改变的时候, 持续构建 (Continuous Build) 允许你自动重新执行任务.
+
+通常情况下, 你会指定要执行的任务让 Gradle 来执行. Gradle会分析你给出的任务需要执行的所有任务集合, 按照顺序全部执行它们, 然后停下来等你的下一次指令. 持续构建则不同, 它会按照你给出的任务指令， 不断的分析任务输入是否改变, 如果改变则再次执行，除非你强制让它停下来. 比如你的任务是把 java 的源文件编译为 class 文件, 那么当java源文件改变时, 构建就会自动再次执行.
+
+举个例子, 你可以通过下面的命令持续运行 `test` 任务以及所有依赖的任务:
 
 ```
-❯ gradle test --continuous
+> gradle test --continuous
 ```
 
-Gradle will behave as if you ran`gradle test`after a change to sources or tests that contribute to the requested tasks. This means that unrelated changes \(such as changes to build scripts\) will not trigger a rebuild. In order to incorporate build logic changes, the continuous build must be restarted manually.
+当源代码改变或者测试的改变都会使 Gradle 自动运行 `gradle test`. 但是和该任务无关的改变 \(比如构建脚本的改变\) 将不会触发重新构建. 如果是构建逻辑的改变, 持续构建必须重新启动才会起作用.
 
-### Terminating Continuous Build
+### 结束持续构建
 
-If Gradle is attached to an interactive input source, such as a terminal, the continuous build can be exited by pressing`CTRL-D`\(On Microsoft Windows, it is required to also press`ENTER`or`RETURN`after`CTRL-D`\). If Gradle is not attached to an interactive input source \(e.g. is running as part of a script\), the build process must be terminated \(e.g. using the`kill`command or similar\). If the build is being executed via the Tooling API, the build can be cancelled using the Tooling API’s cancellation mechanism.
+如果 Gradle 和一个可以交互的输入源关联起来了, 比如终端, 你可以通过按 `CTRL-D` 键来退出持续构建\(在 Windows 上, 还需要在`CTRL-D`之后按`ENTER`或`RETURN`\). 如果 Gradle 没有和任务可以互动的输入源关联 \(e.g. 比如作为一个脚本的一部分在运行\), 构建进程就必须被终止 \(e.g. 使用 `kill` 命令\). 如果构建是通过 Tooling API 执行的, 构建可以通过 Tooling API 取消机制来取消.
 
-### Limitations and quirks
+### 限制
 
-Continuous build is an[incubating](https://docs.gradle.org/4.6/userguide/feature_lifecycle.html)feature.
+持续构建是一个正在被[孵化](https://docs.gradle.org/4.6/userguide/feature_lifecycle.html)的功能. 它目前有许多问题. 将会在将来的发布里逐渐修复.
 
-There are several issues to be aware with the current implementation of continuous build. These are likely to be addressed in future Gradle releases.
+#### 构建周期
 
-#### Build cycles
+Gradle 在一个任务执行之前就会开始观测改变. 如果一个任务执行的时候更改它自己的输入, Gradle 就会检测到改变并触发一个新的构建. 如果每次这个任务执行, 输入都会被改变, 那么这个构建就会一直被重复触发下去. 如果不使用持续构建, 一个任务改变它自己的输入永远都不会认为是一种状态的更新. 
 
-Gradle starts watching for changes just before a task executes. If a task modifies its own inputs while executing, Gradle will detect the change and trigger a new build. If every time the task executes, the inputs are modified again, the build will be triggered again. This isn’t unique to continuous build. A task that modifies its own inputs will never be considered up-to-date when run "normally" without continuous build.
+如果你的构建进入这样一种循环, 你可以追踪 Gradle 显示的变化的文件列表. 在找到文件之后, 你应该继续查找以这个文件作为输入的任务. 在许多情况下, 这非常好找 \(比如, 一个 Java 文件被 `compileJava` 任务编译\). 在其它的情况下, 你可以使用 `--info` 日志来查找过期的文件.
 
-If your build enters a build cycle like this, you can track down the task by looking at the list of files reported changed by Gradle. After identifying the file\(s\) that are changed during each build, you should look for a task that has that file as an input. In some cases, it may be obvious \(e.g., a Java file is compiled with`compileJava`\). In other cases, you can use`--info`logging to find the task that is out-of-date due to the identified files.
+#### Java 9 的限制
 
-#### Restrictions with Java 9
+由于 Java 9 的类的进入权限限制, Gradle 不能设置一些操作系统的特殊选项:
 
-Due to class access restrictions related to Java 9, Gradle cannot set some operating system specific options, which means that:
+* 在 macOS 上, Gradle 将会每 10 秒检查一次文件的改变, 而不是 2 秒.
 
-* On macOS, Gradle will poll for file changes every 10 seconds instead of every 2 seconds.
+* 在 Windows 上, Gradle 必须使用另外的文件观察器 \(就像在 Linux/Mac OS 上\), 这可能会引起在部分大项目中持续构建无法工作.
 
-* On Windows, Gradle must use individual file watches \(like on Linux/Mac OS\), which may cause continuous build to no longer work on very large projects.
+#### 性能和稳定性
 
-#### Performance and stability
+JDK file watching facility 依赖于 macOS 上效率低下的文件轮询 \(see:[JDK-7133447](https://bugs.openjdk.java.net/browse/JDK-7133447)\). 在大型项目上, 这会严重延迟关于改变的通知.
 
-The JDK file watching facility relies on inefficient file system polling on macOS \(see:[JDK-7133447](https://bugs.openjdk.java.net/browse/JDK-7133447)\). This can significantly delay notification of changes on large projects with many source files.
+另外, 观测机制可能锁死 macOS 系统上的 under_heavy_load \(see:[JDK-8079620](https://bugs.openjdk.java.net/browse/JDK-8079620)\). Gradle 就不能注意到文件的变化. 如果你碰到这种情况, 退出持续构建并重新启动.
 
-Additionally, the watching mechanism may deadlock under_heavy_load on macOS \(see:[JDK-8079620](https://bugs.openjdk.java.net/browse/JDK-8079620)\). This will manifest as Gradle appearing not to notice file changes. If you suspect this is occurring, exit continuous build and start again.
+在 Linux 上, OpenJDK 关于 file watch service 的实现有时候会错过一些文件系统时间\(see:[JDK-8145981](https://bugs.openjdk.java.net/browse/JDK-8145981)\).
 
-On Linux, OpenJDK’s implementation of the file watch service can sometimes miss file system events \(see:[JDK-8145981](https://bugs.openjdk.java.net/browse/JDK-8145981)\).
+#### symbolic links 的改变
 
-#### Changes to symbolic links
+* 创建或者移除一个会初始化一个构建
 
-* Creating or removing symbolic link to files will initiate a build.
+* 改变 symbolic link 指向的对象不会触发重新构建.
 
-* Modifying the target of a symbolic link will not cause a rebuild.
+* 创建或者移除指向文件夹的 symbolic link 不会触发重新构建.
 
-* Creating or removing symbolic links to directories will not cause rebuilds.
+* 在 symbolic link 指向的文件夹中创建新的文件不会触发重新构建.
 
-* Creating new files in the target directory of a symbolic link will not cause a rebuild.
+* 删除指向的文件不会引起重新构建.
 
-* Deleting the target directory will not cause a rebuild.
+#### 忽略构建逻辑的改变
 
-#### Changes to build logic are not considered
-
-The current implementation does not recalculate the build model on subsequent builds. This means that changes to task configuration, or any other change to the build model, are effectively ignored.
+现在的实现并没有重新计算执行序列中随后构建上的构建模型. 这意味着任务配置的改变或者一些其它的构建模型的改变都将被忽略.
 
