@@ -1,123 +1,97 @@
 # 构建Android应用
 
-Android applications \(known colloquially as_apps_\) use Gradle as their build tool, normally through the only supported IDE, Android Studio. Many resources are available for learning how to build Android applications. This guide, however, focuses on the details of the Gradle build files generated when creating a new Android application, and how to use Gradle to invoke relevant build tasks for them.
+Android应用程序(也称为apps)通过唯一支持的IDE(集成开发环境)Android Studio采用Gradle作为编译工具。可以找到许多学习如何构建Android应用程序的资源。然而这篇用户手册，关注于创建新的Android应用程序时Gradle编译生成文件的细节，以及如何通过Gradle执行相关的构建任务(task)。
 
-Contents
+## [编译将产生的内容](#what_you_ll_build) {#what_you_ll_build}
 
-* [What you’ll build](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#what_you_ll_build)
-* [What you’ll need](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#what_you_ll_need)
-* [Create a new Android Studio project](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#create_a_new_android_studio_project)
-* [Review the list of generated Gradle files](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#review_the_list_of_generated_gradle_files)
-* [Review the top-level Gradle build file](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#review_the_top_level_gradle_build_file)
-* [Review the build file in the app module](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#review_the_build_file_in_the_app_module)
-* [Run standard Gradle tasks](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#run_standard_gradle_tasks)
-* [Use the Gradle window](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#use_the_gradle_window)
-* [Publish a build scan](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#publish_a_build_scan)
-* [Summary](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#summary)
-* [Next Steps](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#next_steps)
-* [Help improve this guide](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#help_improve_this_guide)
+你将创建一个“Hello,World!”Android应用程序，浏览其生成的Gradle构建文件以及执行一些常见任务(task)。
 
-## [What you’ll build](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#what_you_ll_build) {#what_you_ll_build}
+## [准备工作](#what_you_ll_need) {#what_you_ll_need}
 
-You’ll create a "Hello, World!" type of Android application, explore its generated Gradle build files, and execute common tasks using them.
+* 26分钟左右
 
-## [What you’ll need](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#what_you_ll_need) {#what_you_ll_need}
+* version 2.4或更高版本的Android Studio。可以[下载](https://developer.android.com/studio/index.html) 带有最新版本Android SDK的Android Studio。集成开发环境(IDE)所需的系统配置要求详见上述下载网页
 
-* About26 minutes
+* version 1.7或更高版本的JDK
 
-* Android Studio, version 2.4 or higher. You can download Android Studio, along with the latest Android SDK, from[https://developer.android.com/studio/index.html](https://developer.android.com/studio/index.html). The system requirements for the IDE are also found at that link.
+## [创建 Android Studio 项目](#create_a_new_android_studio_project) {#create_a_new_android_studio_project}
 
-* The Java Development Kit \(JDK\), version 1.7 or higher
-
-## [Create a new Android Studio project](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#create_a_new_android_studio_project) {#create_a_new_android_studio_project}
-
-After downloading and installing Android Studio, start the application. On the welcome screen, click the link entitled, "Start a new Android Studio project", as shown in the figure. When ready, click_Next_.
+下载安装Android Studio后打开应用。在欢迎界面，如下图所示，点击标题链接 `Start a new Android Studio Project` (新建一个Android Studio项目)” 。当应用准备就绪，点击 `Next` 按钮。
 
 ![](https://guides.gradle.org/building-android-apps/images/Welcome-to-Android-Studio.png "Welcome to Android Studio")
 
-On the "Create Android Project" screen, set the application name to "HelloWorldGradle", the company domain to your own \(the domain_gradle.org\_is used in the accompanying figure\), and select any convenient directory for the project location. Then click\_Next_.
+在 `Create Android Project` (创建Android项目)页面，设置应用名( `Application name` )为 `HelloWorldGradle` ,设置公司域名(如附图中使用的是 `gradle.org` 域名)，并为项目选择方便的目录。然后点击 `Next` 按钮。
 
 ![](https://guides.gradle.org/building-android-apps/images/Create-New-Project.png "Create New Project")
 
-On the "Target Android Devices" screen, select\_Phone and Tablet\_and choose any recent API level from the\_Minimum SDK\_drop-down list. The figure shows API 19, which is common, but the value chose will not affect the rest of this guide.
+在 `Target Android Devices` (在目标Android设备)页面，选中 `Phone and Tablet` (手机和平板电脑)并且从 `Minimum SDK` (最低SDK版本)下拉菜单中选择任意一个版本的API。如图选择的是比较通用的 `API 19`，并且选中的值对接下来的引导没有影响。
 
 ![](https://guides.gradle.org/building-android-apps/images/Target-Android-Devices.png "Target Android Devices")
 
-On the "Add an Activity" screen, select_Empty Activity\_and click\_Next_.
+在 `Add an Activity` (添加一个活动)页面，选中 `Empty Activity` (空的活动)然后点击 `Next` 按钮。
 
-Accept all the defaults on the "Configure Activity" screen and click_Finish_.
+在 `Configure Activity` (配置活动)页面接收所有默认值，然后点击 `Finish` (完成)按钮。
 
 ![](https://guides.gradle.org/building-android-apps/images/Configure-Activity.png "Configure Activity")
 
-## [Review the list of generated Gradle files](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#review_the_list_of_generated_gradle_files) {#review_the_list_of_generated_gradle_files}
+## [查看生成的Gradle文件列表](#review_the_list_of_generated_gradle_files) {#review_the_list_of_generated_gradle_files}
 
-By default, Android Studio will start with a "Project View" in "Android" mode, as shown in the figure:
+如下图所示，Android Studio默认在 `Project View` (项目视图)中打开 `Android` 模式：
 
 ![](https://guides.gradle.org/building-android-apps/images/Project-View-Android.png "Project View Android")
 
-Android projects are Gradle multi-project builds, with a top-level`build.gradle`file and a subdirectory called`app`, with its own`build.gradle`file. The top-level build file is noted as`(Project: HelloWorldGradle)`in the figure, and the`app`build file has`(Module: app)`appended to it.
+Android项目是Gradle多项目构建，有一个顶级目录(根目录) `build.gradle` 文件和一个有自己 `build.gradle` 文件的 `app` 子目录。顶级目录构建文件在上图中标记为 `(Project:HelloWorldGradle)` ，`app` 构建文件是附加到它后面的 `Module:app` 。
 
-There may be two files called`gradle.properties`. One is local to the project. The other, optional file of the same name exists only if you have a global`gradle.properties`file in the`.gradle`sub-directory of your home directory.
+项目里可能有两个名为 `gradle.properties` 的文件。一个是项目本地的，另一个是只有在电脑根目录的 `.gradle` 子目录中有一个全局的 `gradle.properties` 文件才存在的相同名称的可选文件。
 
-The file`settings.gradle`is used by Gradle to configure the multi-project build. It should consist of a single line:
-
-```
-include 
-'
-:app
-'
-```
-
-This tells Gradle that the`app`sub-directory is also a Gradle project. If, at some later time, you were to add an Android Library to this project through the available wizard, another project sub-directory would be created and added to this file.
-
-The last file is called`gradle-wrapper.properties`, which configures the so-called Gradle Wrapper. This allows you to build Android projects without having to install Gradle first. The contents of the file should be similar to:
+`settings.gradle` 文件被Gradle用来配置多项目构建。它应该由如下线性结构组成：
 
 ```
+include ':app'
+```
+
+这个设置告诉Gradle， `app` 子目录也是一个Gradle项目。如果在将来的时间里，你通过向导向该项目添加一个 `Android Library` (Android库)，另一个项目的子目录将会被创建并被添加到当前文件(夹)里。
+
+最后一个文件是 `gradle-wrapper.properties` ,它配置了所谓的 `Gradle Wrapper` 。它允许你不需要现在Gradle就可以编译Android项目。该文件内容应该类似于：
+
+```GROOVY
 distributionBase=GRADLE_USER_HOME
 distributionPath=wrapper/dists
 zipStoreBase=GRADLE_USER_HOME
 zipStorePath=wrapper/dists
-distributionUrl=https
-\
-:
-//services.gradle.org/distributions/gradle-4.1-all.zip
+distributionUrl=https\://services.gradle.org/distributions/gradle-4.1-all.zip
 ```
 
-The first four lines indicate that when the wrapper runs the first time, it will download a Gradle distribution and store it in the directory`.gradle/wrapper/dists`in your home directory.
+前四行表明当wrapper第一次运行时，它会下载Gradle发行版本并将其存储在根目录的 `.gradle/wrapper/dists` 目录中。
 
-The last line shows the value of the`distributionUrl`, which is the location where Gradle will download the distribution specified.
+最后一行显示了 `distributionUrl` (发行版本URL)的值，将要下载指定Gradle发行版本的下载地址。
 
-|  | The specific version number might differ from that shown here \(4.1\), and the URL might refer to a binary version \(`-bin`\) instead of the complete \(`-all`\) version shown in this example. |
-| :--- | :--- |
+> 项目具体版本号可能于此处显示的版本号(4.1)不同，并且URL可能引用到一个二进制版本( `bin` )而不是上述示例中的完整版本( `all` )。
 
+## [查看顶级目录Gradle构建文件](#review_the_top_level_gradle_build_file) {#review_the_top_level_gradle_build_file}
 
-## [Review the top-level Gradle build file](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#review_the_top_level_gradle_build_file) {#review_the_top_level_gradle_build_file}
+项目里顶级目录 `build.gradle` 文件内容应该类似于：
 
-The project`build.gradle`file should have contents similar to:
-
-```
+```GROOVY
+// 可以在顶级目录构建文件添加普适于所有子项目及模块的配置
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 
-buildscript {                 
+buildscript { // 下载插件代码块
 
     repositories {
         google()
         jcenter()
     }
-    dependencies {            
+    dependencies { // 标识Android插件    
 
-        classpath 
-'
-com.android.tools.build:gradle:3.0.1
-'
-// NOTE: Do not place your application dependencies here; they belong
-// in the individual module build.gradle files
-
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
     }
 }
 
-allprojects {                 
+allprojects { // 所有项目(顶级和模块项目)的通用配置  
 
     repositories {
         google()
@@ -125,184 +99,115 @@ allprojects {
     }
 }
 
-task clean(
-type
-: Delete) {    
+task clean(type: Delete) { // 一个名叫clean的task
 
     delete rootProject.buildDir
 }
 ```
 
-|  | Download plugins block |
-| :--- | :--- |
-|  | Identifies the Android plugin |
-|  | Configuration for top-level and module projects |
-|  | Ad hoc task |
+Gradle为构建文件定义了用于构建的领域特定语言(DSL)。`buildscript` 标签就是DSL中的一部分。它告诉Gradle编译需要一个可能不在标准Gradle发行版本中的插件，并且告诉Gradle在哪找到它。在上述示例中，所需的插件通过坐标语法“group:name:version”指定，示例中group(依赖分组，Maven中的 `groupId`)是 `com.android.tools.build` ,name(依赖名称，Maven中的artifactId)是 `gradle` ,version(依赖的版本，Maven中的version)是 `3.0.1` 。
 
-Gradle defines a domain-specific language \(DSL\) for builds, used inside the build files. The`buildscript`tag is part of that DSL. It tells Gradle that the build requires a plugin that may not be part of the baseline Gradle distribution, and tells Gradle where to find it. In this case, the required plugin is specified using coordinate syntax "group:name:version", where the group is`com.android.tools.build`, the name is`gradle`, and the version is`3.0.1`.
+> Gradle插件的版本号经常更新。请使用最新的插件，因为它将包含所有的bug修复和性能优化。
 
-|  | The version number of the Gradle plugin is updated frequently. Please use the latest plugin, as it will contain all the available bug fixes and performance improvements. |
-| :--- | :--- |
+当Gradle第一次编译项目的时候，(Gradle)插件会下载下来并缓存到本地，因此这个下载任务只会执行一次。
 
+`allprojects` 标签持有适用于顶级项目及其包含的任意子项目的配置细节。在上述示例中，代码块声明任何所需的依赖都应该从 `google` 或者 `jcenter` 中下载，其中 `jcenter` 的公共Bintray Artifactory仓储库链接为https://jcenter.bintray.com。
 
-When Gradle builds this project the first time, the plugin will be downloaded and cached, so this task is only performed once.
+最后，编译的文件包含一个自定义的(或特定的)任务，任务名叫 `clean` 。它使用并通过配置内建的 `Delete` 任务实现删除项目根目录( `rootProject` )中的编译目录 ( `buildDir` )。两者都是项目属性，它们的默认值是该应用所在项目的构建( `build` )目录。
 
-The`allprojects`tag holds configuration details that apply to both the top-level project and any sub-projects it contains. In this case, the block specifies that any required dependencies should be downloaded from`google`, or`jcenter`, the public Bintray Artifactory repository at[https://jcenter.bintray.com](https://jcenter.bintray.com/).
+## [查看app模块下的构建文件](#review_the_build_file_in_the_app_module) {#review_the_build_file_in_the_app_module}
 
-Finally, the build file contains a custom \(or_ad hoc_\) task, called`clean`. It uses the built-in task type`Delete`and configures it so that the`clean`task will delete the`buildDir`in the`rootProject`. Both are project properties, whose values default to the`build`directory in the project where this app resides.
+打开app模块下的 `buidl.gradle` 文件。第一行是：
 
-## [Review the build file in the app module](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#review_the_build_file_in_the_app_module) {#review_the_build_file_in_the_app_module}
-
-Open the`build.gradle`file in the`app`module. The first line is:
-
-```
-apply 
-plugin
-: 
-'
-com.android.application
-'
+```GROOVY
+apply plugin: 'com.android.application'
 ```
 
-This "applies" the Android plugin \(referred to in the`buildscript`section of the top-level build file\) to the current project. Plugins in Gradle can add custom tasks, new configurations, dependencies, and other capabilities to Gradle projects. In this case, applying the Android plugin adds a wide variety of tasks, which are configured by the`android`block shown next.
+它给当前项目运用了Android插件(在顶级目录构建文件中的 `buildscript` 部分提到的)。Gradle插件可以为Gradle项目添加自定义任务任务，新的配置项，依赖，以及其他的能力。在上述示例中，运用Android插件增加了一批任务，均配置在 `android` 代码块里，如下所示：
 
-```
+```GROOVY
 android {
-    compileSdkVersion 
-26
+    compileSdkVersion 26
 
     defaultConfig {
-        applicationId 
-"
-org.gradle.helloworldgradle
-"
-
-        minSdkVersion 
-19
-
-        targetSdkVersion 
-26
-
-        versionCode 
-1
-
-        versionName 
-"
-1.0
-"
-
-        testInstrumentationRunner 
-"
-android.support.test.runner.AndroidJUnitRunner
-"
+        applicationId "org.gradle.helloworldgradle"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
     buildTypes {
         release {
-            minifyEnabled 
-false
-
-            proguardFiles getDefaultProguardFile(
-'
-proguard-android.txt
-'
-), 
-'
-proguard-rules.pro
-'
-
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
 ```
 
-These properties are more relevant to Android than the Gradle build system, to they will only be lightly reviewed here. In short:
+这些属性同Gradle构建系统相比，与Android关联更大，因为它们只会在这里进行轻微的审查。简言之：
 
-* The`compileSdkVersion`is associated with the Android SDK and should always be the latest available version.
+* 编译SDK版本号( `compileSdkVersion` )与Android SDK相关，并且应该保持最新可用的版本。
 
-* The`defaultConfig`section hold properties that are shared by all variants \(combinations of build types and product flavors\) of the app.
+* 默认配置( `defaultConfig` )部分包含应用里所有变体(构建类型和产品风味的组合)共享的属性。
 
-* The`applicationId`is based on the domain name and project name specified when creating the app, and must be unique in the Google Play store.
+* 应用ID( `applicationId` ) 基于创建应用时指定的域名和项目名，并且该值在Google Play商店中必须是唯一的。
 
-* The value of`minSdkVersion`is the minimum Android API you are willing to support with this app, and the`targetSdkVersion`should be the latest Android version available.
+* 支持的最低SDK版本号( `minSdkVersion` )是应用将要支持的最低Android版本，目标SDK版本号( `targetSdkVersion` )应该是最新可用的Android版本。
 
-* The value of`versionCode`should be an integer that is incremented before uploading a new version of the app into the Google Play store. This value, along with the`applicationId`, tell Google that this is a new version of an existing app, as opposed to a new app.
+* 版本号( `versionCode` )应该是一个整数，在将新版本上传到Google Play商店之前需要递增。版本号，和应用ID，告诉Google这是一个已有应用的更新版本，而不是一个新的应用。
 
-* The`versionName`value is used for your own internal version tracking.
+* 版本名称( `versionName` )值用于项目内部的版本跟踪。
 
-* The`testInstrumentationRunner`property is configured to use the JUnit 4 test runner configured for Android apps.
+* `testInstrumentationRunner` 属性指定Android应用采用JUnit 4来测试。
 
-Below this section is a block called`buildTypes`. By default, Android apps support two build types,`debug`and`release`. This section allows you to configure each however you like. The`debug`section is not shown here, implying that all the default settings for`debug`are being used.
+在这部分的下面就是构建类型( `buildTypes` )。Android应用默认有两种构建类型： `debug` 和 `release` 。这个部分允许随意配置。 `debug` 部分并没有展示在上述示例中，这意味着 `debug` 所有设置均使用的默认值。
 
-After the`android`block, there is a block that shows the libraries used for this app.
+在 `android` 代码块后面，展示应用里所使用的库：
 
 ```
 dependencies {
-    implementation fileTree(
-dir
-: 
-'
-libs
-'
-, 
-include
-: [
-'
-*.jar
-'
-])
-    implementation 
-'
-com.android.support:appcompat-v7:26.1.0
-'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
 
-    implementation 
-'
-com.android.support.constraint:constraint-layout:1.0.2
-'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
-    testImplementation 
-'
-junit:junit:4.12
-'
+    testImplementation 'junit:junit:4.12'
 
-    androidTestImplementation 
-'
-com.android.support.test:runner:1.0.1
-'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
 
-    androidTestImplementation 
-'
-com.android.support.test.espresso:espresso-core:3.0.1
-'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
 }
 ```
 
-Configuring dependencies is a fundamental part of building Gradle applications. In this case, the`dependencies`section shows values for the`implementation`,`testImplementation`, and`androidTestImplementation`configurations.
+配置依赖关系值构建Gradle应用程序的基础。在上述示例中， `dependencies` （依赖）部分展示了 `implementation` , `testImplementation` 以及 `androidTestImplementation` 部分配置的值。
 
-Taking the simplest one first, the`testImplementation`dependency consists only of the latest stable JUnit 4 distribution. The JUnit classes and test annotations will then be available at compile time in the`src/test/java`hierarchy.
+先从最简单的开始说起， `testImplementation` 依赖项仅包含最新的JUnit 4稳定发行版本。JUnit类和测试的注解将在编译时在 `src/test/java` 层级中可用。
 
-The`androidTestImplementation`dependency refers to the Espresso testing library, which is used for integration testing of Android apps. In this case, Espresso is requested without the`support-annotations`library that it would normally include, because a different version is already included through other dependencies. In a later step, you’ll see how to find out what version of this library was included and why.
+`androidTestImplementation` 依赖是指Espresso测试库，用于Android应用的集成测试。在上述示例中，Espresso没有通常包含的 `support-annotations` 库，因为通过其他依赖已经有了不同的版本( `support-annotations` 库)。在后面的步骤中，你讲看到如何找出依赖该库的版本号以及依赖关系。
 
-Finally, there are three lines that add dependencies to the`implementation`configuration:
+最后，有三行向 `implementation` 添加依赖关系：
 
-* The first,`fileTree(dir: 'libs', include: ['*.jar'])`, is a`fileTree`dependency that adds any jar files in the`libs`folder to the compile classpath
+* 首先， `fileTree(dir: 'libs', include: ['*.jar'])` , 是一个文件树( `fileTree` )依赖，将 `libs` 文件里所有jar包添加到编译路径中去
 
-* The second,`com.android.support:appcompat-v7:26.1.0`adds the Android Compatibility library to the project. This allows you to use the Material design theme and other capabilities in any Android app as old as SDK version 7.
+* 其次， `com.android.support:appcompat-v7:26.1.0` 将Android兼容库添加到项目中。它允许你在SDK版本7及以后版本使用Material设计主题以及其他能力。
 
-* The third,`com.android.support.constraint:constraint-layout:1.0.2`adds the Android Constraint Layout to the project. This allows you to use the ConstraintLayout layout class in any Android app as old as SDK version 9.
+* 第三， `com.android.support.constraint:constraint-layout:1.0.2` 将Android约束布局( `Constraint Layout` )添加到项目中。它允许你在SDK9及以后版本中使用 `ConstraintLayout` 布局。
 
-## [Run standard Gradle tasks](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#run_standard_gradle_tasks) {#run_standard_gradle_tasks}
+## [运行标准的Gradle任务](#run_standard_gradle_tasks) {#run_standard_gradle_tasks}
 
-Android Studio makes it easy to build and deploy a debug version of an app through the IDE, but ultimately Gradle is still involved. To see this, open the Terminal window in Android Studio \(or open an external command prompt and navigate to the root directory of your app\). From there you can run the`build`task.
+Android Studio通过集成开发环境(IDE)可以轻松构建和部署应用的调试版本，但最终Gradle仍然参与其中。要查看这些信息，打开Android Studio的终端窗口(或打开外部命令窗口并导航至应用所在根目录)。从那你能运行 `build` (编译)任务。
 
 ```
 $ ./gradlew build
 ```
 
-This will run many tasks and eventually return "Build Successful". To see the resulting APK \(Android package, the deployable version of an Android app\), look in the directory`app/build/outputs/apk`. There you will find a`debug`and a`release`directories. The`debug`directory contains`app-debug.apk`, which is the APK version that will be deployed to an emulator or connected device. If you want to deploy a release APK, you need to create a signing configuration first, which is beyond the scope of this guide, but is a straightforward process described in the resources.
+这行命令将要执行许多任务并最终返回"Build Successful"。要查看最终生成的APK(Android包，Android应用的可部署版本), 请查看 `app/build/outputs/apk` 目录。在那你将发现一个 `debug` 和一个 `release` 目录。`debug`目录包含 `app-debug.apk` ，是一个可以部署到模拟器或者已连接设备上的APK版本。如果你想部署一个release APK，首先需要创建一个签名，这部分超出了本指南的范围，但是按照资料描述来只是一个简单的流程。
 
+从终端你还可以发现 `support-annotations` 模块已经被项目使用了。首先在 `app` 项目里运行 `dependencies` 任务，只查看 `releaseCompileClasspath` 配置的详细信息。
 From the terminal, you can also find out the version of the`support-annotations`module being used in the project. To do so, first run the`dependencies`task in the`app`project, asking for the details of the`releaseCompileClasspath`configuration only.
 
 ```
@@ -350,9 +255,9 @@ releaseCompileClasspath - Resolved configuration for compilation for variant: re
 BUILD SUCCESSFUL
 ```
 
-From the output, you can see that the`support-annotations`module, version 26.1.0, is a dependency of the`appcompat-v7`library.
+从输出你能看见 `support-annotations` 模块，版本号是26.1.0，是 `appcompat-v7` 库的依赖。
 
-Another way to see the version required is to use the`dependencyInsight`task. Run the following command \(all on one line\).
+另一个查看目标的版本号是运行 `dependencyInsight` 任务。执行如下命令(全部在一行)。
 
 ```
 $ ./gradlew :app:dependencyInsight --dependency support-annotations --configuration releaseCompileClasspath
@@ -389,53 +294,53 @@ com.android.support:support-annotations:26.1.0
 BUILD SUCCESSFUL
 ```
 
-Both the`dependency`and`dependencyInsight`tasks are available in any Gradle project. They can help you track down and resolve any issues with library version conflicts.
+`dependency` 和 `dependencyInsight` 任务在任何Gradle项目中均可使用。它们能帮助你追踪并解决任何库版本冲突问题。
 
-## [Use the Gradle window](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#use_the_gradle_window) {#use_the_gradle_window}
+## [使用Gradle窗口](#use_the_gradle_window) {#use_the_gradle_window}
 
-Android Studio includes a special window for executing Gradle tasks. Android projects provide over 80 different tasks, and this window tries to organize them into categories.
+Android Studio有一个执行Gradle任务的特殊窗口。一个Android项目提供了超过80种不同的任务，这个窗口将它们分成不同的类别。
 
-Open the Tasks folder under`:app`, and look inside the`android`category. The following figure shows an example.
+打开 `:app` 下的任务目录，查看 `android` 类别的内容。如下图所示。
 
 ![](https://guides.gradle.org/building-android-apps/images/Gradle-window-signingReport.png "Gradle window signingReport")
 
-Since the`signingReport`task does not require any arguments, you can simply double-click on it to execute it. The results are shown in the next figure.
+由于 `signingReport` 任务不需要任何参数，因此你只需要双击就可以执行它。结果如下图所示。
 
 ![](https://guides.gradle.org/building-android-apps/images/Run-and-Gradle-Console.png "Run and Gradle Console")
 
-The`signingReport`task tells you where the public key is stored \(here the`debug.keystore`file in the user’s root directory\), its alias, and its MD5 and SHA1 hashes.
+`signingReport` 任务告诉你公钥存储的目录(示例中 `debug.keystore` 在用户的根目录)，它的别称，以及它的MD5值和SHA1值。
 
-Note that there is no release key at the moment. Look at the tasks listed in the Gradle window in the`install`category, as shown the next figure.
+请注意目前没有释放键。查看Gradle窗口中 `install` 类别下列出的任务，如下图所示。
 
 ![](https://guides.gradle.org/building-android-apps/images/Gradle-window-install.png "Gradle window install")
 
-You’ll see that there is an`installDebug`task and an`uninstallDebug`task, an`uninstallRelease`task, and even an`uninstallAllTask`. Conspicuous by its absence, however, is an`installRelease`task. That task is only available if you create a signing configuration for a release key, which Gradle can use to create a signed release APK.
+你会发现有一个 `installDebug` 任务和一个 `uninstallDebug` 任务，一个 `uninstallRelease` 任务，甚至还有一个 `uninstallAllTask` 任务。然而，可以发现还有一个缺少的 `installRelease` 任务。该任务( `installRelease` )仅在为release版本密钥创建签名配置后才可用。
 
-If you were now to start up multiple emulators or attach multiple devices, you could deploy the app into all of them by executing the`installDebug`task.
+如果你现在需要启动多个模拟器或者连接多台设备，则可以通过执行 `installDebug` 任务将应用部署到设备中。
 
 ```
 $ ./gradlew installDebug
 ```
 
-This is different from running the app through the IDE. In that case, you would select a single connected device or emulator, and would both install the app and start it up. The`installDebug`task from Gradle will deploy the app in all connected devices in one step, though it will not start the app in any of them. The result will be similar to the next figure.
+这与通过IDE运行应用程序不同。在这种情况下，你可以选择一个连接的设备或者模拟器，安装应用并启动它。Gradle中的 `installDebug` 任务将一步完成所有连接设备的应用部署工作，尽管它不会启动任何应用程序。结果与下图相似。
 
 ![](https://guides.gradle.org/building-android-apps/images/Android-Emulator-Pixel_API_25.png "Android Emulator Pixel API 25")
 
 ![](https://guides.gradle.org/building-android-apps/images/Android-Emulator-Nexus_9_API_23.png "Android Emulator Nexus 9 API 23")
 
-You can launch the app by double-clicking on the icon, as usual. You can also remove the app by using the`uninstallAll`task.
+像往常一样，你可以通过双击图标启动应用程序。你也可以通过 `uninstallAll` 任务卸载应用程序。
 
 ```
 $ ./gradlew uninstallAll
 ```
 
-This will remove the app from all connected devices.
+它将从所有连接的设备中删除应用程序。
 
-## [Publish a build scan](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#publish_a_build_scan) {#publish_a_build_scan}
+## [发布构建审视](#publish_a_build_scan) {#publish_a_build_scan}
 
-[Build scans](https://gradle.com/build-scans)are a persistent, shareable record of what happened when running a build. With build scans, you gain deep insights about your build.
+[构建审视(Build scans)](https://gradle.com/build-scans) 是在构建时持久可共享的记录。通过构建审视，你可以对构建有更加深入的了解。
 
-If you are using Gradle 4.3+, you can easily create a build scan by using the`--scan`command line option, e.g.`gradle build --scan`. For older Gradle versions, see the[Build Scan Plugin User Manual](https://docs.gradle.com/build-scan-plugin/#getting_set_up)on how to enable build scans.
+如果你使用的Gradle版本号高于4.3，你可以通过 `--scan` 命令行选项轻松创建一次构建审视，举个栗子， `gradle build --scan` 。对于老版本的Gradle，查看 [构建审视插件用户手册](https://docs.gradle.com/build-scan-plugin/#getting_set_up) 关于如何启用构件扫描。
 
 ```
 ./gradlew build --scan
@@ -451,47 +356,47 @@ Publishing build scan...
 https://gradle.com/s/carzirlfjwjlo
 ```
 
-The resulting page will resemble:
+输出结果如下所示：
 
 ![](https://guides.gradle.org/building-android-apps/images/Build-scan-for-HelloWorldGradle.png "Build scan for HelloWorldGradle")
 
-Feel free to explore all the details. The report contains information on many features, including dependencies. If you dig into the dependencies section and open the`releaseCompileClasspath`configuration of the`:app`subproject, inside the`appcompat-v7`library is the`support-annotations`library described earlier.
+随意探索所有细节。该报告包含许多功能信息，包括依赖关系。如果你深入依赖部分并打开 `:app` 子项目的 `releaseCompileClasspath` 配置部分，在 `appcompat-v7` 库里面是前面描述过的 `support-annotations` 库。
 
 ![](https://guides.gradle.org/building-android-apps/images/Build-scan-dep-support-annotations.png "Build scan dep support annotations")
 
-Build scans are a powerful way to analyze your build. For more details, see the[Getting Started guide for Creating Build Scans](https://guides.gradle.org/creating-build-scans/)and the[Build Scan Plugin User Manual](https://docs.gradle.com/build-scan-plugin/).
+构建审视是分析构建的强有力方法。想查看更多细节，可以浏览 [构建审视入门指南](https://guides.gradle.org/creating-build-scans/) 和 [构建审视插件用户手册](https://docs.gradle.com/build-scan-plugin/)。
 
-## [Summary](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#summary) {#summary}
+## [总结](#summary) {#summary}
 
-In this guide, you created an Android app and examined many of the Gradle capabilities that came with it. Specifically, you learned how to:
+在这篇手册中，你新建了一个Android应用程序并查看了许多Gradle功能。特别是，你学会了怎样来：
 
-* Create an Android app using Android Studio
+* 通过Android Studio创建一个Android应用
 
-* View the generated project as a Gradle multi-project build
+* 查看Gradle多项目构建的项目
 
-* Add the Android plugin to the top-level Gradle build file
+* 往顶级Gradle构建文件中添加Android插件
 
-* See which version of Gradle is used in the generated wrapper
+* 在生成的wrapper中查看当前Gradle使用的版本号
 
-* Interpret the settings added in the`android`section of the app
+* 阐释应用里 `android` 部分添加的设置
 
-* Work with the default dependencies added to the app
+* 使用添加到应用程序的默认依赖
 
-* Build the app and see the output APK
+* 编译应用并查看生成的APK
 
-* Determine which version of a dependency is being used
+* 确定依赖使用的具体版本号
 
-* Use the Gradle window to execute tasks
+* 通过Gradle窗口运行任务
 
-* Deploy and uninstall the app on multiple devices
+* 多设备上的部署及卸载应用
 
-* Run a build scan on an Android project
+* 在Android项目运行构建审视
 
-## [Next Steps](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#next_steps) {#next_steps}
+## [下一步](#next_steps) {#next_steps}
 
-The book_Gradle Recipes for Android_, by Ken Kousen and published by O’Reilly Media, Inc, is available for purchase at[http://shop.oreilly.com/product/0636920032656.do](http://shop.oreilly.com/product/0636920032656.do), but an electronic version can also be downloaded for free at[https://gradle.org/books/](https://gradle.org/books/).
+由Ken Kousen编写并由O’Reilly Media, Inc出版的书籍《Gradle Recipes for Android》(《Android Gradle指南》)，已经在 [http://shop.oreilly.com/product/0636920032656.do](http://shop.oreilly.com/product/0636920032656.do) 开放购买了,但是电子版可以在 [https://gradle.org/books/](https://gradle.org/books/) 免费下载。
 
-## [Help improve this guide](https://guides.gradle.org/building-android-apps/?_ga=2.62770159.216844200.1523258211-2050954084.1517482353#help_improve_this_guide) {#help_improve_this_guide}
+## [帮助改进本手册](#help_improve_this_guide) {#help_improve_this_guide}
 
-Have feedback or a question? Found a typo? Like all Gradle guides, help is just a GitHub issue away. Please add an issue or pull request to[gradle-guides/building-android-apps](https://github.com/gradle-guides/building-android-apps/)and we’ll get back to you.
+有任何反馈或者疑问？发现错误？就像所有Gradle手册一样，帮助只需要Github上的一个issue。请提交一个issue或者提交PR到 [gradle-guides/building-android-apps](gradle-guides/building-android-apps) ,我们会尽快回复你。
 
