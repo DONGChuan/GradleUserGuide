@@ -44,4 +44,6 @@
 
 * [Android](xiang-mu-shi-yong-jiao-cheng/android.md)
   * [构建Android应用](xiang-mu-shi-yong-jiao-cheng/android/gou-jian-android-ying-yong.md)
+* [C++](xiang-mu-shi-yong-jiao-cheng/c++.md)
+  * [Building C++ Executables](xiang-mu-shi-yong-jiao-cheng/c++/building-c++-executables.md)
 
