@@ -26,8 +26,8 @@
 
 ##### 项目教程
 
-* [ ] [Android](https://docs.gradle.org/current/userguide/userguide.html#building-android-projects) ([@BurjalHou](https://github.com/BurjalHou))
-* [ ] [C++](https://docs.gradle.org/current/userguide/userguide.html#building-cpp-projects)
+* [x] [Android](https://docs.gradle.org/current/userguide/userguide.html#building-android-projects) ([@BurjalHou](https://github.com/BurjalHou))
+* [ ] [C++](https://docs.gradle.org/current/userguide/userguide.html#building-cpp-projects) ([@BurjalHou](https://github.com/BurjalHou))
 * [ ] [Groovy](https://docs.gradle.org/current/userguide/userguide.html#building-groovy-projects)
 * [ ] [Java](https://docs.gradle.org/current/userguide/userguide.html#building-java-projects)
 * [ ] [JavaScript](https://docs.gradle.org/current/userguide/userguide.html#building-javascript-projects)
