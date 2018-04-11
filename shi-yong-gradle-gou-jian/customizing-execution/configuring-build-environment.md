@@ -1,38 +1,40 @@
-Gradle provides multiple mechanisms for configuring behavior of Gradle itself and specific projects. The following is a reference for using these mechanisms.
+# 配置构建环境
 
-When configuring Gradle behavior you can use these methods, listed in order of highest to lowest precedence \(first one wins\):
+Gradle 提供数种机制来配置 Gradle 自身以及特殊的项目.
 
-* [Command-line flags](https://docs.gradle.org/4.6/userguide/command_line_interface.html)such as`--build-cache`. These have precedence over properties and environment variables.
+但配置 Gradle 的行为的时候, 你可以使用下列方法,  按优先权从高到低排列 \(第一个最高\):
 
-* [System properties](https://docs.gradle.org/4.6/userguide/build_environment.html#sec:gradle_system_properties)such as`systemProp.http.proxyHost=somehost.org`stored in a`gradle.properties`file.
+* [Command-line flags](https://docs.gradle.org/4.6/userguide/command_line_interface.html)比如`--build-cache`. 它比属性和环境变量有更高的优先权.
 
-* [Gradle properties](https://docs.gradle.org/4.6/userguide/build_environment.html#sec:gradle_configuration_properties)such as`org.gradle.caching=true`that are typically stored in a`gradle.properties`file in a project root directory or`GRADLE_USER_HOME`environment variable.
+* [System 属性](https://docs.gradle.org/4.6/userguide/build_environment.html#sec:gradle_system_properties)比如`gradle.properties`文件里的`systemProp.http.proxyHost=somehost.org`.
 
-* [Environment variables](https://docs.gradle.org/4.6/userguide/build_environment.html#sec:gradle_environment_variables)such as`GRADLE_OPTS`sourced by the environment that executes Gradle.
+* [Gradle 属性](https://docs.gradle.org/4.6/userguide/build_environment.html#sec:gradle_configuration_properties)比如项目根目录`gradle.properties`文件里的`org.gradle.caching=true`.
 
-Aside from configuring the build environment, you can configure a given project build using[Project properties](https://docs.gradle.org/4.6/userguide/build_environment.html#sec:project_properties)such as`-PreleaseType=final`.
+* [环境变量](https://docs.gradle.org/4.6/userguide/build_environment.html#sec:gradle_environment_variables)比如环境变量`GRADLE_OPTS`.
 
-## Gradle properties
+除了配置构建环境, 你可以使用[项目属性]来配置一个给定的项目(https://docs.gradle.org/4.6/userguide/build_environment.html#sec:project_properties), 比如`-PreleaseType=final`.
 
-Gradle provides several options that make it easy to configure the Java process that will be used to execute your build. While it’s possible to configure these in your local environment via`GRADLE_OPTS`or`JAVA_OPTS`, it is useful to store certain settings like JVM memory configuration and Java home location in version control so that an entire team can work with a consistent environment.
+## Gradle 属性
 
-Setting up a consistent environment for your build is as simple as placing these settings into a`gradle.properties`file. The configuration is applied in following order \(if an option is configured in multiple locations the_last one wins_\):
+Gradle 提供数种选项来简化配置执行构建的 Java 进程. 当然, 你也可以通过你的本地环境变量`GRADLE_OPTS`或`JAVA_OPTS`来配置, 然后通过 Gradle 属性来设置, 这些设置就可以储存在版本控制里(比如git), 比如 JVM memory 配置和 Java home location, 这样的话, 一整个团队都可以保持一致的构建环境.
 
-* `gradle.properties`in project root directory.
+你只需要将这些设置统一放在`gradle.properties`文件里就可以保持一致的构建环境. 所有的配置将会以下列的顺序来实行:
 
-* `gradle.properties`in`GRADLE_USER_HOME`directory.
+* 项目根目录的`gradle.properties`.
 
-* system properties, e.g. when`-Dgradle.user.home`is set on the command line.
+* `GRADLE_USER_HOME` 目录里的 `gradle.properties`.
 
-The following properties can be used to configure the Gradle build environment:
+* system 属性, e.g. 当在命令行设置`-Dgradle.user.home`.
+
+下列属性可以被用来配置 Gradle 构建环境:
 
 `org.gradle.caching=(true,false)`
 
-When set to true, Gradle will reuse task outputs from any previous build, when possible, resulting is much faster builds. Learn more about[using the build cache](https://docs.gradle.org/4.6/userguide/build_cache.html).
+当设置为真, Gradle 会重复使用之前任务的输出, 这样执行更加高效. 可以阅读[使用构建缓存](https://docs.gradle.org/4.6/userguide/build_cache.html)了解更多.
 
 `org.gradle.caching.debug=(true,false)`
 
-When set to true, individual input property hashes and the build cache key for each task are logged on the console. Learn more about[task output caching](https://docs.gradle.org/4.6/userguide/build_cache.html#sec:task_output_caching).
+当设置为真, 每一个独立的输入属性哈希值以及每一个任务的构建缓存的键值都会以日志的形式显示在控制台. 可以阅读[任务输出缓存](https://docs.gradle.org/4.6/userguide/build_cache.html#sec:task_output_caching)了解更多.
 
 `org.gradle.configureondemand=(true,false)`
 
@@ -40,23 +42,23 @@ Enables incubating[configuration on demand](https://docs.gradle.org/4.6/userguid
 
 `org.gradle.console=(auto,plain,rich,verbose)`
 
-Customize console output coloring or verbosity. Default depends on how Gradle is invoked. See[command-line logging](https://docs.gradle.org/4.6/userguide/command_line_interface.html#sec:command_line_logging)for additional details.
+自定义控制台输出的颜色或显示的内容级别. 查看[命令行日志](https://docs.gradle.org/4.6/userguide/command_line_interface.html#sec:command_line_logging)了解更多.
 
 `org.gradle.daemon=(true,false)`
 
-When set to`true`the[Gradle Daemon](https://docs.gradle.org/4.6/userguide/gradle_daemon.html)is used to run the build. Default is`true`.
+当设置为真, [Gradle 守护进程](https://docs.gradle.org/4.6/userguide/gradle_daemon.html)就会被使用来构建. 默认为真.
 
 `org.gradle.daemon.idletimeout=(# of idle millis)`
 
-Gradle Daemon will terminate itself after specified number of idle milliseconds. Default is`10800000`\(3 hours\).
+Gradle 守护进程会在空闲指定的毫秒后结束自己. 默认是`10800000`\(3 个小时\).
 
 `org.gradle.debug=(true,false)`
 
-When set to`true`, Gradle will run the build with remote debugging enabled, listening on port 5005. Note that this is the equivalent of adding`-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005`to the JVM command line and will suspend the virtual machine until a debugger is attached. Default is`false`.
+当设置为真, Gradle 将会激活远程调试来构建, 监听 5005 端口. 注意, 这其实就是添加 `-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005` 选项到 JVM 命令行, 将会暂停虚拟机直到一个调试器关联起来. 默认是`false`.
 
 `org.gradle.java.home=(path to JDK home)`
 
-Specifies the Java home for the Gradle build process. The value can be set to either a`jdk`or`jre`location, however, depending on what your build does, using a JDK is safer. A reasonable default is used if the setting is unspecified.
+为 Gradle 构建进程指定 Java home. 既可以是`jdk`也可以是`jre`的位置, 然后, 根据你的构建要做什么, 使用 JDK 可能更安全.
 
 `org.gradle.jvmargs=(JVM arguments)`
 
