@@ -17,8 +17,8 @@
 
 ##### 使用 Gradle 构建
 
-* [ ] [Command-Line Interface](https://docs.gradle.org/current/userguide/command_line_interface.html) ([@DONGChuan](https://github.com/DONGChuan))
-* [ ] [Customizing Execution](https://docs.gradle.org/current/userguide/userguide.html#customizing-execution)
+* [x] [Command-Line Interface](https://docs.gradle.org/current/userguide/command_line_interface.html) ([@DONGChuan](https://github.com/DONGChuan))
+* [ ] [Customizing Execution](https://docs.gradle.org/current/userguide/userguide.html#customizing-execution) ([@DONGChuan](https://github.com/DONGChuan))
 * [ ] [Executing Multi-Project Builds](https://docs.gradle.org/current/userguide/intro_multi_project_builds.html)
 * [ ] [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html)
 * [ ] [Troubleshooting](https://docs.gradle.org/current/userguide/troubleshooting.html)
