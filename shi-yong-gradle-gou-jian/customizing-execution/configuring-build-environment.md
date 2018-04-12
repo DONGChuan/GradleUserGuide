@@ -62,29 +62,28 @@ Gradle 守护进程会在空闲指定的毫秒后结束自己. 默认是`1080000
 
 `org.gradle.jvmargs=(JVM arguments)`
 
-Specifies the JVM arguments used for the Gradle Daemon. The setting is particularly useful for[configuring JVM memory settings](https://docs.gradle.org/4.6/userguide/build_environment.html#sec:configuring_jvm_memory)for build performance.
+指定 Gradle 守护进程使用的 JVM 参数. 这个设置对于[配置 JVM memory 设置](https://docs.gradle.org/4.6/userguide/build_environment.html#sec:configuring_jvm_memory)在构建性能方面是十分有用的.
 
 `org.gradle.logging.level=(quiet,warn,lifecycle,info,debug)`
 
-When set to quiet, warn, lifecycle, info, or debug, Gradle will use this log level. The values are not case sensitive. The`lifecycle`level is the default. See[the section called “Choosing a log level”](https://docs.gradle.org/4.6/userguide/logging.html#sec:choosing_a_log_level).
+设置 Gradle 日志级别. 参数大小写都可以. 默认是`lifecycle`级别. 查阅[选择一个日志级别](https://docs.gradle.org/4.6/userguide/logging.html#sec:choosing_a_log_level)了解更多.
 
 `org.gradle.parallel=(true,false)`
 
-When configured, Gradle will fork up to`org.gradle.workers.max`JVMs to execute projects in parallel. To learn more about parallel task execution, see[the Gradle performance guide](https://guides.gradle.org/performance/#parallel_execution).
+设置是否并行执行多个项目. 查看[Gradle 性能指南](https://guides.gradle.org/performance/#parallel_execution)了解更多关于并行任务执行的知识.
 
 `org.gradle.warning.mode=(all,none,summary)`
 
-When set to`all`,`summary`or`none`, Gradle will use different warning type display. See[the section called “Logging options”](https://docs.gradle.org/4.6/userguide/command_line_interface.html#sec:command_line_logging)for details.
+设置 Gradle 不同的警告类型. 查看[日志选项了解更多](https://docs.gradle.org/4.6/userguide/command_line_interface.html#sec:command_line_logging).
 
 `org.gradle.workers.max=(max # of worker processes)`
 
-When configured, Gradle will use a maximum of the given number of workers. Default is number of CPU processors. See also[performance command-line options](https://docs.gradle.org/4.6/userguide/command_line_interface.html#sec:command_line_performance).
+设置 Gradle 可以使用的最大 workers 数量. 默认是 CPU 处理器的数量.查看[性能命令行选项](https://docs.gradle.org/4.6/userguide/command_line_interface.html#sec:command_line_performance)了解更多.
 
-The following example demonstrates usage of various properties.
+下面列举几个使用这些属性的例子
 
 
-
-**Example: Setting properties with a gradle.properties file**
+**Example: gradle.properties 文件中设置属性**
 
 `gradle.properties`
 
@@ -113,11 +112,10 @@ task printProps {
 
 ```
 
-Output of**`gradle -q -PcommandLineProjectProp=commandLineProjectPropValue -Dorg.gradle.project.systemProjectProp=systemPropertyValue printProps`**
+**`gradle -q -PcommandLineProjectProp=commandLineProjectPropValue -Dorg.gradle.project.systemProjectProp=systemPropertyValue printProps`**的输出:
 
 ```
->
- gradle -q -PcommandLineProjectProp=commandLineProjectPropValue -Dorg.gradle.project.systemProjectProp=systemPropertyValue printProps
+> gradle -q -PcommandLineProjectProp=commandLineProjectPropValue -Dorg.gradle.project.systemProjectProp=systemPropertyValue printProps
 commandLineProjectPropValue
 gradlePropertiesValue
 systemPropertyValue
@@ -126,12 +124,11 @@ systemValue
 
 ```
 
-## System properties
+## 系统属性
 
-Using the`-D`command-line option, you can pass a system property to the JVM which runs Gradle. The`-D`option of the`gradle`command has the same effect as the`-D`option of the`java`command.
+通过使用`-D`命令行选项, 你可以传递一个系统属性给运行 Gradle 的 JVM. 这个 Gradle 的`-D`选项的效果其实和`java`命令的`-D`是一样的.
 
-You can also set system properties in`gradle.properties`files with the prefix`systemProp.`
-
+你可以在`gradle.properties`文件中通过前缀`systemProp.`来使用系统属性
 
 
 **Example: Specifying system properties in`gradle.properties`**
