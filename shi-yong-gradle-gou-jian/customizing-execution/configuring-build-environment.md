@@ -104,9 +104,7 @@ task printProps {
         println gradlePropertiesProp
         println systemProjectProp
         println envProjectProp
-        println System.properties[
-'system'
-]
+        println System.properties['system']
     }
 }
 
@@ -131,78 +129,75 @@ systemValue
 你可以在`gradle.properties`文件中通过前缀`systemProp.`来使用系统属性
 
 
-**Example: Specifying system properties in`gradle.properties`**
+**Example: 在`gradle.properties`文件中设置系统属性**
 
 ```
 systemProp.gradle.wrapperUser=myuser
 systemProp.gradle.wrapperPassword=mypassword
 ```
 
-The following system properties are available. Note that command-line options take precedence over system properties.
+有下列可用的系统属性. 请注意, 命令行选项的优先级是在系统属性之上的.
 
 `gradle.wrapperUser=(myuser)`
 
-Specify user name to download Gradle distributions from servers using HTTP Basic Authentication. Learn more in[the section called “Authenticated Gradle distribution download”](https://docs.gradle.org/4.6/userguide/gradle_wrapper.html#sec:authenticated_download).
+指定使用 HTTP Basic Authentication 从服务器上下载 Gradle 发布所使用的用户名. 查阅[Authenticated Gradle distribution download](https://docs.gradle.org/4.6/userguide/gradle_wrapper.html#sec:authenticated_download)了解更多.
 
 `gradle.wrapperPassword=(mypassword)`
 
-Specify password for downloading a Gradle distribution using the Gradle wrapper.
+指定使用 Gradle wrapper 下载 Gradle 发布的密码.
 
 `gradle.user.home=(path to directory)`
 
-Specify the Gradle user home directory.
+指定 Gradle 用户 home 文件夹.
 
-In a multi project build, “`systemProp.`” properties set in any project except the root will be ignored. That is, only the root project’s`gradle.properties`file will be checked for properties that begin with the “`systemProp.`” prefix.
+在一个多项目构建当中, “`systemProp.`” 属性只有在根项目中才会起作用. 也就是说只有在`gradle.properties`文件的根项目中才会检查有 “`systemProp.`” 前缀的属性.
 
-## Environment variables
+## 环境变量
 
-The following environment variables are available for the`gradle`command. Note that command-line options and system properties take precedence over environment variables.
+下面的环境变量可以在 Gradle 命令中使用. 请注意, 命令行选项以及系统选项的优先级在环境变量之上.
 
 `GRADLE_OPTS`
 
-Specifies[command-line arguments](https://docs.gradle.org/4.6/userguide/command_line_interface.html)to use when starting the Gradle client. This can be useful for setting the properties to use when running Gradle.
+指定要使用的[命令行参数](https://docs.gradle.org/4.6/userguide/command_line_interface.html).
 
 `GRADLE_USER_HOME`
 
-Specifies the Gradle user home directory \(which defaults to`$USER_HOME/.gradle`if not set\).
+指定 Gradle 用户 home 文件夹 \(如果没有设置的话, 默认`$USER_HOME/.gradle`\).
 
 `JAVA_HOME`
 
-Specifies the JDK installation directory to use.
+指定 JDK 安装目录.
 
-## Project properties
+## 项目属性
 
-You can add properties directly to your[`Project`](https://docs.gradle.org/4.6/dsl/org.gradle.api.Project.html)object via the`-P`command line option.
+你可以通过`-P`命令行选项直接在你的[`项目`](https://docs.gradle.org/4.6/dsl/org.gradle.api.Project.html)中添加属性.
 
-Gradle can also set project properties when it sees specially-named system properties or environment variables. If the environment variable name looks like`ORG_GRADLE_PROJECT`_`_prop`_`=somevalue`, then Gradle will set a`prop`property on your project object, with the value of`somevalue`. Gradle also supports this for system properties, but with a different naming pattern, which looks like`org.gradle.project.`_`prop`_. Both of the following will set the`foo`property on your Project object to`"bar"`.
+当 Gradle 发现特殊命名的系统属性或者环境变量, 就会将它们设置为项目属性. 比如环境变量的名称为`ORG_GRADLE_PROJECT`_`_prop`_`=somevalue`, Gradle 就会设置一个`prop`属性到你的项目上, 并赋值为`somevalue`. 对于系统属性, Gradle 也会做类似的处理, 但是使用不同的名称模式, 有点像`org.gradle.project.`_`prop`_. 下面的 2 个列子都会设置一个 `foo` 属性到你的项目的 `"bar"` 对象上.
 
 
-
-**Example: Setting a project property via gradle.properties**
+**Example: 通过 gradle.properties 设置项目属性***
 
 ```
 org.gradle.project.foo=bar
 ```
 
-
-
-**Example: Setting a project property via environment variable**
+**Example: 通过环境变量设置项目属性***
 
 ```
 ORG_GRADLE_PROJECT_foo=bar
 ```
 
-The properties file in the user’s home directory has precedence over property files in the project directories.
+用户 home 文件夹下的属性文件优先级要比项目文件夹下的属性文件优先级高.
 
-This feature is very useful when you don’t have admin rights to a continuous integration server and you need to set property values that should not be easily visible. Since you cannot use the`-P`option in that scenario, nor change the system-level configuration files, the correct strategy is to change the configuration of your continuous integration build job, adding an environment variable setting that matches an expected pattern. This won’t be visible to normal users on the system.
+这个特点在某些场合下十分有用, 比如你没有 ADMIN 权限, 没法操作一个持续集成的服务器, 而你需要设置一个不可见或者说不是那么容易可见的属性值. 这种情况下, 你既不能使用 `-P` 选项, 也不能改变系统级别的配置文件, 正确的方式是改变你的持续集成构建工作的配置, 添加一个环境变量. 对于系统上的普通用户是不可见的.
 
-You can access a project property in your build script simply by using its name as you would use a variable.
+你可以轻易的使用你的构建脚本里的一个项目属性, 只需要使用它的名称作为变量即可.
 
-If a project property is referenced but does not exist, an exception will be thrown and the build will fail.
+如果一个项目属性被引用了却不存在, 构建就会失败并抛出一个异常.
 
-You should check for existence of optional project properties before you access them using the[`Project.hasProperty(java.lang.String)`](https://docs.gradle.org/4.6/dsl/org.gradle.api.Project.html#org.gradle.api.Project:hasProperty%28java.lang.String%29)method.
+你应该在使用可选的项目属性之前使用[`Project.hasProperty(java.lang.String)`](https://docs.gradle.org/4.6/dsl/org.gradle.api.Project.html#org.gradle.api.Project:hasProperty%28java.lang.String%29)方法检查它们是否存在.
 
-## Configuring JVM memory
+## 配置 JVM 内存
 
 Gradle defaults to 1024 megabytes maximum heap per JVM process \(`-Xmx1024m`\), however, that may be too much or too little depending on the size of your project. There are many JVM options \(this[blog post on Java performance tuning](https://dzone.com/articles/java-performance-tuning)and[this reference](http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html)may be helpful\).
 
