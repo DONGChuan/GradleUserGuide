@@ -199,12 +199,11 @@ ORG_GRADLE_PROJECT_foo=bar
 
 ## 配置 JVM 内存
 
-Gradle defaults to 1024 megabytes maximum heap per JVM process \(`-Xmx1024m`\), however, that may be too much or too little depending on the size of your project. There are many JVM options \(this[blog post on Java performance tuning](https://dzone.com/articles/java-performance-tuning)and[this reference](http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html)may be helpful\).
+Gradle 默认提供最大 1024 MB 的内存给 JVM 进程 \(`-Xmx1024m`\), 然而, 1024MB 对于你的项目来说可能太大了或者完全不够. JVM 提供了许多选项, 阅读 \([blog post on Java performance tuning](https://dzone.com/articles/java-performance-tuning)和[this reference](http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html)\)了解更多.
 
-You can adjust JVM options for Gradle in the following ways:
+你可以通过下列方法调整 JVM 选项:
 
-The`JAVA_OPTS`environment variable is used for the Gradle client, but not forked JVMs.
-
+环境变量 `JAVA_OPTS` is used for the Gradle client, but not forked JVMs.
 
 
 **Example: Changing JVM settings for Gradle client JVM**
@@ -213,8 +212,7 @@ The`JAVA_OPTS`environment variable is used for the Gradle client, but not forked
 JAVA_OPTS="-Xmx2g -XX:MaxPermSize=256m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8"
 ```
 
-You need to use the`org.gradle.jvmargs`Gradle property to configure JVM settings for the[Gradle Daemon](https://docs.gradle.org/4.6/userguide/gradle_daemon.html).
-
+你需要使用 `org.gradle.jvmargs` 来配置 JVM [保护进程](https://docs.gradle.org/4.6/userguide/gradle_daemon.html)的设置.
 
 
 **Example: Changing JVM settings for forked Gradle JVMs**
@@ -223,12 +221,11 @@ You need to use the`org.gradle.jvmargs`Gradle property to configure JVM settings
 org.gradle.jvmargs=-Xmx2g -XX:MaxPermSize=256m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
 ```
 
-Many settings \(like the Java version and maximum heap size\) can only be specified when launching a new JVM for the build process. This means that Gradle must launch a separate JVM process to execute the build after parsing the various`gradle.properties`files.
+许多设置 \(比如 Java 版本和最大的堆栈大小\) 只能在启动一个新的 JVM 来构建的时候才能指定. 这意味着 Gradle 必须启动一个独立的 JVM 进程来分析新改变的`gradle.properties`文件去构建.
 
-When running with the[Gradle Daemon](https://docs.gradle.org/4.6/userguide/gradle_daemon.html), a JVM with the correct parameters is started once and reused for each daemon build execution. When Gradle is executed without the daemon, then a new JVM must be launched for every build execution, unless the JVM launched by the Gradle start script happens to have the same parameters.
+当运行[保护进程](https://docs.gradle.org/4.6/userguide/gradle_daemon.html)的时候, 只要参数正确, JVM 启动一次后就可以给每一个保护进程的构建重复使用. 如果 Gradle 没有使用保护进程执行, 那么一个新的 JVM 就必须被启用来执行每一个构建, 除非被 Gradle 开始脚本启动的 JVM 有完全一样的参数.
 
 Certain tasks in Gradle also fork additional JVM processes, like the`test`task when using[`Test.setMaxParallelForks(int)`](https://docs.gradle.org/4.6/javadoc/org/gradle/api/tasks/testing/Test.html#setMaxParallelForks-int-)for JUnit or TestNG tests. You must configure these through the tasks themselves.
-
 
 
 **Example: Set Java compile options for**[**`JavaCompile`**](https://docs.gradle.org/4.6/dsl/org.gradle.api.tasks.compile.JavaCompile.html)**tasks**
@@ -247,60 +244,44 @@ See other examples in the[`Test`](https://docs.gradle.org/4.6/dsl/org.gradle.api
 
 [![](https://docs.gradle.org/4.6/userguide/img/build-scan-infrastructure.png "Build Environment in build scan")](https://scans.gradle.com/s/sample/cpp-parallel/infrastructure)
 
-## Configuring a task using project properties
+## 使用项目属性配置任务
 
-It’s possible to change the behavior of a task based on project properties specified at invocation time.
+可以在调用时通过项目属性来改变任务的行为.
 
-Suppose you’d like to ensure release builds are only triggered by CI. A simple way to handle this is through an`isCI`project property.
+假设你想要确保发布构建只会被 CI 触发. 最简单的方法就是使用项目属性 `isCI`.
 
 
-
-**Example: Prevent releasing outside of CI**
+**Example: 防止 CI 之外的发布**
 
 `build.gradle`
 
 ```
 task performRelease {
     doLast {
-        
-if
- (project.hasProperty(
-"isCI"
-)) {
-            println(
-"Performing release actions"
-)
-        } 
-else
- {
-            
-throw
-new
- InvalidUserDataException(
-"Cannot perform release outside of CI"
-)
+        if (project.hasProperty("isCI")) {
+            println("Performing release actions")
+        } else {
+            throw new InvalidUserDataException("Cannot perform release outside of CI")
         }
     }
 }
 
 ```
 
-Output of**`gradle performRelease -PisCI=true --quiet`**
+**`gradle performRelease -PisCI=true --quiet`**的输出:
 
 ```
->
- gradle performRelease -PisCI=true --quiet
+> gradle performRelease -PisCI=true --quiet
 Performing release actions
 
 ```
 
-## Accessing the web through a HTTP proxy
+## 通过 HTTP 代理进入网页
 
-Configuring an HTTP or HTTPS proxy \(for downloading dependencies, for example\) is done via standard JVM system properties. These properties can be set directly in the build script; for example, setting the HTTP proxy host would be done with`System.setProperty('http.proxyHost', 'www.somehost.org')`. Alternatively, the properties can be[specified in gradle.properties](https://docs.gradle.org/4.6/userguide/build_environment.html#sec:gradle_configuration_properties).
+配置一个 HTTP 或 HTTPS 代理 \(比如为了下载依赖\), 可以通过标准的 JVM 系统属性来实现. 这些属性都可以直接在构建脚本里设置, 通过 `System.setProperty('http.proxyHost', 'www.somehost.org')` 来设置 HTTP 代理. 另外一种选择, 请阅读[specified in gradle.properties](https://docs.gradle.org/4.6/userguide/build_environment.html#sec:gradle_configuration_properties).
 
 
-
-**Example: Configuring an HTTP proxy using`gradle.properties`**
+**Example: 使用`gradle.properties`配置 HTTP 代理**
 
 ```
 systemProp.http.proxyHost=www.somehost.org
@@ -310,11 +291,10 @@ systemProp.http.proxyPassword=password
 systemProp.http.nonProxyHosts=*.nonproxyrepos.com|localhost
 ```
 
-There are separate settings for HTTPS.
+对于 HTTPS:
 
 
-
-**Example: Configuring an HTTPS proxy using`gradle.properties`**
+**Example: 使用`gradle.properties`配置 HTTPS 代理**
 
 ```
 systemProp.https.proxyHost=www.somehost.org
@@ -324,7 +304,7 @@ systemProp.https.proxyPassword=password
 systemProp.https.nonProxyHosts=*.nonproxyrepos.com|localhost
 ```
 
-You may need to set other properties to access other networks. Here are 2 references that may be helpful:
+你也许需要设置其他的属性来进入其他特别的网络, 下面 2 篇文章将非常有帮助:
 
 * [ProxySetup.java in the Ant codebase](https://git-wip-us.apache.org/repos/asf?p=ant.git;a=blob;f=src/main/org/apache/tools/ant/util/ProxySetup.java;hb=HEAD)
 
