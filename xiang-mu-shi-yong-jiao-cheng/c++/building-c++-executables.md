@@ -1,34 +1,24 @@
-# Building C++ Executables
+# 构建C++可执行文件
 
-This guide demonstrates how to create a minimalist C++ executable using Gradle’s`cpp`plugin.
+本指南演示了如何使用Gradle的 `cpp` 插件创建一个简洁的C++可执行文件。
 
-Contents
+## [你需要什么](#what_you_ll_need) {#what_you_ll_need}
 
-* [What you’ll need](https://guides.gradle.org/building-cpp-executables/?_ga=2.250331334.1925742538.1523455841-1807434561.1523282416#what_you_ll_need)
-* [Layout](https://guides.gradle.org/building-cpp-executables/?_ga=2.250331334.1925742538.1523455841-1807434561.1523282416#layout)
-* [Add source code](https://guides.gradle.org/building-cpp-executables/?_ga=2.250331334.1925742538.1523455841-1807434561.1523282416#add_source_code)
-* [Build your project](https://guides.gradle.org/building-cpp-executables/?_ga=2.250331334.1925742538.1523455841-1807434561.1523282416#build_your_project)
-* [Summary](https://guides.gradle.org/building-cpp-executables/?_ga=2.250331334.1925742538.1523455841-1807434561.1523282416#summary)
-* [Next Steps](https://guides.gradle.org/building-cpp-executables/?_ga=2.250331334.1925742538.1523455841-1807434561.1523282416#next_steps)
-* [Help improve this guide](https://guides.gradle.org/building-cpp-executables/?_ga=2.250331334.1925742538.1523455841-1807434561.1523282416#help_improve_this_guide)
+* 大约6分钟的空闲时间
 
-## [What you’ll need](https://guides.gradle.org/building-cpp-executables/?_ga=2.250331334.1925742538.1523455841-1807434561.1523282416#what_you_ll_need) {#what_you_ll_need}
+* 一个文本编辑器
 
-* About6 minutes
+* 一个命令提示窗口
 
-* A text editor
+* 不低于1.7版本的JDK
 
-* A command prompt
+* 一个不低于4.6版本的 [Gradle发行版本](https://gradle.org/install) 
 
-* The Java Development Kit \(JDK\), version 1.7 or higher
+* 一个已经安装的C++编译器。查看Gradle支持哪些 [C++工具链](https://docs.gradle.org/4.6/userguide/native_software.html#native-binaries:tool-chain-support) ，以及针对当前平台所需要下载的 [安装配置](https://docs.gradle.org/4.6/userguide/native_software.html#sec:tool_chain_installation) 。
 
-* A[Gradle distribution](https://gradle.org/install), version 4.6 or better
+## [布局](#layout) {#layout}
 
-* An installed C++ compiler. See which[C++ tool chains](https://docs.gradle.org/4.6/userguide/native_software.html#native-binaries:tool-chain-support)are supported by Gradle and whether you have to do any[installation configuration](https://docs.gradle.org/4.6/userguide/native_software.html#sec:tool_chain_installation)for your platform.
-
-## [Layout](https://guides.gradle.org/building-cpp-executables/?_ga=2.250331334.1925742538.1523455841-1807434561.1523282416#layout) {#layout}
-
-The first step is to create a folder for the new project and add a[Gradle Wrapper](https://docs.gradle.org/4.6/userguide/gradle_wrapper.html#sec:wrapper_generation)to the project.
+第一步，为新项目新建一个文件夹并添加 `[Gradle Wrapper](https://docs.gradle.org/4.6/userguide/gradle_wrapper.html#sec:wrapper_generation)` 。
 
 ```
 $ mkdir cpp-executable
@@ -41,43 +31,29 @@ $ gradle wrapper
 BUILD SUCCESSFUL
 ```
 
-|  | This allows a version of Gradle to be locked to a project and henceforth you can use`./gradlew`instead of`gradle`. |
-| :--- | :--- |
+上述 `gradle wrapper` 命令行：将一个Gradle版本与一个项目进行绑定，以后就可以用 `./gradlew` 替代 `gradle` 命令行了。
 
+新建一个最简单的 `buidl.gradle` 文件，该文件有如下内容：
 
-Create a minimalist`build.gradle`file with the following content:
-
-build.gradle
+`build.gradle`
 
 ```
-apply plugin : 
-'
-cpp
-'
+apply plugin : 'cpp' // C++项目通过 cpp 插件启用
 
-
-model { 
-
+model {  // 所有原生构建定义都在 model 代码块内完成
     components {
-        main(NativeExecutableSpec)  
-
+        main(NativeExecutableSpec)  // 通过名称定义本地可执行文件，当前示例是 main 。决定着代码的默认路径，以及最终可执行文件名。 通过 [NativeExecutableSpec](https://docs.gradle.org/4.6/dsl/org.gradle.nativeplatform.NativeExecutableSpec.html) 指定一个可执行文件。
     }
 }
 ```
 
-|  | C++ projects are enabled via the`cpp`plugin |
-| :--- | :--- |
-|  | All native build definitions are done within a`model`block. |
-|  | A native executable component is defined by a name -`main`in this case. This will determine the default location of source code, as well as the final name of the executable. |
-|  | An executable is specified by using[NativeExecutableSpec](https://docs.gradle.org/4.6/dsl/org.gradle.nativeplatform.NativeExecutableSpec.html). |
-
-If you run
+如果运行如下命令：
 
 ```
 $ ./gradlew tasks
 ```
 
-you will see in the output that Gradle has added a number of tasks
+你将会在输出中看到Gradle已经添加了许多任务：
 
 ```
 installMainExecutable - Installs a development image of executable 'main:executable'
@@ -91,102 +67,61 @@ buildDependentsMain - Build dependents of native executable 'main'.
 buildDependentsMainExecutable - Build dependents of executable 'main:executable'.
 ```
 
-Note the use of`Main`in the task names which are a direct deriviative of the component being called`main`.
+注意在任务名称中使用 `Main` ，它是被 `main` 的组件直接派生的。
 
-## [Add source code](https://guides.gradle.org/building-cpp-executables/?_ga=2.250331334.1925742538.1523455841-1807434561.1523282416#add_source_code) {#add_source_code}
+## [添加代码](#add_source_code) {#add_source_code}
 
-By convention, C++ projects in Gradle will follow a more contemporary layout. This can be troublesome for you if you are used to building C++ code with build tools that do not use a convention-over-configuration approach. Rest assured that Gradle is very configurable in this regard and should you need to migrate a C++ project to Gradle you can consult the[C++ sources](https://docs.gradle.org/4.6/userguide/native_software.html#sec:cpp_sources)section of the User Guide.
+通常，Gradle编译的C++项目将遵循更现代的布局。如果你习惯于通过不适用常规配制方法配置的构建工具来构建C++代码，那么这会对你造成麻烦。可以放心的是，Gradle在这方面是灵活配置的，如果你需要将C++项目迁移到Gradle，你可以参考用户指南的 [C++源码](https://docs.gradle.org/4.6/userguide/native_software.html#sec:cpp_sources) 部分。
 
-In the`build.gradle`you have previsouly defined the executable component to be called`main`. By convention, this will means that Gradle will look in`src/main/cpp`for source files and non-exported header files. Create this folder
+在 `build.gradle` 中，你已经提前定义了可执行组件 `main` 。按照惯例，这意味着Gradle将在 `src/main/cpp` 目录中查找源文件和非导出的头文件。新建目录：
 
 ```
 $ mkdir -p src/main/cpp
 ```
 
-and place a`main.cpp`an a`greeting.hpp`within.
+并在 `main.cpp` 放置在 `greeting.hpp` 中。
 
-src/main/cpp/main.cpp
+`src/main/cpp/main.cpp`
 
 ```
-#include
-<
-iostream
->
-#include
-"greeting.hpp"
-int
- main(
-int
- argc, 
-char
-** argv) {
-    std::cout 
-<
-<
- greeting 
-<
-<
- std::endl;
-    
-return
-0
-;
+#include <iostream> // 标准的C++头文件可以通过Gradle使用的编译器工具链定位
+#include "greeting.hpp" // 非导出头文件可以通过相对指定的C++源文件夹搜索 (示例中是 src/main/cpp)
+int main(int argc, char ** argv) {
+    std::cout greeting std::endl;
+    return 0;
 }
 ```
 
-|  | The standard C++ headers wil be located via the compiler toolchain that Gradle uses |
-| :--- | :--- |
-|  | Non-exported headers will be searched for relative to the specified C++ source folders. \(In this case`src/main/cpp`\). |
-
-src/main/cpp/greeting.hpp
+`src/main/cpp/greeting.hpp`
 
 ```
-#ifndef
- GRADLE_GUIDE_EXAMPLE_GREETING_HPP__
+#ifndef GRADLE_GUIDE_EXAMPLE_GREETING_HPP__
+#define GRADLE_GUIDE_EXAMPLE_GREETING_HPP__
 
-#define
- GRADLE_GUIDE_EXAMPLE_GREETING_HPP__
-
-
-namespace
- {
-    
-const
-char
- * greeting = 
-"
-Hello, World
-"
-;
+namespace {
+    const char * greeting = "Hello, World";
 }
-
 
 #endif
 ```
 
-## [Build your project](https://guides.gradle.org/building-cpp-executables/?_ga=2.250331334.1925742538.1523455841-1807434561.1523282416#build_your_project) {#build_your_project}
+## [构建项目](#build_your_project) {#build_your_project}
 
-To build your project you can simply do`./gradlew build`as per usual, but if you specifically want to build the executable, run the task that Gradle has created for you:
+为了构建项目，你可以简单的照常通过执行 `./gradlew build` ，但是如果你指明想要编译可执行文件，执行Gradle为你创建的任务：
 
 ```
 $ ./gradlew mainExecutable
 
-:compileMainExecutableMainCpp 
-
-:linkMainExecutable 
-
+:compileMainExecutableMainCpp // 为了保持命令行的整洁，Gradle不在编译器输出上显示。如果你需要定位编译问题，编译器输出内容存储在 build/tmp/compileMainExecutableMainCpp/output.txt
+:linkMainExecutable // 以类似的方式写入链接器的输出内容到 build/tmp/linkMainExecutable/output.txt
 :mainExecutable
 
 BUILD SUCCESSFUL
 ```
 
-|  | To keep things tidy on the console, Gradle does not display compiler output. If you need to ever diagnose a compilation issue, the output from the compiler is stored in`build/tmp/compileMainExecutableMainCpp/output.txt`. |
-| :--- | :--- |
-|  | In a similar fashion the output from the linker is written to`build/tmp/linkMainExecutable/output.txt` |
+查看 `build` 文件夹可以看到一个 `exe` 文件夹。通常，Gradle会将所有可执行文件放置在根据组件命名的子文件夹中。在上述示例中，你会发现你的汇编可执行文件位于 `build/exe/main` 文件夹中，它会被 `main` 调用(或者在Windows下 `main.exe`)。
 
-Look inside the`build`folder and you will notice the appearance of a`exe`folder. By convention Gradle will place all executables in subfolders named according to the component name. In this case you will find your assembled executable in`build/exe/main`and it will be called`main`\(or`main.exe`under Windows\).
-
-Now run your newly built executable.
+现在运行你新构建好的可执行文件。
 
 ```
 $ ./build/exe/main/main
@@ -194,25 +129,25 @@ $ ./build/exe/main/main
 Hello World
 ```
 
-Congratulations! You have just built a C++ executable with Gradle.
+恭喜！你已经通过Gradle编译了一个C++可执行文件。
 
-## [Summary](https://guides.gradle.org/building-cpp-executables/?_ga=2.250331334.1925742538.1523455841-1807434561.1523282416#summary) {#summary}
+## [总结](#summary) {#summary}
 
-You have created an C++ project that can be used as a foundation for something more substantial. In the process you saw:
+你已经创建了一个C++项目，并可以将其作为更丰富项目的基础。在这个过程中你学会了：
 
-* How to create a build script for C++ executables.
+* 如何为C++可执行文件创建编译脚本
 
-* Where to add source code by convention.
+* 添加源码的位置
 
-* How to build the executable without building the full project.
+* 如何编译可执行文件，而不是编译整个项目
 
-## [Next Steps](https://guides.gradle.org/building-cpp-executables/?_ga=2.250331334.1925742538.1523455841-1807434561.1523282416#next_steps) {#next_steps}
+## [下一步](#next_steps) {#next_steps}
 
-* Testing using[CUnit](http://cunit.sourceforge.net/)or[GoogleTest](https://github.com/google/googletest)is supported. Gradle will respectively create a matching[CUnitTestSuiteSpec](https://docs.gradle.org/4.6/dsl/org.gradle.nativeplatform.test.cunit.CUnitTestSuiteSpec.html)or[GoogleTestTestSuiteSpec](https://docs.gradle.org/4.6/dsl/org.gradle.nativeplatform.test.googletest.GoogleTestTestSuiteSpec.html)component for the executable you have defined in this guide. See the[CUnit support](https://docs.gradle.org/4.6/userguide/native_software.html#native_binaries:cunit)and[GoogleTest support](https://docs.gradle.org/4.6/userguide/native_software.html#native_binaries:google_test)sections in the User Guide for more details.
+* 支持通过[CUnit](http://cunit.sourceforge.net/) 或者 [GoogleTest](https://github.com/google/googletest) 进行测试。Gradle将会分别为本手册中定义的可执行文件创建一个匹配 [CUnitTestSuiteSpec](https://docs.gradle.org/4.6/dsl/org.gradle.nativeplatform.test.cunit.CUnitTestSuiteSpec.html) 或 [GoogleTestTestSuiteSpec](https://docs.gradle.org/4.6/dsl/org.gradle.nativeplatform.test.googletest.GoogleTestTestSuiteSpec.html) 的组件。在用户手册中查看 [CUnit support](https://docs.gradle.org/4.6/userguide/native_software.html#native_binaries:cunit) 和 [GoogleTest support](https://docs.gradle.org/4.6/userguide/native_software.html#native_binaries:google_test) 部分查看更多细节。
 
-* As there is no 'standard' way of creating documentation for C++ projects, the`cpp`plugin does not offer a task to generate documentation. If you do use the popular Doxygen tool for documenting C++ code, you may want to have a look at the[Doxygen plugin](https://plugins.gradle.org/plugin/org.ysb33r.doxygen)for Gradle
+* 由于没有所谓的为C++项目创建文档的“标准”方法， `cpp` 插件不提供生成文档。如果你使用流行的Doxygen工具来为C++代码添加文档，你可能需要看看 [Doxygen plugin for Gradle](https://plugins.gradle.org/plugin/org.ysb33r.doxygen)。
 
-## [Help improve this guide](https://guides.gradle.org/building-cpp-executables/?_ga=2.250331334.1925742538.1523455841-1807434561.1523282416#help_improve_this_guide) {#help_improve_this_guide}
+## [帮助改进本手册](#help_improve_this_guide) {#help_improve_this_guide}
 
-Have feedback or a question? Found a typo? Like all Gradle guides, help is just a GitHub issue away. Please add an issue or pull request to[gradle-guides/building-cpp-executables](https://github.com/gradle-guides/building-cpp-executables/)and we’ll get back to you.
+有任何反馈或者疑问？或者发现任何错误？就像所有Gradle手册一样，帮助我们只需要Github上的一个issue。请提交一个issue或者提交PR到 [https://github.com/gradle-guides/building-cpp-executables/](https://github.com/gradle-guides/building-cpp-executables/) ，我们会尽快回复你。
 
