@@ -45,5 +45,7 @@
 * [Android](xiang-mu-shi-yong-jiao-cheng/android.md)
   * [构建Android应用](xiang-mu-shi-yong-jiao-cheng/android/gou-jian-android-ying-yong.md)
 * [C++](xiang-mu-shi-yong-jiao-cheng/c++.md)
-  * [Building C++ Executables](xiang-mu-shi-yong-jiao-cheng/c++/building-c++-executables.md)
+  * [构建C++可执行文件](xiang-mu-shi-yong-jiao-cheng/c++/building-c++-executables.md)
+* [Groovy](xiang-mu-shi-yong-jiao-cheng/groovy.md)
+  * [构建Groovy库](xiang-mu-shi-yong-jiao-cheng/groovy/building-groovy-libraries.md)
 
