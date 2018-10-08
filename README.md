@@ -36,7 +36,7 @@
 
 ##### Authoring Gradle Builds
 
-* [ ] [Groovy DSL Reference](https://docs.gradle.org/current/dsl/)
+* [x] [Groovy DSL Reference](https://docs.gradle.org/current/dsl/)([@yangxiaobin](https://github.com/yangxiaobinhaoshuai))
 * [ ] [Gradle API Javadoc](https://docs.gradle.org/current/javadoc/)
 * [ ] [Gradle Feature Lifecycle](https://docs.gradle.org/current/userguide/feature_lifecycle.html)
 * [ ] [Best Practices](https://docs.gradle.org/current/userguide/userguide.html#best-practices)
@@ -91,6 +91,6 @@ Gitbook 提供了非常棒的在线编辑功能, 所以想贡献的同学可以�
 | 张扬 | zhangyang911120@gmail.com | [Github](https://github.com/dreamkidd) |
 | d0048 | d0048@foxmail.com | [Github](https://github.com/D0048) |
 | BurjalHou | burjalhou@gmail.com | [Github](https://github.com/BurjalHou) |
-
+| yangxiaobin | yangxiaobinn@gmail.com | [Github](https://github.com/yangxiaobinhaoshuai) |
 
 
