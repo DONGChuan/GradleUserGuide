@@ -1,12 +1,6 @@
 # Summary
 
 * [关于本书](README.md)
-* [介绍](introduction.md)
-  * [关于这本指南](about_this_user_guide.md)
-* [概述](overview/README.md)
-  * [特点](overview/features.md)
-  * [为什么用 Groovy?](overview/why_groovy.md)
-* [教程](tutorials/README.md)
 * [安装Gradle](installing_gradle/README.md)
   * [准备阶段](installing_gradle/prerequisites.md)
   * [下载与安装](installing_gradle/download.md)
