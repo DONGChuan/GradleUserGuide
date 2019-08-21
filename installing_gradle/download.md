@@ -33,7 +33,7 @@ Gradle 发布的版本为 ****ZIP 格式. 所有文件包含:
     export GRADLE_HOME = /Users/UFreedom/gradle
     export export PATH=$PATH:$GRADLE_HOME/bin
 
-    3.source ~/.brash_profile
+    3.source ~/.bash_profile
 
 实际配置中，您需要将上面的目录换成您的 Gradle 文件在系统中的目录.
 
